@@ -19,8 +19,10 @@ public class Drivetrain extends Subsystem {
 	Accelerometer accel = null;
 	
 	//Motor Controllers
-	Talon leftTalon = null;
-	Talon rightTalon = null;
+	Talon leftFrontTalon = null;
+	Talon leftBackTalon = null;
+	Talon rightFrontTalon = null;
+	Talon rightBackTalon = null;
 	
     public Drivetrain() {
 		super();
@@ -35,15 +37,19 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public void init() {
-		leftTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_TALON);
-		rightTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_TALON);
+		leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_FRONT_LEFT_TALON);
+		leftBackTalon = new Talon(RobotMap.DRIVETRAIN_BACK_LEFT_TALON);
+		rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_FRONT_RIGHT_TALON);
+		rightBackTalon = new Talon(RobotMap.DRIVETRAIN_BACK_RIGHT_TALON);
 		
 		accel = new BuiltInAccelerometer();
 	}
 	
 	public void setSpeed(double s) {
-		leftTalon.set(s);
-		rightTalon.set(-s);
+		leftFrontTalon.set(s);
+		leftBackTalon.set(s);
+		rightFrontTalon.set(-s);
+		rightBackTalon.set(-s);
 	}
 	
 	public double getAccelX() {
@@ -59,7 +65,7 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public double getSpeed() {
-		return leftTalon.get();
+		return leftFrontTalon.get();
 	}
 
 	public void initDefaultCommand() {

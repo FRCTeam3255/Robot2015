@@ -8,12 +8,14 @@ package org.usfirst.frc.team3255.robot2015;
 public class RobotMap {
 
 	//Controller Inputs
-	public static final int Driver_HID = 1;
-	public static final int Manipulator_HID = 2;
+	public static final int JOYSTICK_LEFT = 0;
+	public static final int JOYSTICK_RIGHT = 1;
 	
 	//Motor Controllers
-	public static final int DRIVETRAIN_LEFT_TALON = 2;
-	public static final int DRIVETRAIN_RIGHT_TALON = 3;
+	public static final int DRIVETRAIN_FRONT_LEFT_TALON = 0;
+	public static final int DRIVETRAIN_BACK_LEFT_TALON = 1;
+	public static final int DRIVETRAIN_FRONT_RIGHT_TALON = 2;
+	public static final int DRIVETRAIN_BACK_RIGHT_TALON = 3;
 	
 	//Analog Inputs
 	public static final int CLAW_POT = 0;
