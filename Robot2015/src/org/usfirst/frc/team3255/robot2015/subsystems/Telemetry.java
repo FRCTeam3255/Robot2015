@@ -38,17 +38,37 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Claw Close", new ClawClose());
 		SmartDashboard.putData("Claw Disable", new ClawDisable());
 		
+		SmartDashboard.putData("Cassette Enable", new CassetteEnable());
+		SmartDashboard.putData("Cassette Disable", new CassetteDisable());
+		SmartDashboard.putData("Cassette Encoder Reset", new CassetteResetEncoder());
+
 		LiveWindow.addSensor("Claw", "POT", CommandBase.claw.pot);
 		LiveWindow.addSensor("Claw", "Solenoid", CommandBase.claw.solenoid);
 		LiveWindow.addSensor("Claw", "Limit Switch", CommandBase.claw.limitswitch);
 		
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
+		
+		LiveWindow.addSensor("Cassette", "Encoder", CommandBase.cassette.encoder);
+		LiveWindow.addActuator("Cassette", "Motor 1", CommandBase.cassette.motor1);
+		LiveWindow.addActuator("Cassette", "Motor 2", CommandBase.cassette.motor2);
+		LiveWindow.addActuator("Cassette", "PID Controller", CommandBase.cassette.getPIDController());
 	}
 	
 	public void update() {
 		SmartDashboard.putNumber("Drive Speed", CommandBase.drivetrain.getSpeed());
 		SmartDashboard.putNumber("Drive Gyro", CommandBase.drivetrain.getGyro());
 		
+		SmartDashboard.putNumber("Cassette PID Setpoint", CommandBase.cassette.getSetpoint());
+		SmartDashboard.putNumber("Cassette PID Input", CommandBase.cassette.returnPIDInput());
+		SmartDashboard.putNumber("Cassette Talon 1 Speed", CommandBase.cassette.motor1.get());
+		SmartDashboard.putBoolean("Cassette Encoder Stopped", CommandBase.cassette.encoder.getStopped());
+		
+		if(SmartDashboard.getBoolean("Cassette Enabled", false) == true) {
+			CommandBase.cassette.enable();
+		}
+		else {
+			CommandBase.cassette.disable();
+		}
 	}
 	
 	public void initDefaultCommand() {

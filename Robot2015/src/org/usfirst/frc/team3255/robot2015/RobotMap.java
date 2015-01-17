@@ -18,11 +18,14 @@ public class RobotMap {
 	public static final int AXIS_ARCADE_MOVE = 1;
 	public static final int AXIS_ARCADE_ROTATE = 4;
 	
-	//Motor Controllers
+	// PWMs
 	public static final int DRIVETRAIN_FRONT_LEFT_TALON = 2;
 	public static final int DRIVETRAIN_BACK_LEFT_TALON = 1;
 	public static final int DRIVETRAIN_FRONT_RIGHT_TALON = 3;
 	public static final int DRIVETRAIN_BACK_RIGHT_TALON = 0;
+	
+	public static final int CASSETTE_TALON1 = 4;
+	public static final int CASSETTE_TALON2 = 5;
 	
 	//Analog Inputs
 	public static final int CLAW_POT = 0;
@@ -34,4 +37,6 @@ public class RobotMap {
 	
 	//Digital Inputs
 	public static final int CLAW_LIMITSWITCH = 0;
+	public static final int CASSETTE_ENCODER_CHANNEL_A = 1;
+	public static final int CASSETTE_ENCODER_CHANNEL_B = 2;
 }
