@@ -30,22 +30,24 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive Forward", new DriveForward());
 		SmartDashboard.putData("Drive Reverse", new DriveReverse());
 		SmartDashboard.putData("Drive Stop", new DriveStop());
+		SmartDashboard.putData("Drive Gyro Reset", new DriveTrainResetGyro());
+		SmartDashboard.putData("Arcade Drive", new DriveArcade());
+		SmartDashboard.putData("Tank Drive", new DriveTank());
+		
 		SmartDashboard.putData("Claw Open", new ClawOpen());
 		SmartDashboard.putData("Claw Close", new ClawClose());
 		SmartDashboard.putData("Claw Disable", new ClawDisable());
-		SmartDashboard.putData("Claw Gyro Reset", new ClawResetGyro());
 		
 		LiveWindow.addSensor("Claw", "POT", CommandBase.claw.pot);
 		LiveWindow.addSensor("Claw", "Solenoid", CommandBase.claw.solenoid);
 		LiveWindow.addSensor("Claw", "Limit Switch", CommandBase.claw.limitswitch);
-		LiveWindow.addSensor("Claw", "Gyro", CommandBase.claw.gyro);
+		
+		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
 	}
 	
 	public void update() {
-		SmartDashboard.putNumber("Accel X", CommandBase.drivetrain.getAccelX());
-		SmartDashboard.putNumber("Accel Y", CommandBase.drivetrain.getAccelY());
-		SmartDashboard.putNumber("Accel Z", CommandBase.drivetrain.getAccelZ());
 		SmartDashboard.putNumber("Drive Speed", CommandBase.drivetrain.getSpeed());
+		SmartDashboard.putNumber("Drive Gyro", CommandBase.drivetrain.getGyro());
 		
 	}
 	

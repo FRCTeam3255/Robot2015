@@ -4,10 +4,6 @@ package org.usfirst.frc.team3255.robot2015;
 import org.usfirst.frc.team3255.robot2015.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -28,15 +24,8 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     
-    RobotDrive myDrive;
-    Talon leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon;
-    Joystick joystickLeft, joystickRight;
-    
     public void robotInit() {
     	CommandBase.init();
-    	myDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
-    	joystickLeft = new Joystick(RobotMap.JOYSTICK_LEFT);
-    	joystickRight = new Joystick(RobotMap.JOYSTICK_RIGHT);
     	
     	// instantiate the command used for the autonomous period
     }
@@ -85,13 +74,6 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
-    }
-    
-    public void operatorControl() {
-    	while (isOperatorControl() && isEnabled()) {
-    		myDrive.tankDrive(joystickLeft, joystickRight);
-    		Timer.delay(0.01);
-    	}
     }
     
 }
