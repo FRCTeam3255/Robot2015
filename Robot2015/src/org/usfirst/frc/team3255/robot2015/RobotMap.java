@@ -36,7 +36,23 @@ public class RobotMap {
 	public static final int CLAW_SOLENOID_CLOSE = 1;
 	
 	//Digital Inputs
-	public static final int CLAW_LIMITSWITCH = 0;
+	public static final int CLAW_LIMITSWITCH_1 = 0;
 	public static final int CASSETTE_ENCODER_CHANNEL_A = 1;
 	public static final int CASSETTE_ENCODER_CHANNEL_B = 2;
+	
+	//Zack
+	public static final int DRIVETRAIN_CENTER_LEFT = 6;
+	public static final int DRIVETRAIN_CENTER_RIGHT = 7;
+	public static final int DRIVETRAIN_SOLENOID_OPEN = 2;
+	public static final int DRIVETRAIN_SOLENOID_CLOSE = 3;
+	public static final int DRIVETRAIN_ENCODER_LEFT_CHANNEL_A = 3;
+	public static final int DRIVETRAIN_ENCODER_LEFT_CHANNEL_B = 4;
+	public static final int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A = 5;
+	public static final int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B = 6;
+	public static final int CASSETTE_SOLENOID_TOTE_OPEN = 4;
+	public static final int CASSETTE_SOLENOID_TOTE_CLOSE = 5;
+	public static final int CASSETTE_SOLENOID_TRASH_OPEN = 6;
+	public static final int CASSETTE_SOLENOID_TRASH_CLOSE = 7;
+	public static final int CLAW_LIMITSWITCH_2 = 8;
+	
 }
