@@ -43,7 +43,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Cassette Encoder Reset", new CassetteResetEncoder());
 
 		LiveWindow.addSensor("Claw", "POT", CommandBase.claw.pot);
-		LiveWindow.addSensor("Claw", "Solenoid", CommandBase.claw.solenoid);
+		LiveWindow.addSensor("Claw", "Solenoid", CommandBase.claw.clawSolenoid);
 		LiveWindow.addSensor("Claw", "Limit Switch", CommandBase.claw.limitswitch);
 		
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);

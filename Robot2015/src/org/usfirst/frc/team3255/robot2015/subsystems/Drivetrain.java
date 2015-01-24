@@ -4,6 +4,7 @@ import org.usfirst.frc.team3255.robot2015.OI;
 import org.usfirst.frc.team3255.robot2015.RobotMap;
 import org.usfirst.frc.team3255.robot2015.commands.DriveArcade;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
@@ -22,6 +23,11 @@ public class Drivetrain extends Subsystem {
 	Talon leftBackTalon = null;
 	Talon rightFrontTalon = null;
 	Talon rightBackTalon = null;
+	Talon hRightTalon = null;
+	Talon hLeftTalon = null;
+	
+	// Solenoids
+	DoubleSolenoid strafeSolenoid = null;
 	
 	// Robot Drive
 	RobotDrive robotDrive = null;
@@ -45,10 +51,16 @@ public class Drivetrain extends Subsystem {
 		leftBackTalon = new Talon(RobotMap.DRIVETRAIN_BACK_LEFT_TALON);
 		rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_FRONT_RIGHT_TALON);
 		rightBackTalon = new Talon(RobotMap.DRIVETRAIN_BACK_RIGHT_TALON);
+		hRightTalon = new Talon(RobotMap.DRIVETRAIN_H_RIGHT_TALON);
+		hLeftTalon = new Talon(RobotMap.DRIVETRAIN_H_LEFT_TALON);
+		
+		strafeSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_SOLENOID_OPEN, RobotMap.DRIVETRAIN_SOLENOID_CLOSE);
 		
 		robotDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
 		
 		gyro = new Gyro(RobotMap.DRIVETRAIN_GYRO);
+		
+		this.strafeDisable();
 	}
 	
 	public void setSpeed(double s) {
@@ -64,8 +76,28 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void arcadeDrive() {
-		robotDrive.arcadeDrive(OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_MOVE),
-				OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_ROTATE));
+		// negate the drive axis so that pushing stick forward is +1
+		double moveSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_MOVE);
+		double rotateSpeed = OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_ROTATE);
+		robotDrive.arcadeDrive(moveSpeed, rotateSpeed);
+		
+		if(strafeSolenoid.get() == DoubleSolenoid.Value.kForward) {
+			double hSpeed = OI.driverStick.getRawAxis(RobotMap.AXIS_HDRIVE);
+			hLeftTalon.set(hSpeed);
+			hRightTalon.set(hSpeed);
+		}
+		else {
+			hLeftTalon.set(0.0);
+			hRightTalon.set(0.0);
+		}
+	}
+	
+	public void strafeEnable() {
+		strafeSolenoid.set(DoubleSolenoid.Value.kForward);
+	}
+	
+	public void strafeDisable() {
+		strafeSolenoid.set(DoubleSolenoid.Value.kReverse);
 	}
 	
 	public double getSpeed() {

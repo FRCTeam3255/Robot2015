@@ -1,6 +1,9 @@
 package org.usfirst.frc.team3255.robot2015;
 
+import org.usfirst.frc.team3255.robot2015.commands.*;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -36,6 +39,14 @@ public class OI {
 	
 	// Joysticks
 	public static Joystick driverStick = new Joystick(RobotMap.JOYSTICK_DRIVER);
+	
+	Button D5 = new JoystickButton(driverStick, 5);
+	Button D6 = new JoystickButton(driverStick, 6);
+	
+	public OI()	{
+		D5.whenPressed(new DriveStrafeDisable()); 
+		D6.whenPressed(new DriveStrafeEnable()); 
+	}
 	
 	
 }

@@ -16,7 +16,7 @@ public class Claw extends Subsystem {
     // here. Call these from Commands.
 	
 	public AnalogPotentiometer pot = null;
-	public DoubleSolenoid solenoid = null;
+	public DoubleSolenoid clawSolenoid = null;
 	public DigitalInput limitswitch = null;
 	
 	public Claw() {
@@ -33,20 +33,20 @@ public class Claw extends Subsystem {
 
 	public void init() {
 		pot = new AnalogPotentiometer(RobotMap.CLAW_POT, 1, 0);
-		solenoid = new DoubleSolenoid(RobotMap.CLAW_SOLENOID_OPEN, RobotMap.CLAW_SOLENOID_CLOSE);
-		limitswitch = new DigitalInput(RobotMap.CLAW_LIMITSWITCH);
+		clawSolenoid = new DoubleSolenoid(RobotMap.CLAW_SOLENOID_OPEN, RobotMap.CLAW_SOLENOID_CLOSE);
+		limitswitch = new DigitalInput(RobotMap.CLAW_LIMITSWITCH_1);
 	}
 	
 	public void open() {
-		solenoid.set(DoubleSolenoid.Value.kForward);
+		clawSolenoid.set(DoubleSolenoid.Value.kForward);
 	}
 	
 	public void close() {
-		solenoid.set(DoubleSolenoid.Value.kReverse);
+		clawSolenoid.set(DoubleSolenoid.Value.kReverse);
 	}
 	
 	public void disable() {
-		solenoid.set(DoubleSolenoid.Value.kOff);
+		clawSolenoid.set(DoubleSolenoid.Value.kOff);
 	}
 	
 	public void initDefaultCommand() {
