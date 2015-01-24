@@ -33,7 +33,7 @@ public class Claw extends Subsystem {
 
 	public void init() {
 		pot = new AnalogPotentiometer(RobotMap.CLAW_POT, 1, 0);
-		clawSolenoid = new DoubleSolenoid(RobotMap.CLAW_SOLENOID_OPEN, RobotMap.CLAW_SOLENOID_CLOSE);
+		clawSolenoid = new DoubleSolenoid(RobotMap.CLAW_OPEN_SOLENOID, RobotMap.CLAW_CLOSE_SOLENOID);
 		limitswitch = new DigitalInput(RobotMap.CLAW_LIMITSWITCH_1);
 	}
 	

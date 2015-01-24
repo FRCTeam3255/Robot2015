@@ -24,25 +24,29 @@ public class RobotMap {
 	public static final int DRIVETRAIN_BACK_LEFT_TALON = 1;
 	public static final int DRIVETRAIN_FRONT_RIGHT_TALON = 3;
 	public static final int DRIVETRAIN_BACK_RIGHT_TALON = 0;
-	public static final int DRIVETRAIN_H_LEFT_TALON = 6;
-	public static final int DRIVETRAIN_H_RIGHT_TALON = 7;
+	public static final int DRIVETRAIN_STRAFE_LEFT_TALON = 6;
+	public static final int DRIVETRAIN_STRAFE_RIGHT_TALON = 7;
 	
-	public static final int CASSETTE_TALON1 = 4;
-	public static final int CASSETTE_TALON2 = 5;
+	public static final int CASSETTE_LEFT_LIFT_TALON = 4;
+	public static final int CASSETTE_RIGHT_LIFT_TALON = 5;
+	public static final int CASSETTE_LEFT_COLLECTOR_TALON = 0;
+	public static final int CASSETTE_RIGHT_COLLECTOR_TALON = 0;
 	
 	//Analog Inputs
 	public static final int CLAW_POT = 0;
 	public static final int DRIVETRAIN_GYRO = 1;
 	
 	//Solenoids
-	public static final int CLAW_SOLENOID_OPEN = 2;
-	public static final int CLAW_SOLENOID_CLOSE = 3;
-	public static final int DRIVETRAIN_SOLENOID_OPEN = 0;
-	public static final int DRIVETRAIN_SOLENOID_CLOSE = 1;
-	public static final int CASSETTE_SOLENOID_TOTE_OPEN = 4;
-	public static final int CASSETTE_SOLENOID_TOTE_CLOSE = 5;
-	public static final int CASSETTE_SOLENOID_TRASH_OPEN = 6;
-	public static final int CASSETTE_SOLENOID_TRASH_CLOSE = 7;
+	public static final int CLAW_OPEN_SOLENOID = 2;
+	public static final int CLAW_CLOSE_SOLENOID = 3;
+	public static final int DRIVETRAIN_STRAFE_DEPLOY_SOLENOID = 0;
+	public static final int DRIVETRAIN_STRAFE_RETRACT_SOLENOID = 1;
+	public static final int CASSETTE_DEPLOY_TRASH_SOLENOID = 6;
+	public static final int CASSETTE_RETRACT_TRASH_SOLENOID = 7;
+	public static final int CASSTTE_DEPLOY_LOCK_SOLENOID = 0;
+	public static final int CASSTTE_RETRACT_LOCK_SOLENOID = 0;
+	public static final int CASSETTE_DEPLOY_LIFT_SOLENOID = 0;
+	public static final int CASSTTE_RETRACT_LIFT_SOLENOID = 0;
 	
 	//Digital Inputs
 	public static final int CLAW_LIMITSWITCH_1 = 0;
@@ -53,5 +57,10 @@ public class RobotMap {
 	public static final int DRIVETRAIN_ENCODER_LEFT_CHANNEL_B = 4;
 	public static final int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A = 5;
 	public static final int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B = 6;
+	public static final int CASSETTE_TOTE_PICKUP_MAGSWITCH = 0;
+	public static final int CASSETTE_TOTE_HOLD_MAGSWITCH = 0;
+	public static final int CASSETTE_TRASH_PICKUP_MAGSWITCH = 0;
+	public static final int CASSETTE_TRASH_HOLD_MAGSWITCH = 0;
+	public static final int CASSETTE_TOP_MAGSWITCH = 0;
 	
 }

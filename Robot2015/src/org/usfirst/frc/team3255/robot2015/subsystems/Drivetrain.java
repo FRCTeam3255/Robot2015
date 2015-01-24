@@ -23,8 +23,8 @@ public class Drivetrain extends Subsystem {
 	Talon leftBackTalon = null;
 	Talon rightFrontTalon = null;
 	Talon rightBackTalon = null;
-	Talon hRightTalon = null;
-	Talon hLeftTalon = null;
+	Talon strafeRightTalon = null;
+	Talon strafeLeftTalon = null;
 	
 	// Solenoids
 	DoubleSolenoid strafeSolenoid = null;
@@ -47,14 +47,18 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public void init() {
+		// Drivetrain outside wheels
 		leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_FRONT_LEFT_TALON);
 		leftBackTalon = new Talon(RobotMap.DRIVETRAIN_BACK_LEFT_TALON);
 		rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_FRONT_RIGHT_TALON);
 		rightBackTalon = new Talon(RobotMap.DRIVETRAIN_BACK_RIGHT_TALON);
-		hRightTalon = new Talon(RobotMap.DRIVETRAIN_H_RIGHT_TALON);
-		hLeftTalon = new Talon(RobotMap.DRIVETRAIN_H_LEFT_TALON);
 		
-		strafeSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_SOLENOID_OPEN, RobotMap.DRIVETRAIN_SOLENOID_CLOSE);
+		// DriveTrain inner strafe wheels
+		strafeRightTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_RIGHT_TALON);
+		strafeLeftTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_LEFT_TALON);
+		
+		// Delpoy Retract strafe wheels
+		strafeSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_STRAFE_DEPLOY_SOLENOID, RobotMap.DRIVETRAIN_STRAFE_RETRACT_SOLENOID);
 		
 		robotDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
 		
@@ -83,12 +87,12 @@ public class Drivetrain extends Subsystem {
 		
 		if(strafeSolenoid.get() == DoubleSolenoid.Value.kForward) {
 			double hSpeed = OI.driverStick.getRawAxis(RobotMap.AXIS_HDRIVE);
-			hLeftTalon.set(hSpeed);
-			hRightTalon.set(hSpeed);
+			strafeLeftTalon.set(hSpeed);
+			strafeRightTalon.set(hSpeed);
 		}
 		else {
-			hLeftTalon.set(0.0);
-			hRightTalon.set(0.0);
+			strafeLeftTalon.set(0.0);
+			strafeRightTalon.set(0.0);
 		}
 	}
 	

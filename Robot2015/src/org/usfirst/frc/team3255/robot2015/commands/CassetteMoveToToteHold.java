@@ -1,11 +1,13 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.subsystems.Cassette;
+
 /**
  *
  */
-public class CassetteResetEncoder extends CommandBase {
+public class CassetteMoveToToteHold extends CommandBase {
 
-    public CassetteResetEncoder() {
+    public CassetteMoveToToteHold() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(cassette);
@@ -13,7 +15,7 @@ public class CassetteResetEncoder extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	cassette.liftEncoder.reset();
+    	cassette.setLiftSpeed(Cassette.LIFT_SPEED);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,7 +24,8 @@ public class CassetteResetEncoder extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	// keep going until SwitchOpen returns false
+    	return(cassette.isToteHoldSwitchOpen() == false);
     }
 
     // Called once after isFinished returns true
@@ -32,5 +35,6 @@ public class CassetteResetEncoder extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

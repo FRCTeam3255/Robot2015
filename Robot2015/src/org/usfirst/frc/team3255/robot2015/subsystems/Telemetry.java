@@ -48,9 +48,9 @@ public class Telemetry extends Subsystem {
 		
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
 		
-		LiveWindow.addSensor("Cassette", "Encoder", CommandBase.cassette.encoder);
-		LiveWindow.addActuator("Cassette", "Motor 1", CommandBase.cassette.motor1);
-		LiveWindow.addActuator("Cassette", "Motor 2", CommandBase.cassette.motor2);
+		LiveWindow.addSensor("Cassette", "Encoder", CommandBase.cassette.liftEncoder);
+		LiveWindow.addActuator("Cassette", "Motor 1", CommandBase.cassette.leftLiftTalon);
+		LiveWindow.addActuator("Cassette", "Motor 2", CommandBase.cassette.rightLiftTalon);
 		LiveWindow.addActuator("Cassette", "PID Controller", CommandBase.cassette.getPIDController());
 	}
 	
@@ -60,8 +60,8 @@ public class Telemetry extends Subsystem {
 		
 		SmartDashboard.putNumber("Cassette PID Setpoint", CommandBase.cassette.getSetpoint());
 		SmartDashboard.putNumber("Cassette PID Input", CommandBase.cassette.returnPIDInput());
-		SmartDashboard.putNumber("Cassette Talon 1 Speed", CommandBase.cassette.motor1.get());
-		SmartDashboard.putBoolean("Cassette Encoder Stopped", CommandBase.cassette.encoder.getStopped());
+		SmartDashboard.putNumber("Cassette Talon 1 Speed", CommandBase.cassette.leftLiftTalon.get());
+		SmartDashboard.putBoolean("Cassette Encoder Stopped", CommandBase.cassette.liftEncoder.getStopped());
 		
 		if(SmartDashboard.getBoolean("Cassette Enabled", false) == true) {
 			CommandBase.cassette.enable();
