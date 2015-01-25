@@ -51,9 +51,9 @@ public class Cassette extends PIDSubsystem {
 		leftCollectorTalon = new Talon(RobotMap.CASSETTE_LEFT_COLLECTOR_TALON);
 		rightCollectorTalon = new Talon(RobotMap.CASSETTE_RIGHT_COLLECTOR_TALON);
 		
-		lockSolenoid = new DoubleSolenoid(RobotMap.CASSTTE_DEPLOY_LOCK_SOLENOID, RobotMap.CASSTTE_RETRACT_LOCK_SOLENOID);
-		trashSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_DEPLOY_TRASH_SOLENOID, RobotMap.CASSETTE_RETRACT_TRASH_SOLENOID);
-		liftSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_DEPLOY_LIFT_SOLENOID, RobotMap.CASSTTE_RETRACT_LIFT_SOLENOID);
+		lockSolenoid = new DoubleSolenoid(0, RobotMap.CASSTTE_DEPLOY_LOCK_SOLENOID, RobotMap.CASSTTE_RETRACT_LOCK_SOLENOID);
+		trashSolenoid = new DoubleSolenoid(0, RobotMap.CASSETTE_DEPLOY_TRASH_SOLENOID, RobotMap.CASSETTE_RETRACT_TRASH_SOLENOID);
+		liftSolenoid = new DoubleSolenoid(1, RobotMap.CASSETTE_DEPLOY_LIFT_SOLENOID, RobotMap.CASSTTE_RETRACT_LIFT_SOLENOID);
 		
 		liftEncoder = new Encoder(RobotMap.CASSETTE_ENCODER_CHANNEL_A, RobotMap.CASSETTE_ENCODER_CHANNEL_B, false, Encoder.EncodingType.k4X);
 		liftEncoder.setDistancePerPulse(0.01);
@@ -106,24 +106,24 @@ public class Cassette extends PIDSubsystem {
     	liftSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
     
-    public boolean isTotePickupSwitchOpen() {
-    	return totePickupSwitch.get();
+    public boolean isTotePickupSwitchClosed() {
+    	return (totePickupSwitch.get() == false);
     }
     
-    public boolean isToteHoldSwitchOpen() {
-    	return toteHoldSwitch.get();
+    public boolean isToteHoldSwitchClosed() {
+    	return (toteHoldSwitch.get() == false);
     }
     
-    public boolean isTrashPickupSwitchOpen() {
-    	return trashPickupSwitch.get();
+    public boolean isTrashPickupSwitchClosed() {
+    	return (trashPickupSwitch.get() == false);
     }
     
-    public boolean isTrashHoldSwitchOpen() {
-    	return trashHoldSwitch.get();
+    public boolean isTrashHoldSwitchClosed() {
+    	return (trashHoldSwitch.get() == false);
     }
     
-    public boolean isTopSwitchOpen() {
-    	return topSwitch.get();
+    public boolean isTopSwitchClosed() {
+    	return (topSwitch.get() == false);
     }
     
     public void initDefaultCommand() {

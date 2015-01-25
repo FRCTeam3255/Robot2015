@@ -23,7 +23,6 @@ public abstract class CommandBase extends Command {
 
 	public static void init() {
 		// TODO Auto-generated method stub
-		oi = new OI();
-		
+		oi = new OI();	
 	}
 }

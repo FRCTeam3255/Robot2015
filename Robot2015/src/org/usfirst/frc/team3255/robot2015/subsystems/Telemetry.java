@@ -57,11 +57,20 @@ public class Telemetry extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Drive Speed", CommandBase.drivetrain.getSpeed());
 		SmartDashboard.putNumber("Drive Gyro", CommandBase.drivetrain.getGyro());
+		SmartDashboard.putNumber("Drive Forward Distance", CommandBase.drivetrain.getForwardDistance());
+		SmartDashboard.putNumber("Drive Reverse Distance", CommandBase.drivetrain.getReverseDistance());
+		SmartDashboard.putNumber("Strafe Speed", CommandBase.drivetrain.getStrafeSpeed());
+		SmartDashboard.putNumber("Last Strafe Speed", CommandBase.drivetrain.getCommandedStrafeSpeed());
 		
 		SmartDashboard.putNumber("Cassette PID Setpoint", CommandBase.cassette.getSetpoint());
 		SmartDashboard.putNumber("Cassette PID Input", CommandBase.cassette.returnPIDInput());
 		SmartDashboard.putNumber("Cassette Talon 1 Speed", CommandBase.cassette.leftLiftTalon.get());
 		SmartDashboard.putBoolean("Cassette Encoder Stopped", CommandBase.cassette.liftEncoder.getStopped());
+		SmartDashboard.putBoolean("Tote Pickup Position", CommandBase.cassette.isTotePickupSwitchClosed());
+		SmartDashboard.putBoolean("Tote Hold Position", CommandBase.cassette.isToteHoldSwitchClosed());
+		SmartDashboard.putBoolean("Trash Pickup Position", CommandBase.cassette.isTrashPickupSwitchClosed());
+		SmartDashboard.putBoolean("Trash Hold Position", CommandBase.cassette.isTrashHoldSwitchClosed());
+		SmartDashboard.putBoolean("Top Position", CommandBase.cassette.isTopSwitchClosed());
 		
 		if(SmartDashboard.getBoolean("Cassette Enabled", false) == true) {
 			CommandBase.cassette.enable();

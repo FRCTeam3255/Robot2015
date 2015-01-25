@@ -1,36 +1,37 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
-import org.usfirst.frc.team3255.robot2015.subsystems.Cassette;
-
 /**
  *
  */
-public class CassetteMoveToToteHold extends CommandBase {
+public class DriveDistanceReverse extends CommandBase {
+	
+	double setPoint;
 
-    public CassetteMoveToToteHold() {
+    public DriveDistanceReverse(double feet) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(cassette);
+    	requires(drivetrain);
+    	setPoint = feet;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	drivetrain.resetEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	cassette.setLiftSpeed(Cassette.LIFT_SPEED);
+    	drivetrain.setSpeed(-0.25);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// keep going until SwitchOpen returns false
-    	return cassette.isToteHoldSwitchClosed();
+        return(drivetrain.getReverseDistance() >= setPoint);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	cassette.setLiftSpeed(0.0);
+    	drivetrain.setSpeed(0.0);
     }
 
     // Called when another command which requires one or more of the same

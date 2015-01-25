@@ -39,13 +39,22 @@ public class OI {
 	
 	// Joysticks
 	public static Joystick driverStick = new Joystick(RobotMap.JOYSTICK_DRIVER);
+	public static Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPLUATOR);
 	
 	Button D5 = new JoystickButton(driverStick, 5);
 	Button D6 = new JoystickButton(driverStick, 6);
 	
+	Button M1 = new JoystickButton(manipulatorStick, 1);
+	Button M2 = new JoystickButton(manipulatorStick, 2);
+	Button M3 = new JoystickButton(manipulatorStick, 3);
+	
 	public OI()	{
 		D5.whenPressed(new DriveStrafeDisable()); 
 		D6.whenPressed(new DriveStrafeEnable()); 
+		
+		M1.whenPressed(new CassetteUnload());
+		M2.whenPressed(new CassetteUnloadBackup());
+		M3.whenPressed(new CassettePickupTote());
 	}
 	
 	
