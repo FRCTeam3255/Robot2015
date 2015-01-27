@@ -48,8 +48,6 @@ public class Cassette extends PIDSubsystem {
     	
     	leftLiftTalon = new Talon(RobotMap.CASSETTE_LEFT_LIFT_TALON);
 		rightLiftTalon = new Talon(RobotMap.CASSETTE_RIGHT_LIFT_TALON);
-		leftCollectorTalon = new Talon(RobotMap.CASSETTE_LEFT_COLLECTOR_TALON);
-		rightCollectorTalon = new Talon(RobotMap.CASSETTE_RIGHT_COLLECTOR_TALON);
 		
 		lockSolenoid = new DoubleSolenoid(0, RobotMap.CASSTTE_DEPLOY_LOCK_SOLENOID, RobotMap.CASSTTE_RETRACT_LOCK_SOLENOID);
 		trashSolenoid = new DoubleSolenoid(0, RobotMap.CASSETTE_DEPLOY_TRASH_SOLENOID, RobotMap.CASSETTE_RETRACT_TRASH_SOLENOID);
@@ -72,14 +70,6 @@ public class Cassette extends PIDSubsystem {
     public void setLiftSpeed(double s) {
     	leftLiftTalon.set(s);
     	rightLiftTalon.set(s);
-    }
-    
-    public void setLeftCollectorSpeed(double s)	{
-    	leftCollectorTalon.set(s);
-    }
-    
-    public void setRightCollectorSpeed(double s)	{
-    	rightCollectorTalon.set(s);
     }
     
     public void lock() {

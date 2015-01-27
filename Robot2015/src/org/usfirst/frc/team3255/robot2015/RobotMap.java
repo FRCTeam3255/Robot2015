@@ -19,6 +19,9 @@ public class RobotMap {
 	public static final int AXIS_ARCADE_ROTATE = 2;
 	public static final int AXIS_HDRIVE = 0;
 	
+	public static final int AXIS_COLLECTOR_SPEED = 1;
+	public static final int AXIS_COLLECTOR_PAN = 0;
+	
 	// PWMs
 	public static final int DRIVETRAIN_FRONT_LEFT_TALON = 2;
 	public static final int DRIVETRAIN_BACK_LEFT_TALON = 1;
@@ -27,8 +30,9 @@ public class RobotMap {
 	
 	public static final int CASSETTE_LEFT_LIFT_TALON = 4;
 	public static final int CASSETTE_RIGHT_LIFT_TALON = 8;
-	public static final int CASSETTE_LEFT_COLLECTOR_TALON = 0;
-	public static final int CASSETTE_RIGHT_COLLECTOR_TALON = 5;
+	
+	public static final int COLLECTOR_LEFT_TALON = 0;
+	public static final int COLLECTOR_RIGHT_TALON = 5;
 	
 	// CAN Talons
 	public static final int DRIVETRAIN_STRAFE_LEFT_CAN_TALON = 0;
@@ -65,5 +69,5 @@ public class RobotMap {
 	public static final int CASSETTE_TOTE_HOLD_MAGSWITCH = 9;
 	public static final int CASSETTE_TRASH_PICKUP_MAGSWITCH = 10;
 	public static final int CASSETTE_TRASH_HOLD_MAGSWITCH = 11;
-	public static final int CASSETTE_TOP_MAGSWITCH = 12;	
+	public static final int CASSETTE_TOP_MAGSWITCH = 12;
 }
