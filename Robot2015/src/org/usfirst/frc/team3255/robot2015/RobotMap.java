@@ -23,16 +23,18 @@ public class RobotMap {
 	public static final int AXIS_COLLECTOR_PAN = 0;
 	
 	// PWMs
-	public static final int DRIVETRAIN_FRONT_LEFT_TALON = 2;
+	public static final int DRIVETRAIN_FRONT_LEFT_TALON = 0;
 	public static final int DRIVETRAIN_BACK_LEFT_TALON = 1;
-	public static final int DRIVETRAIN_FRONT_RIGHT_TALON = 3;
-	public static final int DRIVETRAIN_BACK_RIGHT_TALON = 9;
+	public static final int DRIVETRAIN_FRONT_RIGHT_TALON = 2;
+	public static final int DRIVETRAIN_BACK_RIGHT_TALON = 3;
 	
 	public static final int CASSETTE_LEFT_LIFT_TALON = 4;
-	public static final int CASSETTE_RIGHT_LIFT_TALON = 8;
+	public static final int CASSETTE_RIGHT_LIFT_TALON = 5;
 	
-	public static final int COLLECTOR_LEFT_TALON = 0;
-	public static final int COLLECTOR_RIGHT_TALON = 5;
+	public static final int COLLECTOR_LEFT_TALON = 6;
+	public static final int COLLECTOR_RIGHT_TALON = 7;
+
+	public static final int CAMERA_SERVO = 8;
 	
 	// CAN Talons
 	public static final int DRIVETRAIN_STRAFE_LEFT_CAN_TALON = 0;
