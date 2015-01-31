@@ -3,9 +3,9 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class CameraReverse extends CommandBase {
+public class CameraLeft extends CommandBase {
 
-    public CameraReverse() {
+    public CameraLeft() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(camera);
@@ -17,7 +17,7 @@ public class CameraReverse extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	camera.setVerticalAngle(180.0);
+    	camera.setHorizontalAngle(0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

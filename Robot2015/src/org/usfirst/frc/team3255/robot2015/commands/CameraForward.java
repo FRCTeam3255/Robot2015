@@ -17,7 +17,7 @@ public class CameraForward extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	camera.setAngle(0.0);
+    	camera.setVerticalAngle(0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

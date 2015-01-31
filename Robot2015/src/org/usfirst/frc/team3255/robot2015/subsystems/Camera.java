@@ -13,17 +13,22 @@ public class Camera extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	Servo servo = null;
-			
+	Servo verticalservo = null;
+	Servo horizontalservo = null;	
+	
     public Camera() {
 		super();
 		// TODO Auto-generated constructor stub
-		servo = new Servo(RobotMap.CAMERA_SERVO);
-		
+		verticalservo = new Servo(RobotMap.CAMERA_VERTICAL_SERVO);
+		horizontalservo = new Servo(RobotMap.CAMERA_HORIZONTAL_SERVO);
 	}
 
-    public void setAngle(double angle) {
-    	servo.setAngle(angle);
+    public void setVerticalAngle(double angle) {
+    	verticalservo.setAngle(angle);
+    }
+    
+    public void setHorizontalAngle(double angle) {
+    	horizontalservo.setAngle(angle);
     }
 
 	public void initDefaultCommand() {

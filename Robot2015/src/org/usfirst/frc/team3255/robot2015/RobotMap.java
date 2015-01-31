@@ -34,7 +34,8 @@ public class RobotMap {
 	public static final int COLLECTOR_LEFT_TALON = 6;
 	public static final int COLLECTOR_RIGHT_TALON = 7;
 
-	public static final int CAMERA_SERVO = 8;
+	public static final int CAMERA_VERTICAL_SERVO = 8;
+	public static final int CAMERA_HORIZONTAL_SERVO = 9;
 	
 	// CAN Talons
 	public static final int DRIVETRAIN_STRAFE_LEFT_CAN_TALON = 0;
