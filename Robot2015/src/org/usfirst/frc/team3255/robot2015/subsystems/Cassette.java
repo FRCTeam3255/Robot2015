@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.subsystems;
 
 import org.usfirst.frc.team3255.robot2015.RobotMap;
+import org.usfirst.frc.team3255.robot2015.commands.WaitForToteAndPickup;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -28,6 +29,8 @@ public class Cassette extends PIDSubsystem {
 	DigitalInput topSwitch = null;
 	DigitalInput bottomSwitch = null;
 	
+	DigitalInput toteDetectSwitch =null;
+	
 	//Encoder
 	public Encoder liftEncoder = null;
 	
@@ -37,6 +40,7 @@ public class Cassette extends PIDSubsystem {
 	DoubleSolenoid liftSolenoid = null;
 	
 	public static final double LIFT_SPEED = 0.5;
+	public static final double SWITCH_DELAY = 0.25;
 	
     // Initialize your subsystem here
     public Cassette() {
@@ -56,11 +60,14 @@ public class Cassette extends PIDSubsystem {
 		liftEncoder = new Encoder(RobotMap.CASSETTE_ENCODER_CHANNEL_A, RobotMap.CASSETTE_ENCODER_CHANNEL_B, false, Encoder.EncodingType.k4X);
 		liftEncoder.setDistancePerPulse(0.01);
 		
+		bottomSwitch = new DigitalInput(RobotMap.CASSETTE_BOTTOM_MAGSWITCH);
 		totePickupSwitch = new DigitalInput(RobotMap.CASSETTE_TOTE_PICKUP_MAGSWITCH);
 		toteHoldSwitch = new DigitalInput(RobotMap.CASSETTE_TOTE_HOLD_MAGSWITCH);
 		trashPickupSwitch = new DigitalInput(RobotMap.CASSETTE_TRASH_PICKUP_MAGSWITCH);
 		trashHoldSwitch = new DigitalInput(RobotMap.CASSETTE_TRASH_HOLD_MAGSWITCH);
 		topSwitch = new DigitalInput(RobotMap.CASSETTE_TOP_MAGSWITCH);
+		
+		toteDetectSwitch = new DigitalInput(RobotMap.CASSTTE_TOTE_DETECT_LIMITSWITCH);
 		
 		PIDController controller = this.getPIDController();
 		controller.setPID(0.01, 0.0, 0.0);
@@ -88,12 +95,16 @@ public class Cassette extends PIDSubsystem {
     	trashSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
     
-    public void toteMode() {
+    public void grabTote() {
     	liftSolenoid.set(DoubleSolenoid.Value.kForward);
     }
     
-    public void trashMode() {
+    public void releaseTote() {
     	liftSolenoid.set(DoubleSolenoid.Value.kReverse);
+    }
+    
+    public boolean isBottomSwitchClosed() {
+    	return (bottomSwitch.get() == false);
     }
     
     public boolean isTotePickupSwitchClosed() {
@@ -116,9 +127,14 @@ public class Cassette extends PIDSubsystem {
     	return (topSwitch.get() == false);
     }
     
+    public boolean isToteDetected() {
+    	return (toteDetectSwitch.get() == false);
+    }
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new WaitForToteAndPickup());
     }
     
     protected double returnPIDInput() {

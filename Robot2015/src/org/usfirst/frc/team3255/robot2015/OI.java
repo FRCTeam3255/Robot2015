@@ -49,6 +49,10 @@ public class OI {
 	Button M1 = new JoystickButton(manipulatorStick, 1);
 	Button M2 = new JoystickButton(manipulatorStick, 2);
 	Button M3 = new JoystickButton(manipulatorStick, 3);
+	Button M4 = new JoystickButton(manipulatorStick, 4);
+	Button M5 = new JoystickButton(manipulatorStick, 5);
+	Button M6 = new JoystickButton(manipulatorStick, 6);
+	Button M11 = new JoystickButton(manipulatorStick, 11);
 	
 	public OI()	{
 		D5.whenPressed(new DriveStrafeDisable()); 
@@ -56,10 +60,13 @@ public class OI {
 		D9.whenPressed(new CameraReverse());
 		D10.whenPressed(new CameraForward());
 		
-		
-		M1.whenPressed(new CassetteUnload());
-		M2.whenPressed(new CassetteUnloadBackup());
-		M3.whenPressed(new CassettePickupTote());
+		M1.whenPressed(new CassettePickupTote());
+		M2.whenPressed(new CassetteUnloadAndBackup());
+		M3.whenPressed(new CassetteCorrectTrash());
+		M4.whenPressed(new CassettePickupTrash());
+		M5.whenPressed(new CassetteGrabTote());
+		M6.whenPressed(new CassetteReleaseTote());
+		M11.whenPressed(new CassetteUnload());
 	}
 	
 	

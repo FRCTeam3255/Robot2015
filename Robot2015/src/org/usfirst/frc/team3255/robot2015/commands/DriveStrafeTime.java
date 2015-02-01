@@ -3,30 +3,37 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class CameraRight extends CommandBase {
+public class DriveStrafeTime extends CommandBase {
+	
+	double timeOut;
+	double strafeSpeed;
 
-    public CameraRight() {
+    public DriveStrafeTime(double speed, double seconds) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(camera);
+    	timeOut = seconds;
+    	strafeSpeed = speed;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	drivetrain.strafeEnable();
+    	this.setTimeout(timeOut);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	camera.setHorizontalAngle(180.0);
+    	drivetrain.setStrafeSpeed(strafeSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return this.isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	drivetrain.strafeDisable();
     }
 
     // Called when another command which requires one or more of the same

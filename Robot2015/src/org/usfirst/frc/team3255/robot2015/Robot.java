@@ -1,12 +1,15 @@
 
 package org.usfirst.frc.team3255.robot2015;
 
+import org.usfirst.frc.team3255.robot2015.commands.*;
 import org.usfirst.frc.team3255.robot2015.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -18,6 +21,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand = null;
+    SendableChooser autoChooser;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -26,6 +30,14 @@ public class Robot extends IterativeRobot {
     
     public void robotInit() {
     	CommandBase.init();
+    	
+    	autoChooser = new SendableChooser();
+    	autoChooser.addDefault("Auto Pickup 3 Totes", new AutoPickup3Totes());
+    	// TODO determine DriveDistance value
+    	autoChooser.addObject("Drive Forward", new DriveDistanceForward(5.0));
+    	// 15 seconds is the duration of autonomous
+    	autoChooser.addObject("Do Nothing", new DoDelay(15.0));
+    	SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
     	
     	// instantiate the command used for the autonomous period
     }
@@ -58,8 +70,10 @@ public class Robot extends IterativeRobot {
      * This function is called when the disabled button is hit.
      * You can use it to reset subsystems before shutting down.
      */
+    
+    // TODO Double check if this is the right place to put unlock cassette 
     public void disabledInit(){
-
+    	
     }
 
     /**

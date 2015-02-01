@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.Timer;
 /**
  *
  */
-public class CassetteMoveToTotePickup extends CommandBase {
+public class CassetteMoveToTrashPickup extends CommandBase {
 	
-	double speed = -Cassette.LIFT_SPEED;
+	double speed = Cassette.LIFT_SPEED;
 
-    public CassetteMoveToTotePickup() {
+    public CassetteMoveToTrashPickup() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(cassette);
@@ -19,7 +19,7 @@ public class CassetteMoveToTotePickup extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	cassette.grabTote();
+    	cassette.releaseTote();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -38,12 +38,13 @@ public class CassetteMoveToTotePickup extends CommandBase {
     protected boolean isFinished() {
     	// isTotePickupSwitchOpen will return false when we are at the tote pickup position
     	// so keep going until isTotePickupSwitchOpen returns false
-    	return cassette.isTotePickupSwitchClosed();
+    	return cassette.isTrashPickupSwitchClosed();
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	cassette.setLiftSpeed(0.0);
+    	cassette.releaseTrash();
     }
 
     // Called when another command which requires one or more of the same

@@ -96,6 +96,11 @@ public class Drivetrain extends Subsystem {
 		rightFrontTalon.set(-s);
 		rightBackTalon.set(-s);
 	}
+	
+	public void setStrafeSpeed(double s) {
+		strafeLeftCANTalon.set(s);
+		strafeRightCANTalon.set(s);
+	}
 
 	public void tankDrive() {
 		robotDrive.tankDrive(OI.driverStick.getRawAxis(RobotMap.AXIS_TANK_LEFT),
@@ -105,7 +110,7 @@ public class Drivetrain extends Subsystem {
 	public void arcadeDrive() {
 		// negate the drive axis so that pushing stick forward is +1
 		double moveSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_MOVE);
-		double rotateSpeed = OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_ROTATE);
+		double rotateSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_ROTATE);
 		robotDrive.arcadeDrive(moveSpeed, rotateSpeed);
 	
 		if(strafeDeployed) {

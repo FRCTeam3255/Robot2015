@@ -68,9 +68,12 @@ public class RobotMap {
 	public static final int DRIVETRAIN_ENCODER_LEFT_CHANNEL_B = 5;
 	public static final int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A = 6;
 	public static final int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B = 7;
-	public static final int CASSETTE_TOTE_PICKUP_MAGSWITCH = 8;
-	public static final int CASSETTE_TOTE_HOLD_MAGSWITCH = 9;
-	public static final int CASSETTE_TRASH_PICKUP_MAGSWITCH = 10;
-	public static final int CASSETTE_TRASH_HOLD_MAGSWITCH = 11;
-	public static final int CASSETTE_TOP_MAGSWITCH = 12;
+	public static final int CASSETTE_BOTTOM_MAGSWITCH = 8;
+	public static final int CASSETTE_TOTE_PICKUP_MAGSWITCH = 9;
+	public static final int CASSETTE_TOTE_HOLD_MAGSWITCH = 10;
+	public static final int CASSETTE_TRASH_PICKUP_MAGSWITCH = 11;
+	public static final int CASSETTE_TRASH_HOLD_MAGSWITCH = 12;
+	public static final int CASSETTE_TOP_MAGSWITCH = 13;
+	public static final int CASSTTE_TOTE_DETECT_LIMITSWITCH = 14;
+	
 }

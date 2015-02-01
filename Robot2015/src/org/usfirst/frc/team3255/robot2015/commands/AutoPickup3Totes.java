@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class CassetteUnload extends CommandGroup {
+public class AutoPickup3Totes extends CommandGroup {
     
-    public  CassetteUnload() {
+    public  AutoPickup3Totes() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -25,9 +25,13 @@ public class CassetteUnload extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential (new CassetteUnlock());
-    	addSequential (new DoDelay(0.1));
-    	addSequential (new CassetteMoveToTotePickup());
-    	addSequential (new CassetteReleaseTote());
+    	addSequential(new WaitForToteAndPickup());
+    	// TODO Find DriveDistanceForward Distance
+    	addParallel(new DriveDistanceForward(5.0));
+    	addSequential(new WaitForToteAndPickup());
+    	addSequential(new WaitForToteAndPickup());
+    	// TODO Find DriveStrafeTime(seconds) based off of testing.
+    	addSequential(new DriveStrafeTime(1.0, 3.0));
+    	addSequential(new CassetteUnloadAndBackup());
     }
 }
