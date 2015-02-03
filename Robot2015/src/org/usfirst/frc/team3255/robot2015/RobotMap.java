@@ -37,11 +37,11 @@ public class RobotMap {
 	public static final int CASSETTE_LEFT_LIFT_TALON = 8;
 	public static final int CASSETTE_RIGHT_LIFT_TALON = 9;
 
-	public static final int CAMERA_VERTICAL_SERVO = 20;
-	public static final int CAMERA_HORIZONTAL_SERVO = 21;
+	public static final int CAMERA_VERTICAL_SERVO = 16;
+	public static final int CAMERA_HORIZONTAL_SERVO = 17;
 	
-	public static final int CLAW_LEFT_LIFT_TALON = 22;
-	public static final int CLAW_RIGHT_LIFT_TALON = 23;
+	public static final int CLAW_LEFT_LIFT_TALON = 18;
+	public static final int CLAW_RIGHT_LIFT_TALON = 19;
 	
 	// CAN Talons
 	

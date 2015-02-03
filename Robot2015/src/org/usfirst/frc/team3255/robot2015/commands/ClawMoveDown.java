@@ -1,16 +1,11 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
-import org.usfirst.frc.team3255.robot2015.subsystems.Claw;
-
-import edu.wpi.first.wpilibj.Preferences;
-
 /**
  *
  */
 public class ClawMoveDown extends CommandBase {
 
-    double speed = -Claw.CLAW_LIFT_SPEED;
-    Preferences prefs = Preferences.getInstance();
+    double speed;
 	
 	public ClawMoveDown() {
         // Use requires() here to declare subsystem dependencies
@@ -20,12 +15,12 @@ public class ClawMoveDown extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	speed = -prefs.getDouble("Claw Lower Seed", Claw.CLAW_LIFT_SPEED);
+    	speed = claw.getLowerSpeed();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	claw.setClawLiftSpeed(speed);
+    	claw.setSpeed(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,7 +30,7 @@ public class ClawMoveDown extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	claw.setClawLiftSpeed(0.0);
+    	claw.setSpeed(0.0);
     }
 
     // Called when another command which requires one or more of the same

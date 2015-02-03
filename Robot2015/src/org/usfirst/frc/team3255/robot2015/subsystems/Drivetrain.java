@@ -7,6 +7,7 @@ import org.usfirst.frc.team3255.robot2015.commands.DriveArcade;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -110,10 +111,11 @@ public class Drivetrain extends Subsystem {
 		// negate the drive axis so that pushing stick forward is +1
 		double moveSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_MOVE);
 		double rotateSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_ROTATE);
-		robotDrive.arcadeDrive(moveSpeed, rotateSpeed);
+		double sensitivity = Preferences.getInstance().getDouble("Sensitivity", 1.0);
+		robotDrive.arcadeDrive(moveSpeed * sensitivity, rotateSpeed * sensitivity);
 	
 		if(strafeDeployed) {
-			double hSpeed = OI.driverStick.getRawAxis(RobotMap.AXIS_HDRIVE);
+			double hSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_HDRIVE);
 			strafeLeftTalon.set(hSpeed);
 			strafeRightTalon.set(hSpeed);
 			commandedStrafeSpeed = hSpeed;

@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -40,7 +41,6 @@ public class Cassette extends PIDSubsystem {
 	DoubleSolenoid liftSolenoid = null;
 	
 	public static final double LIFT_SPEED = 0.5;
-	public static final double SWITCH_DELAY = 0.25;
 	
     // Initialize your subsystem here
     public Cassette() {
@@ -74,7 +74,7 @@ public class Cassette extends PIDSubsystem {
 		controller.setSetpoint(0.0);
 	}
     
-    public void setLiftSpeed(double s) {
+    public void setSpeed(double s) {
     	leftLiftTalon.set(s);
     	rightLiftTalon.set(s);
     }
@@ -129,6 +129,14 @@ public class Cassette extends PIDSubsystem {
     
     public boolean isToteDetected() {
     	return (toteDetectSwitch.get() == false);
+    }
+    
+    public double getLiftSpeed() {
+    	return Preferences.getInstance().getDouble("CassetteLiftSpeed", Cassette.LIFT_SPEED);
+    }
+    
+    public double getLowerSpeed() {
+    	return -Preferences.getInstance().getDouble("CassetteLowerSpeed", Cassette.LIFT_SPEED);
     }
     
     public void initDefaultCommand() {
