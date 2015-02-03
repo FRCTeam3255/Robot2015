@@ -52,6 +52,8 @@ public class OI {
 	Button M4 = new JoystickButton(manipulatorStick, 4);
 	Button M5 = new JoystickButton(manipulatorStick, 5);
 	Button M6 = new JoystickButton(manipulatorStick, 6);
+	Button M7 = new JoystickButton(manipulatorStick, 7);
+	Button M8 = new JoystickButton(manipulatorStick, 8);
 	Button M11 = new JoystickButton(manipulatorStick, 11);
 	
 	public OI()	{
@@ -66,6 +68,8 @@ public class OI {
 		M4.whenPressed(new CassettePickupTrash());
 		M5.whenPressed(new CassetteGrabTote());
 		M6.whenPressed(new CassetteReleaseTote());
+		M7.whileHeld(new ClawMoveDown());
+		M8.whileHeld(new ClawMoveUp());
 		M11.whenPressed(new CassetteUnload());
 	}
 	

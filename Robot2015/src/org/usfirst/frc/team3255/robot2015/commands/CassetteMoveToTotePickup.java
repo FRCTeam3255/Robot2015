@@ -2,6 +2,7 @@ package org.usfirst.frc.team3255.robot2015.commands;
 
 import org.usfirst.frc.team3255.robot2015.subsystems.Cassette;
 
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
@@ -10,6 +11,7 @@ import edu.wpi.first.wpilibj.Timer;
 public class CassetteMoveToTotePickup extends CommandBase {
 	
 	double speed = -Cassette.LIFT_SPEED;
+	Preferences prefs = Preferences.getInstance();
 
     public CassetteMoveToTotePickup() {
         // Use requires() here to declare subsystem dependencies
@@ -20,6 +22,7 @@ public class CassetteMoveToTotePickup extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.grabTote();
+    	speed = -prefs.getDouble("Casette Lower Seed", Cassette.LIFT_SPEED);
     }
 
     // Called repeatedly when this Command is scheduled to run

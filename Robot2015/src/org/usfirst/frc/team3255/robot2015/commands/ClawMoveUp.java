@@ -1,51 +1,41 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
-import org.usfirst.frc.team3255.robot2015.subsystems.Cassette;
+import org.usfirst.frc.team3255.robot2015.subsystems.Claw;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Preferences;
 
 /**
  *
  */
-public class CassetteMoveToToteHold extends CommandBase {
-	
-	double speed = Cassette.LIFT_SPEED;
-	Preferences prefs = Preferences.getInstance();
+public class ClawMoveUp extends CommandBase {
 
-    public CassetteMoveToToteHold() {
+    double speed = Claw.CLAW_LIFT_SPEED;
+    Preferences prefs = Preferences.getInstance();
+	
+	public ClawMoveUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(cassette);
+    	requires(claw);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	cassette.grabTote();
-    	speed = prefs.getDouble("Casette Lift Speed", Cassette.LIFT_SPEED);
+    	speed = prefs.getDouble("Claw Lift Seed", Claw.CLAW_LIFT_SPEED);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (cassette.isTopSwitchClosed() || cassette.isBottomSwitchClosed()) {
-    		speed = -speed;
-        	cassette.setLiftSpeed(speed);
-    		Timer.delay(Cassette.SWITCH_DELAY);
-    	}
-    	else {
-    		cassette.setLiftSpeed(speed);
-    	}
+    	claw.setClawLiftSpeed(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// keep going until SwitchOpen returns false
-    	return cassette.isToteHoldSwitchClosed();
+        return claw.isClawToppedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	cassette.setLiftSpeed(0.0);
+    	claw.setClawLiftSpeed(0.0);
     }
 
     // Called when another command which requires one or more of the same

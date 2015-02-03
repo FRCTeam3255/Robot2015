@@ -4,7 +4,6 @@ import org.usfirst.frc.team3255.robot2015.OI;
 import org.usfirst.frc.team3255.robot2015.RobotMap;
 import org.usfirst.frc.team3255.robot2015.commands.DriveArcade;
 
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
@@ -28,8 +27,8 @@ public class Drivetrain extends Subsystem {
 	Talon leftBackTalon = null;
 	Talon rightFrontTalon = null;
 	Talon rightBackTalon = null;
-	CANTalon strafeRightCANTalon = null;
-	CANTalon strafeLeftCANTalon = null;
+	Talon strafeRightTalon = null;
+	Talon strafeLeftTalon = null;
 	
 	// Solenoids
 	DoubleSolenoid strafeSolenoid = null;
@@ -72,8 +71,8 @@ public class Drivetrain extends Subsystem {
 		rightBackTalon = new Talon(RobotMap.DRIVETRAIN_BACK_RIGHT_TALON);
 		
 		// DriveTrain inner strafe wheels
-		strafeRightCANTalon = new CANTalon(RobotMap.DRIVETRAIN_STRAFE_RIGHT_CAN_TALON);
-		strafeLeftCANTalon = new CANTalon(RobotMap.DRIVETRAIN_STRAFE_LEFT_CAN_TALON);
+		strafeRightTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_RIGHT_TALON);
+		strafeLeftTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_LEFT_TALON);
 		
 		// Delpoy Retract strafe wheels
 		strafeSolenoid = new DoubleSolenoid(1, RobotMap.DRIVETRAIN_STRAFE_DEPLOY_SOLENOID, RobotMap.DRIVETRAIN_STRAFE_RETRACT_SOLENOID);
@@ -98,8 +97,8 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void setStrafeSpeed(double s) {
-		strafeLeftCANTalon.set(s);
-		strafeRightCANTalon.set(s);
+		strafeLeftTalon.set(s);
+		strafeRightTalon.set(s);
 	}
 
 	public void tankDrive() {
@@ -115,13 +114,13 @@ public class Drivetrain extends Subsystem {
 	
 		if(strafeDeployed) {
 			double hSpeed = OI.driverStick.getRawAxis(RobotMap.AXIS_HDRIVE);
-			strafeLeftCANTalon.set(hSpeed);
-			strafeRightCANTalon.set(hSpeed);
+			strafeLeftTalon.set(hSpeed);
+			strafeRightTalon.set(hSpeed);
 			commandedStrafeSpeed = hSpeed;
 		}
 		else {
-			strafeLeftCANTalon.set(0.0);
-			strafeRightCANTalon.set(0.0);
+			strafeLeftTalon.set(0.0);
+			strafeRightTalon.set(0.0);
 		}
 	}
 	
@@ -140,7 +139,7 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public double getStrafeSpeed() {
-		return strafeLeftCANTalon.get();
+		return strafeLeftTalon.get();
 	}
 	
 	public double getCommandedStrafeSpeed() {

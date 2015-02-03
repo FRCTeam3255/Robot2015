@@ -44,7 +44,7 @@ public class Telemetry extends Subsystem {
 
 		LiveWindow.addSensor("Claw", "POT", CommandBase.claw.pot);
 		LiveWindow.addSensor("Claw", "Solenoid", CommandBase.claw.clawSolenoid);
-		LiveWindow.addSensor("Claw", "Limit Switch", CommandBase.claw.limitswitch);
+		LiveWindow.addSensor("Claw", "Claw Top Switch", CommandBase.claw.clawTopSwitch);
 		
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
 		
