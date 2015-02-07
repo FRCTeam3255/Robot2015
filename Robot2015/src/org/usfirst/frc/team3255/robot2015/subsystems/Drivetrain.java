@@ -76,7 +76,7 @@ public class Drivetrain extends Subsystem {
 		strafeLeftTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_LEFT_TALON);
 		
 		// Delpoy Retract strafe wheels
-		strafeSolenoid = new DoubleSolenoid(1, RobotMap.DRIVETRAIN_STRAFE_DEPLOY_SOLENOID, RobotMap.DRIVETRAIN_STRAFE_RETRACT_SOLENOID);
+		strafeSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_STRAFE_DEPLOY_SOLENOID, RobotMap.DRIVETRAIN_STRAFE_RETRACT_SOLENOID);
 		
 		robotDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
 		
@@ -127,12 +127,12 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void strafeEnable() {
-		strafeSolenoid.set(DoubleSolenoid.Value.kForward);
+		strafeSolenoid.set(DoubleSolenoid.Value.kReverse);
 		strafeDeployed = true;
 	}
 	
 	public void strafeDisable() {
-		strafeSolenoid.set(DoubleSolenoid.Value.kReverse);
+		strafeSolenoid.set(DoubleSolenoid.Value.kForward);
 		strafeDeployed = false;
 	}
 	

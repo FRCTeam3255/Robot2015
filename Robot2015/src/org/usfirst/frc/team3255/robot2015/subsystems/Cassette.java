@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.Preferences;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -37,7 +38,7 @@ public class Cassette extends PIDSubsystem {
 	
 	//Solenoids
 	DoubleSolenoid lockSolenoid = null;
-	DoubleSolenoid trashSolenoid = null;
+	Solenoid trashSolenoid = null;
 	DoubleSolenoid liftSolenoid = null;
 	
 	public static final double LIFT_SPEED = 0.5;
@@ -54,8 +55,8 @@ public class Cassette extends PIDSubsystem {
 		rightLiftTalon = new Talon(RobotMap.CASSETTE_RIGHT_LIFT_TALON);
 		
 		lockSolenoid = new DoubleSolenoid(0, RobotMap.CASSTTE_DEPLOY_LOCK_SOLENOID, RobotMap.CASSTTE_RETRACT_LOCK_SOLENOID);
-		trashSolenoid = new DoubleSolenoid(0, RobotMap.CASSETTE_DEPLOY_TRASH_SOLENOID, RobotMap.CASSETTE_RETRACT_TRASH_SOLENOID);
-		liftSolenoid = new DoubleSolenoid(1, RobotMap.CASSETTE_DEPLOY_LIFT_SOLENOID, RobotMap.CASSTTE_RETRACT_LIFT_SOLENOID);
+		trashSolenoid = new Solenoid(1, RobotMap.CASSETTE_DEPLOY_TRASH_SOLENOID);
+		liftSolenoid = new DoubleSolenoid(0, RobotMap.CASSETTE_DEPLOY_LIFT_SOLENOID, RobotMap.CASSTTE_RETRACT_LIFT_SOLENOID);
 		
 		liftEncoder = new Encoder(RobotMap.CASSETTE_ENCODER_CHANNEL_A, RobotMap.CASSETTE_ENCODER_CHANNEL_B, false, Encoder.EncodingType.k4X);
 		liftEncoder.setDistancePerPulse(0.01);
@@ -88,11 +89,11 @@ public class Cassette extends PIDSubsystem {
     }
     
     public void grabTrash() {
-    	trashSolenoid.set(DoubleSolenoid.Value.kForward);
+    	trashSolenoid.set(true);
     }
     
     public void releaseTrash() {
-    	trashSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	trashSolenoid.set(false);
     }
     
     public void grabTote() {

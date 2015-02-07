@@ -50,18 +50,17 @@ public class RobotMap {
 	public static final int DRIVETRAIN_GYRO = 1;
 	
 	// Module 0 Solenoids
-	public static final int CLAW_OPEN_SOLENOID = 2;
-	public static final int CLAW_CLOSE_SOLENOID = 3;
-	public static final int CASSETTE_DEPLOY_LIFT_SOLENOID = 4;
-	public static final int CASSTTE_RETRACT_LIFT_SOLENOID = 5;
-	public static final int CASSETTE_DEPLOY_TRASH_SOLENOID = 6;
-	public static final int CASSETTE_RETRACT_TRASH_SOLENOID = 7;
-	public static final int CASSTTE_DEPLOY_LOCK_SOLENOID = 0;
-	public static final int CASSTTE_RETRACT_LOCK_SOLENOID = 1;
-
-	// Module 1 Solenoids
 	public static final int DRIVETRAIN_STRAFE_DEPLOY_SOLENOID = 0;
 	public static final int DRIVETRAIN_STRAFE_RETRACT_SOLENOID = 1;
+	public static final int CASSETTE_DEPLOY_LIFT_SOLENOID = 2;
+	public static final int CASSTTE_RETRACT_LIFT_SOLENOID = 3;
+	public static final int CASSTTE_DEPLOY_LOCK_SOLENOID = 6;
+	public static final int CASSTTE_RETRACT_LOCK_SOLENOID = 7;
+
+	// Module 1 Solenoids
+	public static final int CASSETTE_DEPLOY_TRASH_SOLENOID = 0;
+	public static final int CLAW_OPEN_SOLENOID = 2;
+	public static final int CLAW_CLOSE_SOLENOID = 3;
 	
 	//Digital Inputs
 	public static final int CLAW_TOP_LIMITSWITCH = 0;
