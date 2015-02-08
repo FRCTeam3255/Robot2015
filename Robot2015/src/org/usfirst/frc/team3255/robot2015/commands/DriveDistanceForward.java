@@ -6,11 +6,13 @@ package org.usfirst.frc.team3255.robot2015.commands;
 public class DriveDistanceForward extends CommandBase {
 	
 	double setPoint;
+	double speed;
 
-    public DriveDistanceForward(double feet) {
+    public DriveDistanceForward(double s, double feet) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(drivetrain);
+    	speed = s;
     	setPoint = feet;
     }
 
@@ -21,7 +23,7 @@ public class DriveDistanceForward extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.setSpeed(0.25);
+    	drivetrain.setSpeed(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

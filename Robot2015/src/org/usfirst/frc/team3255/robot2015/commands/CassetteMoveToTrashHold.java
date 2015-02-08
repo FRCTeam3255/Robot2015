@@ -4,8 +4,6 @@ package org.usfirst.frc.team3255.robot2015.commands;
  *
  */
 public class CassetteMoveToTrashHold extends CommandBase {
-	
-	double speed;
 
     public CassetteMoveToTrashHold() {
         // Use requires() here to declare subsystem dependencies
@@ -16,12 +14,11 @@ public class CassetteMoveToTrashHold extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.grabTote();
-    	speed = cassette.getLiftSpeed();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	cassette.setSpeed(speed);
+    	cassette.raise();
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -41,10 +41,9 @@ public class OI {
 	public static Joystick driverStick = new Joystick(RobotMap.JOYSTICK_DRIVER);
 	public static Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPLUATOR);
 	
+	Button D3 = new JoystickButton(driverStick, 3);
 	Button D5 = new JoystickButton(driverStick, 5);
 	Button D6 = new JoystickButton(driverStick, 6);
-	Button D9 = new JoystickButton(driverStick, 9);
-	Button D10 = new JoystickButton(driverStick, 10);
 	
 	Button M1 = new JoystickButton(manipulatorStick, 1);
 	Button M2 = new JoystickButton(manipulatorStick, 2);
@@ -54,13 +53,15 @@ public class OI {
 	Button M6 = new JoystickButton(manipulatorStick, 6);
 	Button M7 = new JoystickButton(manipulatorStick, 7);
 	Button M8 = new JoystickButton(manipulatorStick, 8);
+	Button M9 = new JoystickButton(manipulatorStick, 9);
+	Button M10 = new JoystickButton(manipulatorStick, 10);
 	Button M11 = new JoystickButton(manipulatorStick, 11);
+	Button M12 = new JoystickButton(manipulatorStick, 12);
 	
 	public OI()	{
+		D3.whenPressed(new DriveStop());
 		D5.whenPressed(new DriveStrafeDisable()); 
-		D6.whenPressed(new DriveStrafeEnable()); 
-		D9.whenPressed(new CameraReverse());
-		D10.whenPressed(new CameraForward());
+		D6.whenPressed(new DriveStrafeEnable());
 		
 		M1.whenPressed(new CassettePickupTote());
 		M2.whenPressed(new CassetteUnloadAndBackup());
@@ -70,7 +71,10 @@ public class OI {
 		M6.whenPressed(new CassetteReleaseTote());
 		M7.whenPressed(new CassetteDeployTrashCorrector());
 		M8.whenPressed(new CassetteRetractTrashCorrector());
+		M9.whenPressed(new CollectorRetractToteEjector());
+		M10.whenPressed(new CollectorDeployToteEjector());
 		M11.whenPressed(new CassetteUnload());
+		M12.whenPressed(new CassetteMoveToTotePickup());
 	}
 	
 	

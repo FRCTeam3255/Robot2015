@@ -8,7 +8,6 @@ import com.ni.vision.NIVision.Image;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -41,9 +40,10 @@ public class Robot extends IterativeRobot {
     	autoChooser = new SendableChooser();
     	autoChooser.addDefault("Auto Pickup 3 Totes", new AutoPickup3Totes());
     	// TODO determine DriveDistance value
-    	autoChooser.addObject("Drive Forward", new DriveDistanceForward(5.0));
+    	autoChooser.addObject("Drive Forward", new DriveDistanceForward(RobotPreferences.autoDriveSpeed(), 
+    			RobotPreferences.autoDriveDistance()));
     	// 15 seconds is the duration of autonomous
-    	autoChooser.addObject("Do Nothing", new DoDelay(15.0));
+    	autoChooser.addObject("Do Nothing", new DoDelay(2.0));
     	SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
     	
     	// USB Camera
@@ -111,8 +111,7 @@ public class Robot extends IterativeRobot {
     public void cameraInit() {
     	frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
         // the camera name (ex "cam0") can be found through the roborio web interface
-        String cameraName = Preferences.getInstance().getString("CameraName", "cam0");
-        session = NIVision.IMAQdxOpenCamera(cameraName,
+        session = NIVision.IMAQdxOpenCamera(RobotPreferences.cameraName(),
                 NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         NIVision.IMAQdxConfigureGrab(session);
     }

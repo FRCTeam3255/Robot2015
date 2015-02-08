@@ -7,11 +7,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class CassetteUnloadAndBackup extends CommandGroup {
+public class DriveForwardPickupTote extends CommandGroup {
     
-	// Starts: Above tote pickup, open or closed, and locked or unlocked
-	// Ends: Tote Hold, closed, and locked
-    public  CassetteUnloadAndBackup() {
+    public  DriveForwardPickupTote() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -29,10 +27,11 @@ public class CassetteUnloadAndBackup extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new CassetteUnload());
-    	addSequential(new DriveDistanceReverse(RobotPreferences.unloadDistance()));
-    	addSequential(new CassetteMoveToToteHold());
-    	addSequential (new CassetteGrabTote());
-    	addSequential(new CassetteLock());
+    	addParallel(new WaitForToteAndPickup());
+    	// TODO Find DriveDistanceForward Distance
+    	double distance = RobotPreferences.autoToteDistance();
+    	double speed = RobotPreferences.autoDriveSpeed();
+    	addSequential(new DriveDistanceForward(distance, speed));
+    	
     }
 }

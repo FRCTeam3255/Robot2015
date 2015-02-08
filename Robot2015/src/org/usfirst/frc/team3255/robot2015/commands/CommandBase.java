@@ -12,10 +12,8 @@ public abstract class CommandBase extends Command {
 	
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Cassette cassette = new Cassette();
-	public static final Claw claw = new Claw();
     public static final Telemetry telemetry = new Telemetry();
     public static final Collector collector = new Collector();
-    public static final Camera camera = new Camera();
 	public static OI oi;
 	
     public CommandBase() {

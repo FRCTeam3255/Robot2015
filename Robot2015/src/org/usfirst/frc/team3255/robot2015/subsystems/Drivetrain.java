@@ -2,12 +2,12 @@ package org.usfirst.frc.team3255.robot2015.subsystems;
 
 import org.usfirst.frc.team3255.robot2015.OI;
 import org.usfirst.frc.team3255.robot2015.RobotMap;
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 import org.usfirst.frc.team3255.robot2015.commands.DriveArcade;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,8 +19,6 @@ public class Drivetrain extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	
-	double commandedStrafeSpeed;
 	boolean strafeDeployed = false;
 	
 	//Motor Controllers
@@ -43,6 +41,7 @@ public class Drivetrain extends Subsystem {
 
 	public Gyro gyro = null;
 	
+	// TODO Update for final gear ratios
 	// To compute ft / encoder pulse:
     //
     // (4.125 * PI) in    1 ft     1 A rot     40 teeth    1 B rot     1 C rot    12 teeth     1 encoder rot
@@ -76,7 +75,8 @@ public class Drivetrain extends Subsystem {
 		strafeLeftTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_LEFT_TALON);
 		
 		// Delpoy Retract strafe wheels
-		strafeSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_STRAFE_DEPLOY_SOLENOID, RobotMap.DRIVETRAIN_STRAFE_RETRACT_SOLENOID);
+		strafeSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_PCM, 
+				RobotMap.DRIVETRAIN_STRAFE_DEPLOY_SOLENOID, RobotMap.DRIVETRAIN_STRAFE_RETRACT_SOLENOID);
 		
 		robotDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
 		
@@ -87,7 +87,8 @@ public class Drivetrain extends Subsystem {
 		
 		gyro = new Gyro(RobotMap.DRIVETRAIN_GYRO);
 		
-		this.strafeDisable();
+		// Initialize Drivetrain Conditions
+		strafeDisable();
 	}
 	
 	public void setSpeed(double s) {
@@ -111,14 +112,15 @@ public class Drivetrain extends Subsystem {
 		// negate the drive axis so that pushing stick forward is +1
 		double moveSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_MOVE);
 		double rotateSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_ROTATE);
-		double sensitivity = Preferences.getInstance().getDouble("Sensitivity", 1.0);
-		robotDrive.arcadeDrive(moveSpeed * sensitivity, rotateSpeed * sensitivity);
+		double arcadeSensitivity = RobotPreferences.driveSensitivity();
+		robotDrive.arcadeDrive(moveSpeed * arcadeSensitivity, rotateSpeed * arcadeSensitivity);
 	
 		if(strafeDeployed) {
 			double hSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_HDRIVE);
+			double strafeSensitivity = RobotPreferences.driveStrafeSensitivity();
+			hSpeed = hSpeed * strafeSensitivity;
 			strafeLeftTalon.set(hSpeed);
 			strafeRightTalon.set(hSpeed);
-			commandedStrafeSpeed = hSpeed;
 		}
 		else {
 			strafeLeftTalon.set(0.0);
@@ -142,10 +144,6 @@ public class Drivetrain extends Subsystem {
 	
 	public double getStrafeSpeed() {
 		return strafeLeftTalon.get();
-	}
-	
-	public double getCommandedStrafeSpeed() {
-		return commandedStrafeSpeed;
 	}
 
 	public void initDefaultCommand() {
