@@ -11,11 +11,14 @@ public class RobotPreferences {
 	}
 	
 	public static double cassetteRaiseSpeed() {
-		return Preferences.getInstance().getDouble("CassetteLiftSpeed", Cassette.LIFT_SPEED);
+		// always set the speed in the preferences window to a positive value
+		return Preferences.getInstance().getDouble("CassetteLiftSpeed", 0.5);
 	}
 	
 	public static double cassetteLowerSpeed() {
-		return -Preferences.getInstance().getDouble("CassetteLowerSpeed", Cassette.LIFT_SPEED);
+		// always set the speed in the preferences window to a positive value
+		// then this routine inverts it for the motor speed to lower the lift
+		return -Preferences.getInstance().getDouble("CassetteLowerSpeed", 0.3);
 	}
 	
 	public static double driveSensitivity() {
@@ -24,6 +27,10 @@ public class RobotPreferences {
 	
 	public static double driveStrafeSensitivity() {
 		return Preferences.getInstance().getDouble("DriveStrafeSensitivity", 1.0);
+	}
+	
+	public static double unloadSpeed() {
+		return Preferences.getInstance().getDouble("UnloadSpeed", 0.3);
 	}
 	
 	public static double unloadDistance() {

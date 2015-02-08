@@ -34,15 +34,13 @@ public class Cassette extends Subsystem {
 	Solenoid trashSolenoid = null;
 	DoubleSolenoid paddleSolenoid = null;
 	
-	public static final double LIFT_SPEED = 0.5;
-	
     // Initialize your subsystem here
     public Cassette() {
     	leftLiftTalon = new Talon(RobotMap.CASSETTE_LEFT_LIFT_TALON);
 		rightLiftTalon = new Talon(RobotMap.CASSETTE_RIGHT_LIFT_TALON);
 		
 		trashSolenoid = new Solenoid(RobotMap.CASSETTE_PCM,
-				RobotMap.CASSETTE_DEPLOY_TRASH_SOLENOID);
+				RobotMap.CASSETTE_TRASH_DEPLOY_SOLENOID);
 		lockSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
 				RobotMap.CASSTTE_LOCK_DEPLOY_SOLENOID, RobotMap.CASSTTE_LOCK_RETRACT_SOLENOID);
 		paddleSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
@@ -71,6 +69,7 @@ public class Cassette extends Subsystem {
     	setSpeed(s);
     }
     
+    // positive speed moves up
     public void setSpeed(double s) {
     	leftLiftTalon.set(s);
     	rightLiftTalon.set(s);

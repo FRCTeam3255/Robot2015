@@ -53,7 +53,7 @@ public class RobotMap {
 	public static final int CASSTTE_PADDLE_RETRACT_SOLENOID = 3;
 	public static final int CASSTTE_LOCK_DEPLOY_SOLENOID = 4;
 	public static final int CASSTTE_LOCK_RETRACT_SOLENOID = 5;
-	public static final int CASSETTE_DEPLOY_TRASH_SOLENOID = 6;
+	public static final int CASSETTE_TRASH_DEPLOY_SOLENOID = 6;
 
 	// Module 1 Solenoids
 	public static final int COLLECTOR_EJECTOR_DEPLOY_SOLENOID = 0;

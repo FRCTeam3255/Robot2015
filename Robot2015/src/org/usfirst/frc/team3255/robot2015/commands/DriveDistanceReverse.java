@@ -6,11 +6,14 @@ package org.usfirst.frc.team3255.robot2015.commands;
 public class DriveDistanceReverse extends CommandBase {
 	
 	double setPoint;
+	double speed;
 
-    public DriveDistanceReverse(double feet) {
+	// this routine takes a positive speed and positive feet, but goes in reverse at that speed for that distance
+    public DriveDistanceReverse(double s, double feet) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(drivetrain);
+    	speed = s;
     	setPoint = feet;
     }
 
@@ -21,7 +24,7 @@ public class DriveDistanceReverse extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.setSpeed(-0.25);
+    	drivetrain.setSpeed(-speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -30,7 +30,7 @@ public class CassetteUnloadAndBackup extends CommandGroup {
         // arm.
     	
     	addSequential(new CassetteUnload());
-    	addSequential(new DriveDistanceReverse(RobotPreferences.unloadDistance()));
+    	addSequential(new DriveDistanceReverse(RobotPreferences.unloadSpeed(), RobotPreferences.unloadDistance()));
     	addSequential(new CassetteMoveToToteHold());
     	addSequential (new CassetteGrabTote());
     	addSequential(new CassetteLock());
