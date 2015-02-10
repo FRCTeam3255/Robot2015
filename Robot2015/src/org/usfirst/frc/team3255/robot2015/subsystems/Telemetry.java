@@ -32,6 +32,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive Stop", new DriveStop());
 		SmartDashboard.putData("Drive Gyro Reset", new DriveTrainResetGyro());
 		
+		// SmartDashboard.putData("Calibrate Talons", new TalonCalibration());
+		
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
 
 		LiveWindow.addActuator("Cassette", "Motor 1", CommandBase.cassette.leftLiftTalon);

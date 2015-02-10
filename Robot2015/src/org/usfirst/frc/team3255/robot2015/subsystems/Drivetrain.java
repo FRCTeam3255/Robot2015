@@ -80,6 +80,8 @@ public class Drivetrain extends Subsystem {
 		
 		robotDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
 		
+		robotDrive.setSafetyEnabled(false);
+		
 		leftEncoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_B);
 		rightEncoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B);
 		leftEncoder.setDistancePerPulse(DRIVE_ENCODER_FEET_PER_PULSE);
