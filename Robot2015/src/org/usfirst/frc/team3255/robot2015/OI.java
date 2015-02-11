@@ -62,7 +62,7 @@ public class OI {
 		D3.whenPressed(new DriveStop());
 		D5.whenPressed(new DriveStrafeDisable()); 
 		D6.whenPressed(new DriveStrafeEnable());
-		
+
 		M1.whenPressed(new CassettePickupTote());
 		M2.whenPressed(new CassetteUnloadAndBackup());
 		M3.whenPressed(new CassettePickupTippedTrash());

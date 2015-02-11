@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3255.robot2015;
 
-import org.usfirst.frc.team3255.robot2015.subsystems.Cassette;
-
 import edu.wpi.first.wpilibj.Preferences;
 
 public class RobotPreferences {

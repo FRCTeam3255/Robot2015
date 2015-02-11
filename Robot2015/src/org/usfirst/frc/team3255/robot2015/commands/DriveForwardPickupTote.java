@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
-import org.usfirst.frc.team3255.robot2015.RobotPreferences;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -28,10 +26,8 @@ public class DriveForwardPickupTote extends CommandGroup {
         // arm.
     	
     	addParallel(new WaitForToteAndPickup());
-    	// TODO Find DriveDistanceForward Distance
-    	double distance = RobotPreferences.autoToteDistance();
-    	double speed = RobotPreferences.autoDriveSpeed();
-    	addSequential(new DriveDistanceForward(distance, speed));
+    	// TODO Find AutoDriveForward Distance
+    	addSequential(new  AutoDriveForward());
     	
     }
 }

@@ -24,32 +24,31 @@ public class TalonCalibration extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addParallel(new DriveForward());
+    	addParallel(new TalonCalibrationForwardTime(2.0));
     	addSequential(new DoDelay(2.0));
-    	addParallel(new DriveReverse());
-    	addSequential(new DoDelay(2.0));
-    	
-    	addParallel(new DriveForward());
-    	addSequential(new DoDelay(2.0));
-    	addParallel(new DriveReverse());
+    	addParallel(new TalonCalibrationReverseTime(2.0));
     	addSequential(new DoDelay(2.0));
     	
-    	addParallel(new DriveForward());
+    	addParallel(new TalonCalibrationForwardTime(2.0));
     	addSequential(new DoDelay(2.0));
-    	addParallel(new DriveReverse());
-    	addSequential(new DoDelay(2.0));
-    	
-    	addParallel(new DriveForward());
-    	addSequential(new DoDelay(2.0));
-    	addParallel(new DriveReverse());
+    	addParallel(new TalonCalibrationReverseTime(2.0));
     	addSequential(new DoDelay(2.0));
     	
-    	addParallel(new DriveForward());
+    	addParallel(new TalonCalibrationForwardTime(2.0));
     	addSequential(new DoDelay(2.0));
-    	addParallel(new DriveReverse());
+    	addParallel(new TalonCalibrationReverseTime(2.0));
     	addSequential(new DoDelay(2.0));
     	
-    	addSequential(new DriveStop());
+    	addParallel(new TalonCalibrationForwardTime(2.0));
+    	addSequential(new DoDelay(2.0));
+    	addParallel(new TalonCalibrationReverseTime(2.0));
+    	addSequential(new DoDelay(2.0));
     	
+    	addParallel(new TalonCalibrationForwardTime(2.0));
+    	addSequential(new DoDelay(2.0));
+    	addParallel(new TalonCalibrationReverseTime(2.0));
+    	addSequential(new DoDelay(2.0));
+    	
+    	addSequential(new TalonCalibrationStop());
     }
 }
