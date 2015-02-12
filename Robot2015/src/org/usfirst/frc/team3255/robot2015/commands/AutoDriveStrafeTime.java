@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
+
 /**
  *
  */
@@ -13,12 +15,12 @@ public class AutoDriveStrafeTime extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	drivetrain.strafeEnable();
-    	this.setTimeout(drivetrain.autoStrafeTime);
+    	this.setTimeout(RobotPreferences.autoStrafeTime());
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.autoStrafeSpeed();
+    	drivetrain.setStrafeSpeed(RobotPreferences.autoStrafeSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()

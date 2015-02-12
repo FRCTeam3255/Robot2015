@@ -66,7 +66,7 @@ public class Cassette extends Subsystem {
     
     public void lower() {
     	double s = RobotPreferences.cassetteLowerSpeed();
-    	setSpeed(s);
+    	setSpeed(-s);
     }
     
     // positive speed moves up

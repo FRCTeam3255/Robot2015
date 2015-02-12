@@ -20,9 +20,6 @@ public class Drivetrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	boolean strafeDeployed = false;
-	public double unloadDistance = RobotPreferences.unloadDistance();
-	public double autoToteDistance = RobotPreferences.autoToteDistance();
-	public double autoStrafeTime = RobotPreferences.autoStrafeTime();
 	
 	//Motor Controllers
 	Talon leftFrontTalon = null;
@@ -94,28 +91,6 @@ public class Drivetrain extends Subsystem {
 		
 		// Initialize Drivetrain Conditions
 		strafeDisable();
-	}
-	
-	public void calibrateTalon(double s){
-		leftFrontTalon.set(s);
-		leftBackTalon.set(s);
-		rightFrontTalon.set(s);
-		rightBackTalon.set(s);
-	}
-	
-	public void reverseFromToteSpeed() {
-		double s = RobotPreferences.unloadSpeed();
-		setSpeed(-s);
-	}
-	
-	public void autoDriveSpeed() {
-		double s = RobotPreferences.autoDriveSpeed();
-		setSpeed(s);
-	}
-	
-	public void autoStrafeSpeed() {
-		double s = RobotPreferences.autoStrafeSpeed();
-		setSpeed(s);
 	}
 	
 	public void setSpeed(double s) {

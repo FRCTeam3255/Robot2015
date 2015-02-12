@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
+
 /**
  *
  */
@@ -19,12 +21,12 @@ public class DriveReverseFromTote extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.reverseFromToteSpeed();
+    	drivetrain.setSpeed(-RobotPreferences.unloadSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return(drivetrain.getReverseDistance() >= drivetrain.unloadDistance);
+        return(drivetrain.getReverseDistance() >= RobotPreferences.unloadDistance());
     }
 
     // Called once after isFinished returns true

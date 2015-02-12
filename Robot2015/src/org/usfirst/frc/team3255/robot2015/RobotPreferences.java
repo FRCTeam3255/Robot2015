@@ -15,8 +15,7 @@ public class RobotPreferences {
 	
 	public static double cassetteLowerSpeed() {
 		// always set the speed in the preferences window to a positive value
-		// then this routine inverts it for the motor speed to lower the lift
-		return -Preferences.getInstance().getDouble("CassetteLowerSpeed", 0.3);
+		return Preferences.getInstance().getDouble("CassetteLowerSpeed", 0.3);
 	}
 	
 	public static double driveSensitivity() {
