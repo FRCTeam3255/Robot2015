@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3255.robot2015.subsystems;
 
+import org.usfirst.frc.team3255.robot2015.OI;
 import org.usfirst.frc.team3255.robot2015.commands.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -32,7 +33,10 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive Stop", new DriveStop());
 		SmartDashboard.putData("Drive Gyro Reset", new DriveTrainResetGyro());
 		
-	    //SmartDashboard.putData("Calibrate Talons", new TalonCalibration());
+		SmartDashboard.putData("Rotate Left", new DriveTrainRotateRight());
+		
+		SmartDashboard.putData("Release Trash", new CassetteRetractTrashCorrector());
+		SmartDashboard.putData("Deploy Trash", new CassetteDeployTrashCorrector());
 		
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
 
@@ -46,6 +50,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Drive Gyro", CommandBase.drivetrain.getGyro());
 		SmartDashboard.putNumber("Drive Forward Distance", CommandBase.drivetrain.getForwardDistance());
 		SmartDashboard.putNumber("Drive Reverse Distance", CommandBase.drivetrain.getReverseDistance());
+		
+		SmartDashboard.putNumber("Joysticks POV", OI.driverStick.getPOV());
 		
 		SmartDashboard.putNumber("Cassette Talon 1 Speed", CommandBase.cassette.leftLiftTalon.get());
 

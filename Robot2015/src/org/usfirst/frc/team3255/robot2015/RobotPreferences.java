@@ -3,7 +3,7 @@ package org.usfirst.frc.team3255.robot2015;
 import edu.wpi.first.wpilibj.Preferences;
 
 public class RobotPreferences {
-	
+
 	public static String cameraName() {
         return Preferences.getInstance().getString("CameraName", "cam0");
 	}
@@ -53,6 +53,10 @@ public class RobotPreferences {
 
 	public static double autoToteDistance() {
 		return Preferences.getInstance().getDouble("AutoToteDistance", 5.0);
+	}
+
+	public static double rotationSpeed() {
+		return Preferences.getInstance().getDouble("RobotRotationSpeed", 0.5);
 	}
 
 }

@@ -40,10 +40,13 @@ public class OI {
 	// Joysticks
 	public static Joystick driverStick = new Joystick(RobotMap.JOYSTICK_DRIVER);
 	public static Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPLUATOR);
+	public static POVHat driverPOV = new POVHat(driverStick);
 	
 	Button D3 = new JoystickButton(driverStick, 3);
 	Button D5 = new JoystickButton(driverStick, 5);
 	Button D6 = new JoystickButton(driverStick, 6);
+	Button D9 = new JoystickButton(driverStick, 9);
+	Button D10 = new JoystickButton(driverStick, 10);
 	
 	Button M1 = new JoystickButton(manipulatorStick, 1);
 	Button M2 = new JoystickButton(manipulatorStick, 2);
@@ -62,6 +65,10 @@ public class OI {
 		D3.whenPressed(new DriveStop());
 		D5.whenPressed(new DriveStrafeDisable()); 
 		D6.whenPressed(new DriveStrafeEnable());
+		D9.whenPressed(new DriveTrainRotateLeft());
+		D10.whenPressed(new DriveTrainRotateRight());
+		
+		driverPOV.Right.whenActive(new DriveTrainRotateLeft());
 
 		M1.whenPressed(new CassettePickupTote());
 		M2.whenPressed(new CassetteUnloadAndBackup());

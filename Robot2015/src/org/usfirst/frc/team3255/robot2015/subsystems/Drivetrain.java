@@ -100,6 +100,14 @@ public class Drivetrain extends Subsystem {
 		rightBackTalon.set(-s);
 	}
 	
+	public void setRotationSpeed(double s) {
+		// This will set talons so robot will rotate to the left
+		leftFrontTalon.set(s);
+		leftBackTalon.set(s);
+		rightFrontTalon.set(s);
+		rightBackTalon.set(s);
+	}
+	
 	public void setStrafeSpeed(double s) {
 		strafeLeftTalon.set(s);
 		strafeRightTalon.set(s);
