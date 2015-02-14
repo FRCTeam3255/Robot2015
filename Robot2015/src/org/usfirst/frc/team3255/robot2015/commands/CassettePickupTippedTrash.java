@@ -32,14 +32,16 @@ public class CassettePickupTippedTrash extends CommandGroup {
     	addSequential(new CassetteUnlock());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteMoveToTotePickup());
+    	// In this case WaitForTote actually waits for trash. Looks for limitSwitch closed.
+    	addSequential(new WaitForTote());
     	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteDeployTrashCorrector());
-    	addSequential(new DoDelay(0.1));
+    	addSequential(new DeployTrashCorrector());
+    	addSequential(new DoDelay(1.0));
     	addSequential(new CassetteMoveToTrashHold());
     	addSequential(new DoDelay(0.5));
     	addSequential(new CassetteMoveToTotePickup());
     	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteRetractTrashCorrector());
+    	addSequential(new RetractTrashCorrector());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassettePickupTrash());
     }

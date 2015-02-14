@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.subsystems;
 
 import org.usfirst.frc.team3255.robot2015.OI;
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 import org.usfirst.frc.team3255.robot2015.commands.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -17,13 +18,13 @@ public class Telemetry extends Subsystem {
 
     public Telemetry() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 		init();
 	}
 
 	public Telemetry(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
+		
 		init();
 	}
 
@@ -33,10 +34,13 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive Stop", new DriveStop());
 		SmartDashboard.putData("Drive Gyro Reset", new DriveTrainResetGyro());
 		
-		SmartDashboard.putData("Rotate Left", new DriveTrainRotateRight());
+		SmartDashboard.putData("Rotate Left", new DrivetrainRotateRight());
 		
-		SmartDashboard.putData("Release Trash", new CassetteRetractTrashCorrector());
-		SmartDashboard.putData("Deploy Trash", new CassetteDeployTrashCorrector());
+		SmartDashboard.putData("Deploy Ejector", new CollectorDeployToteEjector());
+		SmartDashboard.putData("Retract Ejector", new CollectorRetractToteEjector());
+		
+		SmartDashboard.putData("Release Trash", new RetractTrashCorrector());
+		SmartDashboard.putData("Deploy Trash", new DeployTrashCorrector());
 		
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
 
@@ -54,6 +58,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Joysticks POV", OI.driverStick.getPOV());
 		
 		SmartDashboard.putNumber("Cassette Talon 1 Speed", CommandBase.cassette.leftLiftTalon.get());
+		SmartDashboard.putNumber("Cassette Raise Speed", RobotPreferences.cassetteRaiseSpeed());
 
 		SmartDashboard.putBoolean("Top Position", CommandBase.cassette.isTopSwitchClosed());
 		SmartDashboard.putBoolean("Trash Hold Position", CommandBase.cassette.isTrashHoldSwitchClosed());
@@ -61,6 +66,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Step Position", CommandBase.cassette.isStepSwitchClosed());
 		SmartDashboard.putBoolean("Tote Pickup Position", CommandBase.cassette.isTotePickupSwitchClosed());
 		SmartDashboard.putBoolean("Bottom Position", CommandBase.cassette.isBottomSwitchClosed());
+		SmartDashboard.putBoolean("Tote Detected", CommandBase.cassette.isToteDetected());
 	}
 	
 	public void initDefaultCommand() {

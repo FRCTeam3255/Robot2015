@@ -5,9 +5,9 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 /**
  *
  */
-public class DriveTrainRotateRight extends CommandBase {
+public class DrivetrainRotateRight extends CommandBase {
 
-    public DriveTrainRotateRight() {
+    public DrivetrainRotateRight() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(drivetrain);
@@ -20,13 +20,13 @@ public class DriveTrainRotateRight extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.setRotationSpeed(-RobotPreferences.rotationSpeed());
+    	drivetrain.setRotationSpeed(RobotPreferences.gyroRotationSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	// TODO check which degree will turn the robot to the left
-        return(drivetrain.getGyro() <= -90);
+        return(drivetrain.getGyro() >= RobotPreferences.gyroRotateRightAngle());
     }
 
     // Called once after isFinished returns true

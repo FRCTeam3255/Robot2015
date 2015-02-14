@@ -6,7 +6,6 @@ import org.usfirst.frc.team3255.robot2015.commands.WaitForToteAndPickup;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -31,7 +30,6 @@ public class Cassette extends Subsystem {
 	
 	//Solenoids
 	DoubleSolenoid lockSolenoid = null;
-	Solenoid trashSolenoid = null;
 	DoubleSolenoid paddleSolenoid = null;
 	
     // Initialize your subsystem here
@@ -39,8 +37,6 @@ public class Cassette extends Subsystem {
     	leftLiftTalon = new Talon(RobotMap.CASSETTE_LEFT_LIFT_TALON);
 		rightLiftTalon = new Talon(RobotMap.CASSETTE_RIGHT_LIFT_TALON);
 		
-		trashSolenoid = new Solenoid(RobotMap.CASSETTE_PCM,
-				RobotMap.CASSETTE_TRASH_DEPLOY_SOLENOID);
 		lockSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
 				RobotMap.CASSTTE_LOCK_DEPLOY_SOLENOID, RobotMap.CASSTTE_LOCK_RETRACT_SOLENOID);
 		paddleSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
@@ -81,14 +77,6 @@ public class Cassette extends Subsystem {
     
     public void unlock() {
     	lockSolenoid.set(DoubleSolenoid.Value.kReverse);
-    }
-    
-    public void grabTrash() {
-    	trashSolenoid.set(true);
-    }
-    
-    public void releaseTrash() {
-    	trashSolenoid.set(false);
     }
     
     public void grabTote() {

@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -25,11 +27,13 @@ public class AutoPickup3Totes extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new DriveForwardPickupTote());
-    	addSequential(new DriveForwardPickupTote());
-    	addSequential(new DriveForwardPickupTote());
-    	// TODO Find DriveStrafeTime(seconds) based off of testing.
-    	addSequential(new AutoDriveStrafeTime());
+    	addSequential(new Auto3ToteDelay());
+    	addSequential(new DriveForwardPickupTote(RobotPreferences.autoStartDistance()));
+    	addSequential(new DriveForwardPickupTote(RobotPreferences.autoToteDistance()));
+    	addSequential(new DriveForwardPickupTote(RobotPreferences.autoToteDistance()));
+    	addSequential(new DrivetrainRotateRight());
+    	addSequential(new AutoDriveForward());
+    	addSequential(new DrivetrainRotateLeft());
     	addSequential(new CassetteUnloadAndBackup());
     }
 }

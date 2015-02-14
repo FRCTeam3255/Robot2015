@@ -40,8 +40,7 @@ public class Robot extends IterativeRobot {
     	autoChooser = new SendableChooser();
     	autoChooser.addDefault("Auto Pickup 3 Totes", new AutoPickup3Totes());
     	// TODO determine DriveDistance value
-    	autoChooser.addObject("Drive Forward", new DriveDistanceForward(RobotPreferences.autoDriveSpeed(), 
-    			RobotPreferences.autoDriveDistance()));
+    	autoChooser.addObject("Auto Pickup 1 Tote", new AutoPickup1Tote());
     	// 15 seconds is the duration of autonomous
     	autoChooser.addObject("Do Nothing", new DoDelay(2.0));
     	SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
@@ -84,8 +83,7 @@ public class Robot extends IterativeRobot {
      * This function is called when the disabled button is hit.
      * You can use it to reset subsystems before shutting down.
      */
-    
-    // TODO Double check if this is the right place to put unlock cassette 
+     
     public void disabledInit() {
     	cameraStop();
         cameraStart();

@@ -19,8 +19,9 @@ public class RobotMap {
 	public static final int AXIS_ARCADE_ROTATE = 2;
 	public static final int AXIS_HDRIVE = 0;
 	
-	public static final int AXIS_COLLECTOR_SPEED = 1;
 	public static final int AXIS_COLLECTOR_PAN = 0;
+	public static final int AXIS_COLLECTOR_SPEED = 1;
+	public static final int AXIS_CASSETTE_SPEED_FACTOR = 3;
 	
 	// PWMs
 	public static final int DRIVETRAIN_FRONT_LEFT_TALON = 0;
@@ -43,7 +44,8 @@ public class RobotMap {
 	// Subsystem PCM Modules
 	public static final int DRIVETRAIN_PCM = 0;
 	public static final int CASSETTE_PCM = 0;
-	public static final int COLLECTOR_PCM = 1;
+	public static final int COLLECTOR_PCM = 0;
+	public static final int TRASH_CORRECTOR_PCM = 1;
 	
 	// Module 0 Solenoids
 	public static final int DRIVETRAIN_STRAFE_DEPLOY_SOLENOID = 0;
@@ -53,11 +55,13 @@ public class RobotMap {
 	public static final int CASSTTE_PADDLE_RETRACT_SOLENOID = 3;
 	public static final int CASSTTE_LOCK_DEPLOY_SOLENOID = 4;
 	public static final int CASSTTE_LOCK_RETRACT_SOLENOID = 5;
-	public static final int CASSETTE_TRASH_DEPLOY_SOLENOID = 6;
+	
+	public static final int COLLECTOR_EJECTOR_DEPLOY_SOLENOID = 6;
+	public static final int COLLECTOR_EJECTOR_RETRACT_SOLENOID = 7;
+	
 
 	// Module 1 Solenoids
-	public static final int COLLECTOR_EJECTOR_DEPLOY_SOLENOID = 0;
-	public static final int COLLECTOR_EJECTOR_RETRACT_SOLENOID = 1;
+	public static final int TRASH_CORRECTOR_DEPLOY_SOLENOID = 0;
 	
 	//Digital Inputs
 	public static final int DRIVETRAIN_ENCODER_LEFT_CHANNEL_A = 0;

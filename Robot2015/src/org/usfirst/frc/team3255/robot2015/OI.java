@@ -1,3 +1,4 @@
+
 package org.usfirst.frc.team3255.robot2015;
 
 import org.usfirst.frc.team3255.robot2015.commands.*;
@@ -40,9 +41,11 @@ public class OI {
 	// Joysticks
 	public static Joystick driverStick = new Joystick(RobotMap.JOYSTICK_DRIVER);
 	public static Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPLUATOR);
-	public static POVHat driverPOV = new POVHat(driverStick);
 	
+	Button D1 = new JoystickButton(driverStick, 1);
+	Button D2 = new JoystickButton(driverStick, 2);
 	Button D3 = new JoystickButton(driverStick, 3);
+	Button D4 = new JoystickButton(driverStick, 4);
 	Button D5 = new JoystickButton(driverStick, 5);
 	Button D6 = new JoystickButton(driverStick, 6);
 	Button D9 = new JoystickButton(driverStick, 9);
@@ -62,13 +65,12 @@ public class OI {
 	Button M12 = new JoystickButton(manipulatorStick, 12);
 	
 	public OI()	{
-		D3.whenPressed(new DriveStop());
+		D1.whenPressed(new DrivetrainRotateLeft());
+		D2.whenPressed(new DrivetrainRotate180());
+		D3.whenPressed(new DrivetrainRotateRight());
+		D4.whenPressed(new DriveStop());
 		D5.whenPressed(new DriveStrafeDisable()); 
 		D6.whenPressed(new DriveStrafeEnable());
-		D9.whenPressed(new DriveTrainRotateLeft());
-		D10.whenPressed(new DriveTrainRotateRight());
-		
-		driverPOV.Right.whenActive(new DriveTrainRotateLeft());
 
 		M1.whenPressed(new CassettePickupTote());
 		M2.whenPressed(new CassetteUnloadAndBackup());
@@ -76,10 +78,9 @@ public class OI {
 		M4.whenPressed(new CassettePickupTrash());
 		M5.whenPressed(new CassetteGrabTote());
 		M6.whenPressed(new CassetteReleaseTote());
-		M7.whenPressed(new CassetteDeployTrashCorrector());
-		M8.whenPressed(new CassetteRetractTrashCorrector());
-		M9.whenPressed(new CollectorRetractToteEjector());
-		M10.whenPressed(new CollectorDeployToteEjector());
+		M7.whenPressed(new DeployTrashCorrector());
+		M8.whenPressed(new RetractTrashCorrector());
+		M9.whenPressed(new CollectorEjectTotesOnStep());
 		// M11.whenPressed(new CassetteUnload());
 		M11.whenPressed(new CassetteMoveToTotePickup());
 		M12.whenPressed(new CassetteMoveToToteHold());

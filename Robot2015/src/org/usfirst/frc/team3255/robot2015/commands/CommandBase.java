@@ -12,9 +12,10 @@ public abstract class CommandBase extends Command {
 	
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Cassette cassette = new Cassette();
-    public static final Telemetry telemetry = new Telemetry();
     public static final Collector collector = new Collector();
-	public static OI oi;
+    public static final TrashCorrector trashCorrector = new TrashCorrector();
+    public static final Telemetry telemetry = new Telemetry();
+    public static OI oi;
 	
     public CommandBase() {
         // Use requires() here to declare subsystem dependencies
@@ -22,7 +23,6 @@ public abstract class CommandBase extends Command {
     }
 
 	public static void init() {
-		// TODO Auto-generated method stub
 		oi = new OI();	
 	}
 }
