@@ -25,24 +25,32 @@ public class CassettePickupTippedTrash extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	// Start: home, closed, and locked
-    	// Ends: trash hold, open, and locked
+    	// Start: pickup, open, and locked
+    	// Ends: trash hold, closed, and locked
     	
-    	addSequential(new CassetteReleaseTote());
+    	// Waiting for Trash
     	addSequential(new CassetteUnlock());
-    	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteMoveToTotePickup());
-    	// In this case WaitForTote actually waits for trash. Looks for limitSwitch closed.
+    	addSequential(new CassetteLock());
+    	addSequential(new CassetteReleaseTote());
+    	// In this case WaitForTote waits for trash
     	addSequential(new WaitForTote());
-    	addSequential(new DoDelay(0.1));
+    	
+    	// Picks up tipped trash
     	addSequential(new DeployTrashCorrector());
     	addSequential(new DoDelay(1.0));
+    	addSequential(new CassetteUnlock());
+    	addSequential(new DoDelay(0.1));
+    	addSequential(new CassetteMoveToStepUp());
+    	addSequential(new CassetteGrabTote());
     	addSequential(new CassetteMoveToTrashHold());
-    	addSequential(new DoDelay(0.5));
-    	addSequential(new CassetteMoveToTotePickup());
-    	addSequential(new DoDelay(0.1));
     	addSequential(new RetractTrashCorrector());
-    	addSequential(new DoDelay(0.1));
-    	addSequential(new CassettePickupTrash());
+    	addSequential(new DoDelay(0.5));
+    	addSequential(new CassetteMoveToStepDown());
+    	addSequential(new CassetteReleaseTote());
+    	addSequential(new DoDelay(0.5));
+    	addSequential(new CassetteGrabTote());
+    	addSequential(new CassetteMoveToTrashHold());
+    	addSequential(new CassetteLock());
     }
 }
