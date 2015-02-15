@@ -58,16 +58,17 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("AutoStrafeSpeed", 1.0);
 	}
 	
+	// TODO Too be determined
 	public static double autoStrafeTime() {
 		return Preferences.getInstance().getDouble("AutoStrafeTime", 5.0);
 	}
 
 	public static double autoToteDistance() {
-		return Preferences.getInstance().getDouble("AutoToteDistance", 5.0);
+		return Preferences.getInstance().getDouble("AutoToteDistance", 6.75);
 	}
 	
 	public static double autoStartDistance() {
-		return Preferences.getInstance().getDouble("AutoStartDistance", 1.0);
+		return Preferences.getInstance().getDouble("AutoStartDistance", 2.0);
 	}
 
 	public static double gyroRotationSpeed() {

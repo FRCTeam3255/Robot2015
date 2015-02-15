@@ -43,10 +43,10 @@ public class Drivetrain extends Subsystem {
 	
 	// TODO Update for final gear ratios
 	// To compute ft / encoder pulse:
-    //
-    // (4.125 * PI) in    1 ft     1 A rot     40 teeth    1 B rot     1 C rot    12 teeth     1 encoder rot
+	//
+    // (6 * PI) in        1 ft     1 A rot     36 teeth    1 B rot     1 C rot    12 teeth     1 encoder rot
     //   ------------- * ------ * ---------- * -------- * --------- * --------- * --------- * --------------
-    //     1 wheel rot    12 in    44 teeth    1 B rot     1 C rot    36 teeth     1 D rot      250 pulses
+    //     1 wheel rot    12 in    50 teeth    1 B rot     1 C rot    36 teeth     1 D rot      250 pulses
     //
     // Result = 0.0004363323129
 	static final double DRIVE_ENCODER_FEET_PER_PULSE = (57.0 / 48.0) * (4.125 * Math.PI) * (1.0 / 12.0) * (1.0 / 44.0) * (40.0 / 1.0) * (1.0 / 36.0) * (12.0 / 1.0) * (1.0 / 250.0);

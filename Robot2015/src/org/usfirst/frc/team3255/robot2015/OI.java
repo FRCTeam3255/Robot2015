@@ -78,8 +78,8 @@ public class OI {
 		M4.whenPressed(new CassettePickupTrash());
 		M5.whenPressed(new CassetteGrabTote());
 		M6.whenPressed(new CassetteReleaseTote());
-		M7.whenPressed(new DeployTrashCorrector());
-		M8.whenPressed(new RetractTrashCorrector());
+		// M7.whenPressed(new DeployTrashCorrector());
+		// M8.whenPressed(new RetractTrashCorrector());
 		M9.whenPressed(new CollectorEjectTotesOnStep());
 		// M11.whenPressed(new CassetteUnload());
 		M11.whenPressed(new CassetteMoveToTotePickup());
