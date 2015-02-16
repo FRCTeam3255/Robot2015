@@ -41,6 +41,8 @@ public class Telemetry extends Subsystem {
 		
 		SmartDashboard.putData("Release Trash", new RetractTrashCorrector());
 		SmartDashboard.putData("Deploy Trash", new DeployTrashCorrector());
+		SmartDashboard.putData("Cassette Lock", new CassetteLock());
+		SmartDashboard.putData("Cassette Unlock", new CassetteUnlock());
 		
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
 
@@ -52,8 +54,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Drive Speed", CommandBase.drivetrain.getSpeed());
 		SmartDashboard.putNumber("Strafe Speed", CommandBase.drivetrain.getStrafeSpeed());
 		SmartDashboard.putNumber("Drive Gyro", CommandBase.drivetrain.getGyro());
-		SmartDashboard.putNumber("Drive Forward Distance", CommandBase.drivetrain.getForwardDistance());
-		SmartDashboard.putNumber("Drive Reverse Distance", CommandBase.drivetrain.getReverseDistance());
+		SmartDashboard.putNumber("Drive Forward Distance", CommandBase.drivetrain.getForwardCount());
+		SmartDashboard.putNumber("Drive Reverse Distance", CommandBase.drivetrain.getReverseCount());
 		
 		SmartDashboard.putNumber("Joysticks POV", OI.driverStick.getPOV());
 		

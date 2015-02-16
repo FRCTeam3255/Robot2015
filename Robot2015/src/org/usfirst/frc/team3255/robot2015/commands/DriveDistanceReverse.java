@@ -29,7 +29,7 @@ public class DriveDistanceReverse extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return(drivetrain.getReverseDistance() >= setPoint);
+        return(drivetrain.getReverseCount() >= setPoint);
     }
 
     // Called once after isFinished returns true
