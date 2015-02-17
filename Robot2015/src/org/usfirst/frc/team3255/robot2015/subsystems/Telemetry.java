@@ -45,7 +45,10 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Deploy Trash", new DeployTrashCorrector());
 		SmartDashboard.putData("Cassette Lock", new CassetteLock());
 		SmartDashboard.putData("Cassette Unlock", new CassetteUnlock());
-		
+
+		SmartDashboard.putData("Cassette Move Past Step", new CassetteMovePastStep());
+		SmartDashboard.putData("Delayed Deploy Corrector", new DelayedDeployTrashCorrector());
+
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
 
 		LiveWindow.addActuator("Cassette", "Motor 1", CommandBase.cassette.leftLiftTalon);

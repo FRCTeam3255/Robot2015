@@ -5,34 +5,45 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 /**
  *
  */
-public class DriveReverseFromTote extends CommandBase {
+public class CassetteMovePastStep extends CommandBase {
 
-	// this routine takes a positive speed and positive feet, but goes in reverse at that speed for that distance
-    public DriveReverseFromTote() {
+	boolean firstTime = true;
+	
+    public CassetteMovePastStep() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(drivetrain);
+    	requires(cassette);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	drivetrain.resetEncoders();
-    	drivetrain.updateEncoderRatio();
+    	cassette.unlock();
+    	firstTime = true;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.setSpeed(-RobotPreferences.unloadSpeed());
+    	// if we see the tote hold switch, start a timer to move past it
+    	if (cassette.isStepSwitchClosed() && firstTime) {
+    		this.setTimeout(RobotPreferences.toteStepDelay());
+    		firstTime = false;
+    	}
+    	cassette.raise();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return(drivetrain.getReverseDistance() >= RobotPreferences.unloadDistance());
+    	// stop if we hit top
+    	if (cassette.isTopSwitchClosed()) {
+    		return true;
+    	}
+    	// don't stop until the timer expires
+    	return ((firstTime == false) && (isTimedOut()));
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	drivetrain.setSpeed(0.0);
+    	cassette.setSpeed(0.0);
     }
 
     // Called when another command which requires one or more of the same

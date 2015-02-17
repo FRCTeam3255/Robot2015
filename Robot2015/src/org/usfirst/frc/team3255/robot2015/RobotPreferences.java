@@ -94,4 +94,12 @@ public class RobotPreferences {
 	public static double getPulsesPer5Feet() {
 		return Preferences.getInstance().getDouble("PulsesPer5Feet", 50.0);
 	}
+
+	public static double toteStepDelay() {
+		return Preferences.getInstance().getDouble("ToteStepDelay", 0.5);
+	}
+
+	public static double deployCorrectorDelay() {
+		return Preferences.getInstance().getDouble("DeployCorrectorDelay", 0.5);
+	}
 }

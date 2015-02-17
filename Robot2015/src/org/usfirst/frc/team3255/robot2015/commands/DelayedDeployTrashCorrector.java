@@ -5,34 +5,33 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 /**
  *
  */
-public class DriveReverseFromTote extends CommandBase {
+public class DelayedDeployTrashCorrector extends CommandBase {
 
-	// this routine takes a positive speed and positive feet, but goes in reverse at that speed for that distance
-    public DriveReverseFromTote() {
+    public DelayedDeployTrashCorrector() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(drivetrain);
+    	requires(cassette);
+    	requires(trashCorrector);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	drivetrain.resetEncoders();
-    	drivetrain.updateEncoderRatio();
+    	cassette.releaseTote();
+    	this.setTimeout(RobotPreferences.deployCorrectorDelay());
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.setSpeed(-RobotPreferences.unloadSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return(drivetrain.getReverseDistance() >= RobotPreferences.unloadDistance());
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	drivetrain.setSpeed(0.0);
+    	trashCorrector.grabTrash();
     }
 
     // Called when another command which requires one or more of the same

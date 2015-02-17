@@ -94,11 +94,7 @@ public class Drivetrain extends Subsystem {
 	// positive rotation speed should rotate left
 	public void setRotationSpeed(double rotSpeed) {
 		// This will set talons so robot will rotate to the left
-		robotDrive.arcadeDrive(0.0, rotSpeed);
-		// leftFrontTalon.set(s);
-		// leftBackTalon.set(s);
-		// rightFrontTalon.set(s);
-		// rightBackTalon.set(s);
+		robotDrive.arcadeDrive(0.0, -rotSpeed);
 	}
 	
 	public void setStrafeSpeed(double s) {
@@ -171,21 +167,21 @@ public class Drivetrain extends Subsystem {
 	public double getForwardCount() {
 		// TODO Use the encoder that counts up when driving forward
 		// TODO Determine if this should get or getRaw
-		return rightEncoder.get();
+		return leftEncoder.get();
 	}
 	
 	public double getReverseCount() {
 		// TODO Use the encoder that counts up when driving reverse
 		// TODO Determine if this should get or getRaw
-		return leftEncoder.get();
+		return rightEncoder.get();
 	}
 	
 	public double getForwardDistance() {
-		return rightEncoder.getDistance();
+		return leftEncoder.getDistance();
 	}
 	
 	public double getReverseDistance() {
-		return leftEncoder.getDistance();
+		return rightEncoder.getDistance();
 	}
 	
 	public void updateEncoderRatio() {
