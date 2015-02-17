@@ -32,7 +32,9 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive Forward", new DriveForward());
 		SmartDashboard.putData("Drive Reverse", new DriveReverse());
 		SmartDashboard.putData("Drive Stop", new DriveStop());
-		SmartDashboard.putData("Drive Gyro Reset", new DriveTrainResetGyro());
+		SmartDashboard.putData("Drive Gyro Reset", new DrivetrainResetGyro());
+		SmartDashboard.putData("Reset Encoder", new DrivetrainResetEncoder());
+		SmartDashboard.putData("Update Encoder Ratio", new DrivetrainUpdateEncoderRatio());
 		
 		SmartDashboard.putData("Rotate Left", new DrivetrainRotateRight());
 		
@@ -54,8 +56,10 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Drive Speed", CommandBase.drivetrain.getSpeed());
 		SmartDashboard.putNumber("Strafe Speed", CommandBase.drivetrain.getStrafeSpeed());
 		SmartDashboard.putNumber("Drive Gyro", CommandBase.drivetrain.getGyro());
-		SmartDashboard.putNumber("Drive Forward Distance", CommandBase.drivetrain.getForwardCount());
-		SmartDashboard.putNumber("Drive Reverse Distance", CommandBase.drivetrain.getReverseCount());
+		SmartDashboard.putNumber("Drive Forward Count", CommandBase.drivetrain.getForwardCount());
+		SmartDashboard.putNumber("Drive Forward Distance", CommandBase.drivetrain.getForwardDistance());
+		SmartDashboard.putNumber("Drive Reverse Count", CommandBase.drivetrain.getReverseCount());
+		SmartDashboard.putNumber("Drive Reverse Distance", CommandBase.drivetrain.getReverseDistance());		
 		
 		SmartDashboard.putNumber("Joysticks POV", OI.driverStick.getPOV());
 		
@@ -69,6 +73,9 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Tote Pickup Position", CommandBase.cassette.isTotePickupSwitchClosed());
 		SmartDashboard.putBoolean("Bottom Position", CommandBase.cassette.isBottomSwitchClosed());
 		SmartDashboard.putBoolean("Tote Detected", CommandBase.cassette.isToteDetected());
+		
+		SmartDashboard.putBoolean("Home Mode", CommandBase.cassette.isHome());
+		SmartDashboard.putBoolean("Trash Pickup Mode", CommandBase.cassette.isTrashPickup());
 	}
 	
 	public void initDefaultCommand() {

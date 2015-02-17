@@ -65,6 +65,7 @@ public class OI {
 	Button M12 = new JoystickButton(manipulatorStick, 12);
 	
 	public OI()	{
+		// driverStick
 		D1.whenPressed(new DrivetrainRotateLeft());
 		D2.whenPressed(new DrivetrainRotate180());
 		D3.whenPressed(new DrivetrainRotateRight());
@@ -72,18 +73,19 @@ public class OI {
 		D5.whenPressed(new DriveStrafeDisable()); 
 		D6.whenPressed(new DriveStrafeEnable());
 
+		// manipulatorStick joystick
 		M1.whenPressed(new CassettePickupTote());
 		M2.whenPressed(new CassetteUnloadAndBackup());
-		M3.whenPressed(new CassettePickupTippedTrash());
+		M3.whenPressed(new CassetteWaitPickupTippedTrash());
 		M4.whenPressed(new CassettePickupTrash());
-		M5.whenPressed(new CassetteGrabTote());
-		M6.whenPressed(new CassetteReleaseTote());
-		// M7.whenPressed(new DeployTrashCorrector());
-		// M8.whenPressed(new RetractTrashCorrector());
-		M9.whenPressed(new CollectorEjectTotesOnStep());
-		// M11.whenPressed(new CassetteUnload());
-		M11.whenPressed(new CassetteMoveToTotePickup());
-		M12.whenPressed(new CassetteMoveToToteHold());
+		M5.whenPressed(new CassetteReleaseTote());
+		M6.whenPressed(new CassetteGrabTote());
+
+		M8.whenPressed(new CassetteStopUnlock());
+		M9.whenPressed(new RetractTrashCorrector());
+		M10.whenPressed(new DeployTrashCorrector());
+		M11.whenPressed(new CollectorEjectTotesOnStep());
+		M12.whenPressed(new CassettePickupTippedTrash());
 	}
 	
 	

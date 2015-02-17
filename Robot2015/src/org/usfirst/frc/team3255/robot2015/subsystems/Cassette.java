@@ -32,6 +32,8 @@ public class Cassette extends Subsystem {
 	DoubleSolenoid lockSolenoid = null;
 	DoubleSolenoid paddleSolenoid = null;
 	
+	public boolean toteGrabbed = true;
+	
     // Initialize your subsystem here
     public Cassette() {
     	leftLiftTalon = new Talon(RobotMap.CASSETTE_LEFT_LIFT_TALON);
@@ -53,6 +55,7 @@ public class Cassette extends Subsystem {
 		
 		// Initialize Cassette Conditions
 		lock();
+		grabTote();
 	}
     
     public void raise() {
@@ -71,6 +74,7 @@ public class Cassette extends Subsystem {
     	rightLiftTalon.set(s);
     }
     
+    // Solenoids
     public void lock() {
     	lockSolenoid.set(DoubleSolenoid.Value.kForward);
     }
@@ -81,12 +85,19 @@ public class Cassette extends Subsystem {
     
     public void grabTote() {
     	paddleSolenoid.set(DoubleSolenoid.Value.kForward);
+    	toteGrabbed = true;
     }
     
     public void releaseTote() {
     	paddleSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	toteGrabbed = false;
     }
     
+    public boolean isToteGrabbed() {
+    	return toteGrabbed;
+    }
+   
+    // Switches
     public boolean isTopSwitchClosed() {
     	return (topSwitch.get() == false);
     }
@@ -113,6 +124,15 @@ public class Cassette extends Subsystem {
     
     public boolean isToteDetected() {
     	return (toteDetectSwitch.get() == false);
+    }
+    
+    // Modes
+    public boolean isHome() {
+    	return ((isToteGrabbed() == true) && (isToteHoldSwitchClosed() == true));
+    }
+    
+    public boolean isTrashPickup() {
+    	return ((isToteGrabbed() == false) && (isTotePickupSwitchClosed() == true));
     }
     
     public void initDefaultCommand() {

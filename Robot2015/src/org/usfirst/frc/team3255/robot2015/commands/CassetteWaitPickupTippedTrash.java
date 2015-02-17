@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class CassettePickupTippedTrash extends CommandGroup {
+public class CassetteWaitPickupTippedTrash extends CommandGroup {
     
-    public  CassettePickupTippedTrash() {
+    public  CassetteWaitPickupTippedTrash() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -18,26 +18,24 @@ public class CassettePickupTippedTrash extends CommandGroup {
         // e.g. addParallel(new Command1());
         //      addSequential(new Command2());
         // Command1 and Command2 will run in parallel.
-
+    	
         // A command group will require all of the subsystems that each member
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new DeployTrashCorrector());
-    	addSequential(new DoDelay(1.0));
+    	
+    	// Start: pickup, open, and locked
+    	// Ends: trash hold, closed, and locked
+    	
+    	// Waiting for Trash
     	addSequential(new CassetteUnlock());
-    	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteMoveToStepUp());
-    	addSequential(new CassetteGrabTote());
-    	addSequential(new CassetteMoveToTrashHold());
-    	addSequential(new RetractTrashCorrector());
-    	addSequential(new DoDelay(0.5));
-    	addSequential(new CassetteMoveToStepDown());
+    	addSequential(new CassetteMoveToTotePickup());
     	addSequential(new CassetteReleaseTote());
-    	addSequential(new DoDelay(0.5));
-    	addSequential(new CassetteGrabTote());
-    	addSequential(new CassetteMoveToTrashHold());
-    	addSequential(new CassetteLock());
+    	// In this case WaitForTote waits for trash
+    	addSequential(new WaitForTote());
+    	
+    	// Picks up tipped trash
+    	addSequential(new CassettePickupTippedTrash());
     }
 }

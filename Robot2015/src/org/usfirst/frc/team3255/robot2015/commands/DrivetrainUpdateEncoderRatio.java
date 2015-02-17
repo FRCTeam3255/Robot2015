@@ -3,9 +3,9 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class DrivetrainResetGyro extends CommandBase {
+public class DrivetrainUpdateEncoderRatio extends CommandBase {
 
-    public DrivetrainResetGyro() {
+    public DrivetrainUpdateEncoderRatio() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(drivetrain);
@@ -13,7 +13,7 @@ public class DrivetrainResetGyro extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	drivetrain.resetGyro();
+    	drivetrain.updateEncoderRatio();
     }
 
     // Called repeatedly when this Command is scheduled to run

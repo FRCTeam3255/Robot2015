@@ -3,17 +3,17 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class DrivetrainResetGyro extends CommandBase {
+public class CassetteStop extends CommandBase {
 
-    public DrivetrainResetGyro() {
+    public CassetteStop() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(drivetrain);
+    	requires(cassette);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	drivetrain.resetGyro();
+    	cassette.setSpeed(0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run

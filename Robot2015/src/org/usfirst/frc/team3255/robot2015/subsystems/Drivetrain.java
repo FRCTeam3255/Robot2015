@@ -41,16 +41,6 @@ public class Drivetrain extends Subsystem {
 
 	public Gyro gyro = null;
 	
-	// TODO Update for final gear ratios
-	// To compute ft / encoder pulse:
-	//
-    // (6 * PI) in        1 ft     1 A rot     36 teeth    1 B rot     1 C rot    12 teeth     1 encoder rot
-    //   ------------- * ------ * ---------- * -------- * --------- * --------- * --------- * --------------
-    //     1 wheel rot    12 in    50 teeth    1 B rot     1 C rot    36 teeth     1 D rot      250 pulses
-    //
-    // Result = 0.0004363323129
-	static final double DRIVE_ENCODER_FEET_PER_PULSE = (57.0 / 48.0) * (4.125 * Math.PI) * (1.0 / 12.0) * (1.0 / 44.0) * (40.0 / 1.0) * (1.0 / 36.0) * (12.0 / 1.0) * (1.0 / 250.0);
-	
     public Drivetrain() {
 		super();
 		
@@ -82,15 +72,16 @@ public class Drivetrain extends Subsystem {
 		
 		robotDrive.setSafetyEnabled(false);
 		
-		leftEncoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_B);
-		rightEncoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B);
-		leftEncoder.setDistancePerPulse(DRIVE_ENCODER_FEET_PER_PULSE);
-		rightEncoder.setDistancePerPulse(DRIVE_ENCODER_FEET_PER_PULSE);
+		leftEncoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_A,
+				RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_B);
+		rightEncoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, 
+				RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B);
 		
 		gyro = new Gyro(RobotMap.DRIVETRAIN_GYRO);
 		
 		// Initialize Drivetrain Conditions
 		strafeDisable();
+		updateEncoderRatio();
 	}
 	
 	public void setSpeed(double s) {
@@ -179,12 +170,27 @@ public class Drivetrain extends Subsystem {
 	
 	public double getForwardCount() {
 		// TODO Use the encoder that counts up when driving forward
-		return rightEncoder.getDistance();
+		// TODO Determine if this should get or getRaw
+		return rightEncoder.get();
 	}
 	
 	public double getReverseCount() {
 		// TODO Use the encoder that counts up when driving reverse
+		// TODO Determine if this should get or getRaw
+		return leftEncoder.get();
+	}
+	
+	public double getForwardDistance() {
+		return rightEncoder.getDistance();
+	}
+	
+	public double getReverseDistance() {
 		return leftEncoder.getDistance();
+	}
+	
+	public void updateEncoderRatio() {
+		leftEncoder.setDistancePerPulse(5.0/RobotPreferences.getPulsesPer5Feet());
+		rightEncoder.setDistancePerPulse(5.0/RobotPreferences.getPulsesPer5Feet());
 	}
 }
 

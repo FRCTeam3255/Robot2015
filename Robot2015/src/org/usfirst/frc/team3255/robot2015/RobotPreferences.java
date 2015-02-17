@@ -90,4 +90,8 @@ public class RobotPreferences {
 	public static double auto3ToteDealy() {
 		return Preferences.getInstance().getDouble("Auto3ToteDealy", 1.0);
 	}
+	
+	public static double getPulsesPer5Feet() {
+		return Preferences.getInstance().getDouble("PulsesPer5Feet", 50.0);
+	}
 }
