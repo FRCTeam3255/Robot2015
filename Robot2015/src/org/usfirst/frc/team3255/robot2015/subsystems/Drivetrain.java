@@ -20,6 +20,7 @@ public class Drivetrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	boolean strafeDeployed = false;
+	boolean arcadeFullSpeedDisabled = true;
 	
 	//Motor Controllers
 	Talon leftFrontTalon = null;
@@ -112,7 +113,13 @@ public class Drivetrain extends Subsystem {
 		double moveSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_MOVE);
 		double rotateSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_ARCADE_ROTATE);
 		double arcadeSensitivity = RobotPreferences.driveSensitivity();
+		
+		if (arcadeFullSpeedDisabled) {
 		robotDrive.arcadeDrive(moveSpeed * arcadeSensitivity, rotateSpeed * arcadeSensitivity);
+		}
+		else {
+		robotDrive.arcadeDrive(moveSpeed * arcadeSensitivity, rotateSpeed * 1.0);
+		}
 	
 		if(strafeDeployed) {
 			double hSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_HDRIVE);
@@ -125,6 +132,14 @@ public class Drivetrain extends Subsystem {
 			strafeLeftTalon.set(0.0);
 			strafeRightTalon.set(0.0);
 		}
+	}
+	
+	public boolean arcadeFullSpeedDisabled() {
+		return arcadeFullSpeedDisabled = true;
+	}
+	
+	public boolean arcadeFullSpeedEnabled() {
+		return arcadeFullSpeedDisabled = false;
 	}
 	
 	public void strafeEnable() {

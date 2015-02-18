@@ -48,6 +48,8 @@ public class OI {
 	Button D4 = new JoystickButton(driverStick, 4);
 	Button D5 = new JoystickButton(driverStick, 5);
 	Button D6 = new JoystickButton(driverStick, 6);
+	Button D7 = new JoystickButton(driverStick, 7);
+	Button D8 = new JoystickButton(driverStick, 8);
 	Button D9 = new JoystickButton(driverStick, 9);
 	Button D10 = new JoystickButton(driverStick, 10);
 	
@@ -70,8 +72,10 @@ public class OI {
 		D2.whenPressed(new DrivetrainRotate180());
 		D3.whenPressed(new DrivetrainRotateRight());
 		D4.whenPressed(new DriveStop());
-		D5.whenPressed(new DriveStrafeDisable()); 
-		D6.whenPressed(new DriveStrafeEnable());
+		D5.whenPressed(new ArcadeFullSpeedDisabled());
+		D6.whenPressed(new ArcadeFullSpeedEnabled());
+		D7.whenPressed(new DriveStrafeDisable()); 
+		D8.whenPressed(new DriveStrafeEnable());
 
 		// manipulatorStick joystick
 		M1.whenPressed(new CassettePickupTote());
@@ -80,7 +84,8 @@ public class OI {
 		M4.whenPressed(new CassettePickupTrash());
 		M5.whenPressed(new CassetteReleaseTote());
 		M6.whenPressed(new CassetteGrabTote());
-
+		M7.whenPressed(new CassetteUnlock());
+		M7.whileHeld(new CassaetteEngageManualDrive());
 		M8.whenPressed(new CassetteStopUnlock());
 		M9.whenPressed(new RetractTrashCorrector());
 		M10.whenPressed(new DeployTrashCorrector());

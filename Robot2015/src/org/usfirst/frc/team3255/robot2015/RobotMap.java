@@ -38,6 +38,9 @@ public class RobotMap {
 	public static final int COLLECTOR_LEFT_TALON = 8;
 	public static final int COLLECTOR_RIGHT_TALON = 9;
 	
+	public static final int CAMERA_VERTICAL_SERVO = 11;
+	public static final int CAMERA_HROIZONTAL_SERVO = 12;
+	
 	//Analog Inputs
 	public static final int DRIVETRAIN_GYRO = 0;
 	

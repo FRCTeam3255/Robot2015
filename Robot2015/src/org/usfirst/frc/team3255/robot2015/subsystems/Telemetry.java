@@ -1,6 +1,5 @@
 package org.usfirst.frc.team3255.robot2015.subsystems;
 
-import org.usfirst.frc.team3255.robot2015.OI;
 import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 import org.usfirst.frc.team3255.robot2015.commands.*;
 
@@ -29,6 +28,8 @@ public class Telemetry extends Subsystem {
 	}
 
 	public void init() {
+		
+		// Comp
 		SmartDashboard.putData("Drive Forward", new DriveForward());
 		SmartDashboard.putData("Drive Reverse", new DriveReverse());
 		SmartDashboard.putData("Drive Stop", new DriveStop());
@@ -48,6 +49,11 @@ public class Telemetry extends Subsystem {
 
 		SmartDashboard.putData("Cassette Move Past Step", new CassetteMovePastStep());
 		SmartDashboard.putData("Delayed Deploy Corrector", new DelayedDeployTrashCorrector());
+		
+		SmartDashboard.putData("Camera Rotate Left", new CameraLeft());
+		SmartDashboard.putData("Camera Rotate Right", new CameraRight());
+		SmartDashboard.putData("Camera Rotate Up", new CameraUp());
+		SmartDashboard.putData("Camera Rotate Down", new CameraDown());
 
 		LiveWindow.addSensor("DriveTrain", "Gyro", CommandBase.drivetrain.gyro);
 
@@ -58,13 +64,34 @@ public class Telemetry extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Drive Speed", CommandBase.drivetrain.getSpeed());
 		SmartDashboard.putNumber("Strafe Speed", CommandBase.drivetrain.getStrafeSpeed());
+		SmartDashboard.putNumber("Drive Forward Distance", CommandBase.drivetrain.getForwardDistance());
+		SmartDashboard.putNumber("Drive Reverse Distance", CommandBase.drivetrain.getReverseDistance());		
+		
+		SmartDashboard.putNumber("Cassette Raise Speed", RobotPreferences.cassetteRaiseSpeed());
+
+		SmartDashboard.putBoolean("Tote Detected", CommandBase.cassette.isToteDetected());
+		
+		// Modes
+		SmartDashboard.putBoolean("Home Mode", CommandBase.cassette.isHome());
+		SmartDashboard.putBoolean("Trash Pickup Mode", CommandBase.cassette.isTrashPickup());
+		SmartDashboard.putBoolean("Manual Cassette Mode", CommandBase.cassette.manualCassetteEnabled);
+		SmartDashboard.putBoolean("High Speed Enabled", CommandBase.drivetrain.arcadeFullSpeedEnabled());
+		
+		/* 
+		// Debug
+		// Modes
+		SmartDashboard.putBoolean("Home Mode", CommandBase.cassette.isHome());
+		SmartDashboard.putBoolean("Trash Pickup Mode", CommandBase.cassette.isTrashPickup());
+		SmartDashboard.putBoolean("Manual Cassette Mode", CommandBase.cassette.manualCassetteEnabled);
+		SmartDashboard.putBoolean("High Speed Enabled", CommandBase.drivetrain.arcadeFullSpeedEnabled());
+		
+		SmartDashboard.putNumber("Drive Speed", CommandBase.drivetrain.getSpeed());
+		SmartDashboard.putNumber("Strafe Speed", CommandBase.drivetrain.getStrafeSpeed());
 		SmartDashboard.putNumber("Drive Gyro", CommandBase.drivetrain.getGyro());
 		SmartDashboard.putNumber("Drive Forward Count", CommandBase.drivetrain.getForwardCount());
 		SmartDashboard.putNumber("Drive Forward Distance", CommandBase.drivetrain.getForwardDistance());
 		SmartDashboard.putNumber("Drive Reverse Count", CommandBase.drivetrain.getReverseCount());
 		SmartDashboard.putNumber("Drive Reverse Distance", CommandBase.drivetrain.getReverseDistance());		
-		
-		SmartDashboard.putNumber("Joysticks POV", OI.driverStick.getPOV());
 		
 		SmartDashboard.putNumber("Cassette Talon 1 Speed", CommandBase.cassette.leftLiftTalon.get());
 		SmartDashboard.putNumber("Cassette Raise Speed", RobotPreferences.cassetteRaiseSpeed());
@@ -74,11 +101,15 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Tote Hold Position", CommandBase.cassette.isToteHoldSwitchClosed());
 		SmartDashboard.putBoolean("Step Position", CommandBase.cassette.isStepSwitchClosed());
 		SmartDashboard.putBoolean("Tote Pickup Position", CommandBase.cassette.isTotePickupSwitchClosed());
-		SmartDashboard.putBoolean("Bottom Position", CommandBase.cassette.isBottomSwitchClosed());
 		SmartDashboard.putBoolean("Tote Detected", CommandBase.cassette.isToteDetected());
 		
+		// Modes
 		SmartDashboard.putBoolean("Home Mode", CommandBase.cassette.isHome());
 		SmartDashboard.putBoolean("Trash Pickup Mode", CommandBase.cassette.isTrashPickup());
+		SmartDashboard.putBoolean("Manual Cassette Mode", CommandBase.cassette.manualCassetteEnabled);
+		SmartDashboard.putBoolean("High Speed Enabled", CommandBase.drivetrain.arcadeFullSpeedEnabled());
+		*/
+
 	}
 	
 	public void initDefaultCommand() {

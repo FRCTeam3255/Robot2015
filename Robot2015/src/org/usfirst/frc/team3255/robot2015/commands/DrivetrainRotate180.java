@@ -20,9 +20,14 @@ public class DrivetrainRotate180 extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	/*if (drivetrain.arcadeFullSpeedDisabled()) {
+    		drivetrain.setRotationSpeed(RobotPreferences.gyroRotationSpeed());
+    	}
+    	drivetrain.setRotationSpeed(1.0);
+    	*/
     	drivetrain.setRotationSpeed(RobotPreferences.gyroRotationSpeed());
     }
-
+    
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	// TODO check which degree will turn the robot to the left

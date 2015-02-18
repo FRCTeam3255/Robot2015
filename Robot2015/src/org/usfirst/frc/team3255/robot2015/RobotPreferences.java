@@ -102,4 +102,20 @@ public class RobotPreferences {
 	public static double deployCorrectorDelay() {
 		return Preferences.getInstance().getDouble("DeployCorrectorDelay", 0.5);
 	}
+
+	public static double cameraRightAngle() {
+		return Preferences.getInstance().getDouble("CameraRotateRightAngle", 90.0);
+	}
+
+	public static double cameraLeftAngle() {
+		return Preferences.getInstance().getDouble("CameraRotateLeftAngle", -90.0);
+	}
+
+	public static double cameraUpAngle() {
+		return Preferences.getInstance().getDouble("CameraRotateUpAngle", 90.0);
+	}
+	
+	public static double cameraDownAngle() {
+		return Preferences.getInstance().getDouble("CameraRotateDownAngle", -90.0);
+	}
 }

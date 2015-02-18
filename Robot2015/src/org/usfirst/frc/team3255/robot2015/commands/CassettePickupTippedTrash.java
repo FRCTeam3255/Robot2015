@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -42,13 +44,14 @@ public class CassettePickupTippedTrash extends CommandGroup {
     	addSequential(new CassetteMoveToTrashHold());
     	addSequential(new CassetteLock());
     	*/
-    	
+    	/*
     	addSequential(new CassetteUnlock());
     	addSequential(new DoDelay(0.1));
 
     	// do the following two commands together
     	addParallel(new CassetteMovePastStep());
     	addSequential(new DelayedDeployTrashCorrector());
+    	*/
     	
     	/*
     	addSequential(new RetractTrashCorrector());
@@ -59,5 +62,24 @@ public class CassettePickupTippedTrash extends CommandGroup {
     	addSequential(new CassetteMoveToTrashHold());
     	addSequential(new CassetteLock());
     	*/
+    	
+    	addSequential(new DeployTrashCorrector());
+    	addSequential(new DoDelay(1.0));
+    	addSequential(new CassetteUnlock());
+    	addSequential(new DoDelay(0.1));
+    	addSequential(new CassetteMoveToToteHold());
+    	addSequential(new CollectorDeployToteEjector());
+    	addSequential(new DoDelay(RobotPreferences.deployCorrectorDelay()));
+    	addSequential(new CassetteGrabTote());
+    	addSequential(new CassetteMoveToTrashHold());
+    	addSequential(new RetractTrashCorrector());
+    	addSequential(new CollectorRetractToteEjector());
+    	addSequential(new DoDelay(0.5));
+    	addSequential(new CassetteMoveToStepDown());
+    	addSequential(new CassetteReleaseTote());
+    	addSequential(new DoDelay(0.5));
+    	addSequential(new CassetteGrabTote());
+    	addSequential(new CassetteMoveToTrashHold());
+    	addSequential(new CassetteLock());
     }
 }

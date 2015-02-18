@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3255.robot2015.subsystems;
 
+import org.usfirst.frc.team3255.robot2015.OI;
 import org.usfirst.frc.team3255.robot2015.RobotMap;
 import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 import org.usfirst.frc.team3255.robot2015.commands.WaitForToteAndPickup;
@@ -33,6 +34,7 @@ public class Cassette extends Subsystem {
 	DoubleSolenoid paddleSolenoid = null;
 	
 	public boolean toteGrabbed = true;
+	public boolean manualCassetteEnabled = false;
 	
     // Initialize your subsystem here
     public Cassette() {
@@ -133,6 +135,10 @@ public class Cassette extends Subsystem {
     
     public boolean isTrashPickup() {
     	return ((isToteGrabbed() == false) && (isTotePickupSwitchClosed() == true));
+    }
+    
+    public double getManipulatorLiftSpeed() {
+    	return OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED);
     }
     
     public void initDefaultCommand() {
