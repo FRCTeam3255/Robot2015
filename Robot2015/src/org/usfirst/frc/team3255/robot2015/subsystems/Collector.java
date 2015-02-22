@@ -40,7 +40,7 @@ public class Collector extends Subsystem {
 	}
 	
 	public void arcadeDrive() {
-		robotDrive.arcadeDrive(OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED),
+		robotDrive.arcadeDrive(-OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED),
 				OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_PAN));
 	}
 	

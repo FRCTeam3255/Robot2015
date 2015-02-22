@@ -17,7 +17,9 @@ public class CollectorArcade extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	collector.arcadeDrive();
+    	if(cassette.isManualMode() == false) {
+    		collector.arcadeDrive();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

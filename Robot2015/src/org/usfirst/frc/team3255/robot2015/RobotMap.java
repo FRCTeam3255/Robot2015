@@ -21,6 +21,7 @@ public class RobotMap {
 	
 	public static final int AXIS_COLLECTOR_PAN = 0;
 	public static final int AXIS_COLLECTOR_SPEED = 1;
+	public static final int AXIS_CASSETTE_SPEED = 1;
 	public static final int AXIS_CASSETTE_SPEED_FACTOR = 3;
 	
 	// PWMs
@@ -39,7 +40,7 @@ public class RobotMap {
 	public static final int COLLECTOR_RIGHT_TALON = 9;
 	
 	public static final int CAMERA_VERTICAL_SERVO = 11;
-	public static final int CAMERA_HROIZONTAL_SERVO = 12;
+	public static final int CAMERA_HORIZONTAL_SERVO = 12;
 	
 	//Analog Inputs
 	public static final int DRIVETRAIN_GYRO = 0;

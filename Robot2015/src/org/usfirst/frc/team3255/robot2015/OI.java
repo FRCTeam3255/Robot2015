@@ -68,9 +68,9 @@ public class OI {
 	
 	public OI()	{
 		// driverStick
-		D1.whenPressed(new DrivetrainRotateLeft());
-		D2.whenPressed(new DrivetrainRotate180());
-		D3.whenPressed(new DrivetrainRotateRight());
+		D1.whenPressed(new RotateLeftLowSpeed());
+		D2.whenPressed(new Rotate180());
+		D3.whenPressed(new RotateRightLowSpeed());
 		D4.whenPressed(new DriveStop());
 		D5.whenPressed(new ArcadeFullSpeedDisabled());
 		D6.whenPressed(new ArcadeFullSpeedEnabled());
@@ -85,14 +85,12 @@ public class OI {
 		M5.whenPressed(new CassetteReleaseTote());
 		M6.whenPressed(new CassetteGrabTote());
 		M7.whenPressed(new CassetteUnlock());
-		M7.whileHeld(new CassaetteEngageManualDrive());
-		M8.whenPressed(new CassetteStopUnlock());
+		M7.whileHeld(new CassetteManualDrive());
+		// M8.whenPressed(new CassetteStopUnlock());
 		M9.whenPressed(new RetractTrashCorrector());
 		M10.whenPressed(new DeployTrashCorrector());
 		M11.whenPressed(new CollectorEjectTotesOnStep());
 		M12.whenPressed(new CassettePickupTippedTrash());
 	}
-	
-	
 }
 

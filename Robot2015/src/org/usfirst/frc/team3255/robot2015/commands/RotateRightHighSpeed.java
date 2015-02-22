@@ -5,32 +5,28 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 /**
  *
  */
-public class DriveAutoDistance extends CommandBase {
-	
-	double distance;
+public class RotateRightHighSpeed extends CommandBase {
 
-	// this routine takes a positive speed and positive feet, but goes in reverse at that speed for that distance
-    public DriveAutoDistance(double feet) {
+    public RotateRightHighSpeed() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(drivetrain);
-    	distance = feet;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	drivetrain.resetEncoders();
-    	drivetrain.updateEncoderRatio();
+    	drivetrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.setSpeed(RobotPreferences.autoDriveSpeed());
+    	drivetrain.setRotationSpeed(RobotPreferences.rotateRightHighSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return(drivetrain.getForwardCount() >= distance);
+    	// TODO check which degree will turn the robot to the left
+        return(drivetrain.getGyro() >= RobotPreferences.rotateRightAngle());
     }
 
     // Called once after isFinished returns true

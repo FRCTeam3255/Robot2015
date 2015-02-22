@@ -5,33 +5,33 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 /**
  *
  */
-public class DelayedDeployTrashCorrector extends CommandBase {
+public class RotateRightLowSpeed extends CommandBase {
 
-    public DelayedDeployTrashCorrector() {
+    public RotateRightLowSpeed() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(cassette);
-    	requires(trashCorrector);
+    	requires(drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	cassette.releaseTote();
-    	this.setTimeout(RobotPreferences.deployCorrectorDelay());
+    	drivetrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	drivetrain.setRotationSpeed(RobotPreferences.rotateRightLowSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+    	// TODO check which degree will turn the robot to the left
+        return(drivetrain.getGyro() >= RobotPreferences.rotateRightAngle());
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	trashCorrector.grabTrash();
+    	drivetrain.setSpeed(0.0);
     }
 
     // Called when another command which requires one or more of the same

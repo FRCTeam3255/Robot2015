@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class DriveForwardPickupTote extends CommandGroup {
+public class Auto3Totes extends CommandGroup {
     
-    public  DriveForwardPickupTote() {
+    public  Auto3Totes() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -27,7 +27,11 @@ public class DriveForwardPickupTote extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addParallel(new WaitForToteAndPickup());
-    	addSequential(new  DriveDistanceForward(RobotPreferences.auto1ToteStartSpeed(), RobotPreferences.auto1ToteStartDistance()));
+    	addSequential(new DoDelay(RobotPreferences.auto3ToteDelay()));
+    	addSequential(new DriveDistanceForward(RobotPreferences.auto3ToteStartSpeed(), RobotPreferences.auto3ToteStartDistance()));
+    	addSequential(new RotateLeftHighSpeed());
+    	addSequential(new DriveDistanceReverse(RobotPreferences.auto3ToteRevSpeed(), RobotPreferences.auto3ToteRevDistance()));
+    	addSequential(new CassetteUnloadAndBackup());
+    	addSequential(new Rotate180());
     }
 }

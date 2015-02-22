@@ -1,15 +1,15 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.OI;
+import org.usfirst.frc.team3255.robot2015.RobotMap;
 import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 
 /**
  *
  */
-public class CassetteMovePastStep extends CommandBase {
+public class CassetteManualDrive extends CommandBase {
 
-	boolean firstTime = true;
-	
-    public CassetteMovePastStep() {
+    public CassetteManualDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(cassette);
@@ -17,32 +17,27 @@ public class CassetteMovePastStep extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	cassette.unlock();
-    	firstTime = true;
+    	cassette.enableManualMode();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	// if we see the tote hold switch, start a timer to move past it
-    	if (cassette.isStepSwitchClosed() && firstTime) {
-    		this.setTimeout(RobotPreferences.toteStepDelay());
-    		firstTime = false;
-    	}
-    	cassette.raise();
+    	double s = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED);
+    	s = s * RobotPreferences.cassetteRaiseSpeed();
+    	cassette.setSpeed(s);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// stop if we hit top
-    	if (cassette.isTopSwitchClosed()) {
+    	if (cassette.isTopSwitchClosed() || cassette.isTotePickupSwitchClosed()) {
     		return true;
     	}
-    	// don't stop until the timer expires
-    	return ((firstTime == false) && (isTimedOut()));
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	cassette.disableManualMode();
     	cassette.setSpeed(0.0);
     }
 

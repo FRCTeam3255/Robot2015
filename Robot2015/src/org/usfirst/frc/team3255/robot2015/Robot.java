@@ -38,11 +38,11 @@ public class Robot extends IterativeRobot {
     	
     	// Autonomous Chooser
     	autoChooser = new SendableChooser();
-    	autoChooser.addDefault("Auto Pickup 3 Totes", new AutoPickup3Totes());
-    	// TODO determine DriveDistance value
-    	autoChooser.addObject("Auto Pickup 1 Tote", new AutoPickup1Tote());
-    	// 15 seconds is the duration of autonomous
-    	autoChooser.addObject("Do Nothing", new DoDelay(2.0));
+    	autoChooser.addDefault("Pickup 3 Totes", new Auto3Totes());
+    	autoChooser.addObject("Pickup 1 Tote", new Auto1Tote());
+    	autoChooser.addObject("Pickup 1 Tote and Trash", new Auto1ToteTrash());
+    	autoChooser.addObject("Drive Forward", new AutoDriveForward());
+    	autoChooser.addObject("Do Nothing", new AutoDelay());
     	SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
     	
     	// USB Camera

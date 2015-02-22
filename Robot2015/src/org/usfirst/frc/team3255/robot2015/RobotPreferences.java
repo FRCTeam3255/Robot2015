@@ -3,11 +3,6 @@ package org.usfirst.frc.team3255.robot2015;
 import edu.wpi.first.wpilibj.Preferences;
 
 public class RobotPreferences {
-
-	public static String cameraName() {
-        return Preferences.getInstance().getString("CameraName", "cam0");
-		// return "cam1";
-	}
 	
 	public static double cassetteRaiseSpeed() {
 		double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.4);
@@ -45,64 +40,51 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("UnloadDistance", 2.5);
 	}
 	
-	// Autonomous Preferences
-	public static double autoDriveSpeed() {
-		return Preferences.getInstance().getDouble("AutoDriveSpeed", 1.0);
+	
+	// Rotation
+	public static double rotateLeftLowSpeed() {
+		return Preferences.getInstance().getDouble("RotateLeftLowSpeed", 0.5);
 	}
 	
-	public static double autoDriveDistance() {
-		return Preferences.getInstance().getDouble("AutoDriveDistance", 10.0);
-	}
-	
-	public static double autoStrafeSpeed() {
-		return Preferences.getInstance().getDouble("AutoStrafeSpeed", 1.0);
-	}
-	
-	// TODO Too be determined
-	public static double autoStrafeTime() {
-		return Preferences.getInstance().getDouble("AutoStrafeTime", 5.0);
+	public static double rotateLeftHighSpeed() {
+		return Preferences.getInstance().getDouble("RotateLeftHighSpeed", 0.5);
 	}
 
-	public static double autoToteDistance() {
-		return Preferences.getInstance().getDouble("AutoToteDistance", 6.75);
-	}
-	
-	public static double autoStartDistance() {
-		return Preferences.getInstance().getDouble("AutoStartDistance", 2.0);
-	}
-
-	public static double gyroRotationSpeed() {
-		return Preferences.getInstance().getDouble("RotationSpeed", 0.5);
-	}
-
-	public static double gyroRotateLeftAngle() {
+	public static double rotateLeftAngle() {
 		return Preferences.getInstance().getDouble("RotateLeftAngle", 90.0);
 	}
 	
-	public static double gyroRotateRightAngle() {
+	public static double rotateRightLowSpeed() {
+		return Preferences.getInstance().getDouble("RotateRightLowSpeed", 0.5);
+	}
+	
+	public static double rotateRightHighSpeed() {
+		return Preferences.getInstance().getDouble("RotateRightHighSpeed", 0.5);
+	}
+	
+	public static double rotateRightAngle() {
 		return Preferences.getInstance().getDouble("RotateRightAngle", 90.0);
 	}
 	
-	public static double gyroRotate180Angle() {
+	public static double rotate180Angle() {
 		return Preferences.getInstance().getDouble("Rotate180Angle", 180.0);
 	}
-
-	public static double auto3ToteDealy() {
-		return Preferences.getInstance().getDouble("Auto3ToteDealy", 1.0);
-	}
 	
+	// Encoders
 	public static double getPulsesPer5Feet() {
 		return Preferences.getInstance().getDouble("PulsesPer5Feet", 50.0);
-	}
-
-	public static double toteStepDelay() {
-		return Preferences.getInstance().getDouble("ToteStepDelay", 0.5);
 	}
 
 	public static double deployCorrectorDelay() {
 		return Preferences.getInstance().getDouble("DeployCorrectorDelay", 0.5);
 	}
 
+	// Camera
+	public static String cameraName() {
+        return Preferences.getInstance().getString("CameraName", "cam0");
+		// return "cam1";
+	}
+	
 	public static double cameraRightAngle() {
 		return Preferences.getInstance().getDouble("CameraRotateRightAngle", 90.0);
 	}
@@ -117,5 +99,73 @@ public class RobotPreferences {
 	
 	public static double cameraDownAngle() {
 		return Preferences.getInstance().getDouble("CameraRotateDownAngle", -90.0);
+	}
+
+	// Autonomous Preferences
+	public static double autoDelay() {
+		return Preferences.getInstance().getDouble("AutoDelay", 0.5);
+	}
+	
+	public static double autoFwdSpeed() {
+		return Preferences.getInstance().getDouble("AutoFwdSpeed", 0.5);
+	}
+
+	public static double autoFwdDistance() {
+		return Preferences.getInstance().getDouble("AutoFwdDistance", 0.5);
+	}
+	
+		// 1 Tote
+	public static double auto1ToteStartDistance() {
+		return Preferences.getInstance().getDouble("Auto1ToteStartDistance", 0.5);
+	}
+	
+	public static double auto1ToteStartSpeed() {
+		return Preferences.getInstance().getDouble("Auto1ToteStartSpeed", 0.5);
+	}
+	
+	public static double auto1ToteRevDistance() {
+		return Preferences.getInstance().getDouble("Auto1ToteRevDistance", 0.5);
+	}
+	
+	public static double auto1ToteRevSpeed() {
+		return Preferences.getInstance().getDouble("Auto1ToteRevSpeed", 0.5);
+	}
+	
+	public static double auto1ToteDelay() {
+		return Preferences.getInstance().getDouble("Auto1ToteDelay", 0.5);
+	}
+	
+		// 3 Tote
+	public static double auto3ToteStartDistance() {
+		return Preferences.getInstance().getDouble("Auto3ToteStartDistance", 0.5);
+	}
+	
+	public static double auto3ToteStartSpeed() {
+		return Preferences.getInstance().getDouble("Auto3ToteStartSpeed", 0.5);
+	}
+	
+	public static double auto3ToteRevDistance() {
+		return Preferences.getInstance().getDouble("Auto3ToteRevDistance", 0.5);
+	}
+	
+	public static double auto3ToteRevSpeed() {
+		return Preferences.getInstance().getDouble("Auto3ToteRevSpeed", 0.5);
+	}
+	
+	public static double auto3ToteDelay() {
+		return Preferences.getInstance().getDouble("Auto3ToteDelay", 0.5);
+	}
+	
+		// Trash
+	public static double autoTrashDistance() {
+		return Preferences.getInstance().getDouble("AutoTrashDistance", 0.5);
+	}
+	
+	public static double autoTrashSpeed() {
+		return Preferences.getInstance().getDouble("AutoTrashSpeed", 0.5);
+	}
+	
+	public static double autoTrashDelay() {
+		return Preferences.getInstance().getDouble("AutoTrashDelay", 0.5);
 	}
 }

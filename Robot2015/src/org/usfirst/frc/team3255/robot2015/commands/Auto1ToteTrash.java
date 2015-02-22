@@ -1,13 +1,15 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class CassetteStopUnlock extends CommandGroup {
+public class Auto1ToteTrash extends CommandGroup {
     
-    public  CassetteStopUnlock() {
+    public  Auto1ToteTrash() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,7 +26,9 @@ public class CassetteStopUnlock extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new CassetteStop());
-    	addSequential(new CassetteUnlock());
+    	
+    	addSequential(new DriveDistanceForward(RobotPreferences.autoTrashSpeed(), RobotPreferences.autoTrashDistance()));
+    	addSequential(new DoDelay(RobotPreferences.autoTrashDelay()));
+    	addSequential(new Auto1Tote());
     }
 }

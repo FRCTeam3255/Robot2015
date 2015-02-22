@@ -17,10 +17,11 @@ public class Camera extends Subsystem {
 	Servo horizontalservo = null;
 	
 	public Camera() {
-			super();
-			verticalservo = new Servo(RobotMap.CAMERA_VERTICAL_SERVO);
-			horizontalservo = new Servo(RobotMap.CAMERA_HROIZONTAL_SERVO);
-		}
+		super();
+		verticalservo = new Servo(RobotMap.CAMERA_VERTICAL_SERVO);
+		horizontalservo = new Servo(RobotMap.CAMERA_HORIZONTAL_SERVO);
+	}
+	
 	public void setVerticalAngle(double angle) {
 		verticalservo.setAngle(angle);
 	}
