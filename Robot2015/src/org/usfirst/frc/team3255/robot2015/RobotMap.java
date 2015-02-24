@@ -66,6 +66,10 @@ public class RobotMap {
 
 	// Module 1 Solenoids
 	public static final int TRASH_CORRECTOR_DEPLOY_SOLENOID = 0;
+	public static final int COLLECTOR_WHEEL_DEPLOY = 1;
+	public static final int COLLECTOR_WHEEL_RETRACT = 2;
+	public static final int STABILIZER_PADDLE_DEPLOY = 3;
+	public static final int STABILIZER_PADDLE_RETRACT = 4;
 	
 	//Digital Inputs
 	public static final int DRIVETRAIN_ENCODER_LEFT_CHANNEL_A = 0;

@@ -5,6 +5,7 @@ import org.usfirst.frc.team3255.robot2015.RobotMap;
 import org.usfirst.frc.team3255.robot2015.commands.CollectorArcade;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -20,6 +21,7 @@ public class Collector extends Subsystem {
 	
 	// DoubleSolenoids
 	DoubleSolenoid ejectSolenoid = null;
+	DoubleSolenoid collectorDeploy = null;
 	
 	// Robot Drive
 	RobotDrive robotDrive = null;
@@ -30,6 +32,7 @@ public class Collector extends Subsystem {
 		
 		ejectSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, 
 				RobotMap.COLLECTOR_EJECTOR_DEPLOY_SOLENOID, RobotMap.COLLECTOR_EJECTOR_RETRACT_SOLENOID);
+		collectorDeploy = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, RobotMap.COLLECTOR_WHEEL_DEPLOY, RobotMap.COLLECTOR_WHEEL_RETRACT);
 		
 		robotDrive = new RobotDrive(leftCollectorTalon, rightCollectorTalon);
 	}
@@ -50,6 +53,14 @@ public class Collector extends Subsystem {
 	
 	public void retractToteEjector() {
 		ejectSolenoid.set(DoubleSolenoid.Value.kReverse);
+	}
+	
+	public void deployCollectorWheels() {
+		collectorDeploy.set(Value.kForward);
+	}
+	
+	public void retractCollectorWheels() {
+		collectorDeploy.set(Value.kReverse);
 	}
     
     // Put methods for controlling this subsystem
