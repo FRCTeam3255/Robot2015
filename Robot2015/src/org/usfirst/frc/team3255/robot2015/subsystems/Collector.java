@@ -21,7 +21,7 @@ public class Collector extends Subsystem {
 	
 	// DoubleSolenoids
 	DoubleSolenoid ejectSolenoid = null;
-	DoubleSolenoid collectorDeploy = null;
+	DoubleSolenoid collectorSolenoid = null;
 	
 	// Robot Drive
 	RobotDrive robotDrive = null;
@@ -32,7 +32,7 @@ public class Collector extends Subsystem {
 		
 		ejectSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, 
 				RobotMap.COLLECTOR_EJECTOR_DEPLOY_SOLENOID, RobotMap.COLLECTOR_EJECTOR_RETRACT_SOLENOID);
-		collectorDeploy = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, RobotMap.COLLECTOR_WHEEL_DEPLOY, RobotMap.COLLECTOR_WHEEL_RETRACT);
+		collectorSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, RobotMap.COLLECTOR_WHEEL_DEPLOY, RobotMap.COLLECTOR_WHEEL_RETRACT);
 		
 		robotDrive = new RobotDrive(leftCollectorTalon, rightCollectorTalon);
 	}
@@ -56,11 +56,11 @@ public class Collector extends Subsystem {
 	}
 	
 	public void deployCollectorWheels() {
-		collectorDeploy.set(Value.kForward);
+		collectorSolenoid.set(Value.kForward);
 	}
 	
 	public void retractCollectorWheels() {
-		collectorDeploy.set(Value.kReverse);
+		collectorSolenoid.set(Value.kReverse);
 	}
     
     // Put methods for controlling this subsystem

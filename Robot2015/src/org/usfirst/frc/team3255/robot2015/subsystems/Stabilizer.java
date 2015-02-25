@@ -1,6 +1,8 @@
 package org.usfirst.frc.team3255.robot2015.subsystems;
 
 import org.usfirst.frc.team3255.robot2015.RobotMap;
+import org.usfirst.frc.team3255.robot2015.commands.StabilizerClose;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -11,18 +13,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Stabilizer extends Subsystem {
 	
 	// DoubleSolenoids
-	DoubleSolenoid stabilizerDeploy = null;
+	DoubleSolenoid stabilizerSolenoid = null;
 	
 	public Stabilizer() {
-		stabilizerDeploy = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, RobotMap.STABILIZER_PADDLE_DEPLOY, RobotMap.STABILIZER_PADDLE_RETRACT);
+		stabilizerSolenoid = new DoubleSolenoid(RobotMap.STABILIZER_PCM, RobotMap.STABILIZER_PADDLE_DEPLOY, RobotMap.STABILIZER_PADDLE_RETRACT);
 	}
 	
 	public void deployStabilizer() {
-		stabilizerDeploy.set(Value.kForward);
+		stabilizerSolenoid.set(Value.kForward);
 	}
 	
 	public void retractStabilizer() {
-		stabilizerDeploy.set(Value.kReverse);
+		stabilizerSolenoid.set(Value.kReverse);
 	}
     
     // Put methods for controlling this subsystem
@@ -31,6 +33,7 @@ public class Stabilizer extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new StabilizerClose());
     }
 }
 

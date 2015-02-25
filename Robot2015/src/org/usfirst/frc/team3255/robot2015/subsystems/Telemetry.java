@@ -47,6 +47,11 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Cassette Lock", new CassetteLock());
 		SmartDashboard.putData("Cassette Unlock", new CassetteUnlock());
 		
+		SmartDashboard.putData("Deploy Collector Wheels", new CollectorWheelsClose());
+		SmartDashboard.putData("Retract Collector Wheels", new CollectorWheelsOpen());
+		SmartDashboard.putData("Deploy Stabilizer", new StabilizerClose());
+		SmartDashboard.putData("Retract Stabilizer", new StabilizerOpen());
+		
 		SmartDashboard.putData("Camera Rotate Left", new CameraLeft());
 		SmartDashboard.putData("Camera Rotate Right", new CameraRight());
 		SmartDashboard.putData("Camera Rotate Up", new CameraUp());

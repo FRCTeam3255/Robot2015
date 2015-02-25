@@ -49,6 +49,7 @@ public class RobotMap {
 	public static final int DRIVETRAIN_PCM = 0;
 	public static final int CASSETTE_PCM = 0;
 	public static final int COLLECTOR_PCM = 0;
+	public static final int STABILIZER_PCM = 0;
 	public static final int TRASH_CORRECTOR_PCM = 1;
 	
 	// Module 0 Solenoids
