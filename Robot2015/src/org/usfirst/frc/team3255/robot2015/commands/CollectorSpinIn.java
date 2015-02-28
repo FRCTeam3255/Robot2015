@@ -3,9 +3,9 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class CollectorWheelsOpen extends CommandBase {
+public class CollectorSpinIn extends CommandBase {
 
-    public CollectorWheelsOpen() {
+    public CollectorSpinIn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(collector);
@@ -13,16 +13,16 @@ public class CollectorWheelsOpen extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	collector.openCollectorWheels();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	collector.spinIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

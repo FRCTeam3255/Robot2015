@@ -136,12 +136,6 @@ public class Cassette extends Subsystem {
     	return ((isToteGrabbed() == false) && (isTotePickupSwitchClosed() == true));
     }
     
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new WaitForToteAndPickup());
-    }
-
 	public void enableManualMode() {
 		manualMode = true;
 		unlock();
@@ -154,4 +148,10 @@ public class Cassette extends Subsystem {
 	public boolean isManualMode() {
 		return manualMode;
 	}
+
+	public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new WaitForToteAndPickup());
+    }
 }

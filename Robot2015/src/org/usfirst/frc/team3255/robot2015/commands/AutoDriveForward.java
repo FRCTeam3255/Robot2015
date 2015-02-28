@@ -9,6 +9,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutoDriveForward extends CommandGroup {
     public AutoDriveForward() {
-       addSequential(new DriveDistanceForward(RobotPreferences.autoFwdSpeed(), RobotPreferences.autoFwdDistance()));
+       addSequential(new DriveDistanceForward(RobotPreferences.autoFwdSpeed(), RobotPreferences.autoFwdDistance(), false, true));
     }
 }

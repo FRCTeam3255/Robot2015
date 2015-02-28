@@ -48,8 +48,8 @@ public class RobotMap {
 	// Subsystem PCM Modules
 	public static final int DRIVETRAIN_PCM = 0;
 	public static final int CASSETTE_PCM = 0;
-	public static final int COLLECTOR_PCM = 0;
 	public static final int STABILIZER_PCM = 0;
+	public static final int COLLECTOR_PCM = 1;
 	public static final int TRASH_CORRECTOR_PCM = 1;
 	
 	// Module 0 Solenoids
@@ -60,17 +60,19 @@ public class RobotMap {
 	public static final int CASSTTE_PADDLE_RETRACT_SOLENOID = 3;
 	public static final int CASSTTE_LOCK_DEPLOY_SOLENOID = 4;
 	public static final int CASSTTE_LOCK_RETRACT_SOLENOID = 5;
-	
-	public static final int COLLECTOR_EJECTOR_DEPLOY_SOLENOID = 6;
-	public static final int COLLECTOR_EJECTOR_RETRACT_SOLENOID = 7;
-	
 
+	// TODO - wire stabilizer to PCM 0, ports 6 & 7
+	public static final int STABILIZER_PADDLE_DEPLOY = 6;
+	public static final int STABILIZER_PADDLE_RETRACT = 7;
+	
 	// Module 1 Solenoids
 	public static final int TRASH_CORRECTOR_DEPLOY_SOLENOID = 0;
-	public static final int COLLECTOR_WHEEL_DEPLOY = 1;
-	public static final int COLLECTOR_WHEEL_RETRACT = 2;
-	public static final int STABILIZER_PADDLE_DEPLOY = 3;
-	public static final int STABILIZER_PADDLE_RETRACT = 4;
+	// TODO - wire collector wheels to PCM 1, ports 2 & 3
+	public static final int COLLECTOR_WHEEL_DEPLOY = 2;
+	public static final int COLLECTOR_WHEEL_RETRACT = 3;
+	// TODO - rewire ejector to PCM 1, ports 4 & 5 from PCM 0, ports 6 & 7
+	public static final int COLLECTOR_EJECTOR_DEPLOY_SOLENOID = 4;
+	public static final int COLLECTOR_EJECTOR_RETRACT_SOLENOID = 5;
 	
 	//Digital Inputs
 	public static final int DRIVETRAIN_ENCODER_LEFT_CHANNEL_A = 0;

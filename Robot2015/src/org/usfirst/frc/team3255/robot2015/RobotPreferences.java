@@ -21,11 +21,11 @@ public class RobotPreferences {
 	
 	public static double cassetteLowerSpeed() {
 		// always set the speed in the preferences window to a positive value
-		return Preferences.getInstance().getDouble("CassetteLowerSpeed", 0.3);
+		return Preferences.getInstance().getDouble("CassetteLowerSpeed", 0.4);
 	}
 	
 	public static double driveSensitivity() {
-		return Preferences.getInstance().getDouble("DriveSensitivity", 0.7);
+		return Preferences.getInstance().getDouble("DriveSensitivity", 1.0);
 	}
 	
 	public static double driveStrafeSensitivity() {
@@ -33,7 +33,7 @@ public class RobotPreferences {
 	}
 	
 	public static double unloadSpeed() {
-		return Preferences.getInstance().getDouble("UnloadSpeed", 0.3);
+		return Preferences.getInstance().getDouble("UnloadSpeed", 0.6);
 	}
 	
 	public static double unloadDistance() {
@@ -47,7 +47,7 @@ public class RobotPreferences {
 	}
 	
 	public static double rotateLeftHighSpeed() {
-		return Preferences.getInstance().getDouble("RotateLeftHighSpeed", 0.5);
+		return Preferences.getInstance().getDouble("RotateLeftHighSpeed", 0.7);
 	}
 
 	public static double rotateLeftAngle() {
@@ -59,7 +59,7 @@ public class RobotPreferences {
 	}
 	
 	public static double rotateRightHighSpeed() {
-		return Preferences.getInstance().getDouble("RotateRightHighSpeed", 0.5);
+		return Preferences.getInstance().getDouble("RotateRightHighSpeed", 0.7);
 	}
 	
 	public static double rotateRightAngle() {
@@ -72,11 +72,11 @@ public class RobotPreferences {
 	
 	// Encoders
 	public static double getPulsesPer5Feet() {
-		return Preferences.getInstance().getDouble("PulsesPer5Feet", 50.0);
+		return Preferences.getInstance().getDouble("PulsesPer5Feet", 1200.0);
 	}
 
 	public static double deployCorrectorDelay() {
-		return Preferences.getInstance().getDouble("DeployCorrectorDelay", 0.5);
+		return Preferences.getInstance().getDouble("DeployCorrectorDelay", 0.1);
 	}
 
 	// Camera
@@ -103,20 +103,20 @@ public class RobotPreferences {
 
 	// Autonomous Preferences
 	public static double autoDelay() {
-		return Preferences.getInstance().getDouble("AutoDelay", 0.5);
+		return Preferences.getInstance().getDouble("AutoDelay", 0.0);
 	}
 	
 	public static double autoFwdSpeed() {
-		return Preferences.getInstance().getDouble("AutoFwdSpeed", 0.5);
+		return Preferences.getInstance().getDouble("AutoFwdSpeed", 0.6);
 	}
 
 	public static double autoFwdDistance() {
-		return Preferences.getInstance().getDouble("AutoFwdDistance", 0.5);
+		return Preferences.getInstance().getDouble("AutoFwdDistance", 12.0);
 	}
 	
 		// 1 Tote
 	public static double auto1ToteStartDistance() {
-		return Preferences.getInstance().getDouble("Auto1ToteStartDistance", 0.5);
+		return Preferences.getInstance().getDouble("Auto1ToteStartDistance", 2.0);
 	}
 	
 	public static double auto1ToteStartSpeed() {
@@ -124,15 +124,15 @@ public class RobotPreferences {
 	}
 	
 	public static double auto1ToteRevDistance() {
-		return Preferences.getInstance().getDouble("Auto1ToteRevDistance", 0.5);
+		return Preferences.getInstance().getDouble("Auto1ToteRevDistance", 10.0);
 	}
 	
 	public static double auto1ToteRevSpeed() {
-		return Preferences.getInstance().getDouble("Auto1ToteRevSpeed", 0.5);
+		return Preferences.getInstance().getDouble("Auto1ToteRevSpeed", 0.6);
 	}
 	
 	public static double auto1ToteDelay() {
-		return Preferences.getInstance().getDouble("Auto1ToteDelay", 0.5);
+		return Preferences.getInstance().getDouble("Auto1ToteDelay", 2.0);
 	}
 	
 		// 3 Tote
@@ -145,15 +145,15 @@ public class RobotPreferences {
 	}
 	
 	public static double auto3ToteRevDistance() {
-		return Preferences.getInstance().getDouble("Auto3ToteRevDistance", 0.5);
+		return Preferences.getInstance().getDouble("Auto3ToteRevDistance", 10.0);
 	}
 	
 	public static double auto3ToteRevSpeed() {
-		return Preferences.getInstance().getDouble("Auto3ToteRevSpeed", 0.5);
+		return Preferences.getInstance().getDouble("Auto3ToteRevSpeed", 0.6);
 	}
 	
 	public static double auto3ToteDelay() {
-		return Preferences.getInstance().getDouble("Auto3ToteDelay", 0.5);
+		return Preferences.getInstance().getDouble("Auto3ToteDelay", 0.0);
 	}
 	
 		// Trash

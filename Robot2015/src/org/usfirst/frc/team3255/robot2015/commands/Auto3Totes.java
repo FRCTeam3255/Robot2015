@@ -27,10 +27,11 @@ public class Auto3Totes extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	addSequential(new CollectorWheelsOpen());
     	addSequential(new DoDelay(RobotPreferences.auto3ToteDelay()));
-    	addSequential(new DriveDistanceForward(RobotPreferences.auto3ToteStartSpeed(), RobotPreferences.auto3ToteStartDistance()));
+    	addSequential(new DriveDistanceForward(RobotPreferences.auto3ToteStartSpeed(), RobotPreferences.auto3ToteStartDistance(), true, false));
     	addSequential(new RotateLeftHighSpeed());
-    	addSequential(new DriveDistanceReverse(RobotPreferences.auto3ToteRevSpeed(), RobotPreferences.auto3ToteRevDistance()));
+    	addSequential(new DriveDistanceReverse(RobotPreferences.auto3ToteRevSpeed(), RobotPreferences.auto3ToteRevDistance(), false, true));
     	addSequential(new CassetteUnloadAndBackup());
     	addSequential(new Rotate180());
     }

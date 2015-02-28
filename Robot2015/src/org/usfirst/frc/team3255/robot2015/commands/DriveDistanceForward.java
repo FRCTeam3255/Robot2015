@@ -7,13 +7,18 @@ public class DriveDistanceForward extends CommandBase {
 	
 	double setPoint;
 	double speed;
+	boolean spin;
+	boolean in;
 
-    public DriveDistanceForward(double s, double feet) {
+    public DriveDistanceForward(double s, double feet, boolean spin, boolean in) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(drivetrain);
+    	requires(collector);
     	speed = s;
     	setPoint = feet;
+    	this.spin = spin;
+    	this.in = in;
     }
 
     // Called just before this Command runs the first time
@@ -25,6 +30,14 @@ public class DriveDistanceForward extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	drivetrain.setSpeed(speed);
+    	if(spin) {
+    		if(in) {
+	    		collector.spinIn();
+	    	}
+	    	else {
+	    		collector.spinOut();
+	    	}
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

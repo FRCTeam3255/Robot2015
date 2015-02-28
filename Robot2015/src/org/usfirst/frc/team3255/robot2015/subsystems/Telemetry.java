@@ -29,6 +29,9 @@ public class Telemetry extends Subsystem {
 
 	public void init() {
 		
+		SmartDashboard.putData("Cassette Command", CommandBase.cassette);
+		SmartDashboard.putData("DriveTrain Command", CommandBase.drivetrain);
+		
 		// Comp
 		SmartDashboard.putData("Drive Forward", new DriveForward());
 		SmartDashboard.putData("Drive Reverse", new DriveReverse());
@@ -37,7 +40,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Reset Encoder", new DrivetrainResetEncoder());
 		SmartDashboard.putData("Update Encoder Ratio", new DrivetrainUpdateEncoderRatio());
 		
-		SmartDashboard.putData("Rotate Left", new RotateRightLowSpeed());
+		SmartDashboard.putData("Rotate Left High", new RotateLeftHighSpeed());
+		SmartDashboard.putData("Rotate Right High", new RotateRightHighSpeed());
 		
 		SmartDashboard.putData("Deploy Ejector", new CollectorDeployToteEjector());
 		SmartDashboard.putData("Retract Ejector", new CollectorRetractToteEjector());

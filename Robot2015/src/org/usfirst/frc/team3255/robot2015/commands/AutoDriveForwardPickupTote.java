@@ -1,15 +1,13 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
-import org.usfirst.frc.team3255.robot2015.RobotPreferences;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class DriveForwardPickupTote extends CommandGroup {
+public class AutoDriveForwardPickupTote extends CommandGroup {
     
-    public  DriveForwardPickupTote() {
+    public  AutoDriveForwardPickupTote(double speed, double distance, boolean spin, boolean in) {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -27,7 +25,14 @@ public class DriveForwardPickupTote extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	// delay 1ToteDelay
+    	// drive fwd dist=1ToteStartDistance, speed=1ToteStartSpeed
+    	// rot left 1ToteRotLeft
+    	// drive rev dist=1ToteRevDistance, speed=1ToteRevSpeed
+    	// unload and backup
+    	// rot 180
+    	
+    	addParallel(new DriveDistanceForward(speed, distance, spin, in));
     	addParallel(new WaitForToteAndPickup());
-    	addSequential(new  DriveDistanceForward(RobotPreferences.auto1ToteStartSpeed(), RobotPreferences.auto1ToteStartDistance()));
     }
 }

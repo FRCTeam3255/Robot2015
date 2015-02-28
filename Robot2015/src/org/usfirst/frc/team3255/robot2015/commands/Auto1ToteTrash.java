@@ -27,8 +27,18 @@ public class Auto1ToteTrash extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new DriveDistanceForward(RobotPreferences.autoTrashSpeed(), RobotPreferences.autoTrashDistance()));
+    	// pickup trash
+    	addSequential(new CollectorWheelsOpen());
+    	addSequential(new DriveDistanceForward(RobotPreferences.autoTrashSpeed(), RobotPreferences.autoTrashDistance(), true, true));
     	addSequential(new DoDelay(RobotPreferences.autoTrashDelay()));
-    	addSequential(new Auto1Tote());
+
+    	// pickup tote
+    	addSequential(new CollectorWheelsClose());
+    	addSequential(new DriveDistanceForward(RobotPreferences.auto1ToteStartSpeed(), RobotPreferences.auto1ToteStartDistance(), true, true));
+    	addSequential(new RotateRightLowSpeed());
+    	addSequential(new DriveDistanceReverse(RobotPreferences.auto1ToteRevSpeed(), RobotPreferences.auto1ToteRevDistance(), false, true));
+    	addSequential(new CassetteUnloadAndBackup());
+    	addSequential(new Rotate180());
+
     }
 }

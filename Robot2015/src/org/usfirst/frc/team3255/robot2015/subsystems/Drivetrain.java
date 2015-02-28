@@ -196,7 +196,8 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public double getReverseDistance() {
-		return rightEncoder.getDistance();
+//		return rightEncoder.getDistance();
+		return -getForwardDistance();
 	}
 	
 	public void updateEncoderRatio() {
