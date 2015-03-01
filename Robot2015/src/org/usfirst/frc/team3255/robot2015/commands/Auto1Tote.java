@@ -34,8 +34,8 @@ public class Auto1Tote extends CommandGroup {
     	// unload and backup
     	// rot 180
     	
-    	addSequential(new CollectorWheelsClose());
-    	addSequential(new AutoDriveForwardPickupTote(RobotPreferences.auto1ToteStartSpeed(), RobotPreferences.auto1ToteStartDistance(), true, true));
+    	addSequential(new CollectorWheelsOpen());
+    	addSequential(new AutoDriveForwardPickupTote(RobotPreferences.auto1ToteStartSpeed(), RobotPreferences.auto1ToteStartDistance(), false, true));
     	addSequential(new RotateRightLowSpeed());
     	addSequential(new DriveDistanceForward(RobotPreferences.auto1ToteEndSpeed(), RobotPreferences.auto1ToteEndDistance(), false, true));
     	// addSequential(new DoDelay(RobotPreferences.auto1ToteDelay()));

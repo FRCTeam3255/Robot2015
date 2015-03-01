@@ -124,7 +124,7 @@ public class RobotPreferences {
 	}
 	
 	public static double auto1ToteEndDistance() {
-		return Preferences.getInstance().getDouble("Auto1ToteEndDistance", 10.0);
+		return Preferences.getInstance().getDouble("Auto1ToteEndDistance", 9.5);
 	}
 	
 	public static double auto1ToteEndSpeed() {
