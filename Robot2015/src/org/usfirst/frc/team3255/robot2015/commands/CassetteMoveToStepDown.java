@@ -33,6 +33,8 @@ public class CassetteMoveToStepDown extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
     	cassette.setSpeed(0.0);
+    	// TODO remove Lock
+    	cassette.lock();
     }
 
     // Called when another command which requires one or more of the same

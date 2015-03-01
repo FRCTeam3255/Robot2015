@@ -25,6 +25,8 @@ public class WaitForToteAndPickup extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addSequential(new WaitForTote());
+    	addSequential(new CollectorWheelsOpen());
     	addSequential(new CassettePickupTote());
+    	addSequential(new CollectorWheelsClose());
     }
 }

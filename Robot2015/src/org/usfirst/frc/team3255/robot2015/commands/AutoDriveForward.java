@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutoDriveForward extends CommandGroup {
     public AutoDriveForward() {
-       addSequential(new DriveDistanceForward(RobotPreferences.autoFwdSpeed(), RobotPreferences.autoFwdDistance(), false, true));
+    	addSequential(new CassetteMoveToTotePickup());
+    	addSequential(new DriveDistanceForward(RobotPreferences.autoFwdSpeed(), RobotPreferences.autoFwdDistance(), false, true));
     }
 }

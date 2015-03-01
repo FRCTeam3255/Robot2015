@@ -26,6 +26,7 @@ public class CollectorEjectTotesOnStep extends CommandGroup {
         // arm.
     	
     	addSequential(new CassetteUnlock());
+    	addSequential(new CollectorWheelsOpen());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteMoveToStepDown());
     	addSequential(new CassetteLock());

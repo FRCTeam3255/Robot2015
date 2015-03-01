@@ -107,11 +107,11 @@ public class RobotPreferences {
 	}
 	
 	public static double autoFwdSpeed() {
-		return Preferences.getInstance().getDouble("AutoFwdSpeed", 0.6);
+		return Preferences.getInstance().getDouble("AutoFwdSpeed", 0.5);
 	}
 
 	public static double autoFwdDistance() {
-		return Preferences.getInstance().getDouble("AutoFwdDistance", 12.0);
+		return Preferences.getInstance().getDouble("AutoFwdDistance", 13.5);
 	}
 	
 		// 1 Tote
@@ -123,12 +123,12 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("Auto1ToteStartSpeed", 0.5);
 	}
 	
-	public static double auto1ToteRevDistance() {
-		return Preferences.getInstance().getDouble("Auto1ToteRevDistance", 10.0);
+	public static double auto1ToteEndDistance() {
+		return Preferences.getInstance().getDouble("Auto1ToteEndDistance", 10.0);
 	}
 	
-	public static double auto1ToteRevSpeed() {
-		return Preferences.getInstance().getDouble("Auto1ToteRevSpeed", 0.6);
+	public static double auto1ToteEndSpeed() {
+		return Preferences.getInstance().getDouble("Auto1ToteEndSpeed", 0.5);
 	}
 	
 	public static double auto1ToteDelay() {
@@ -144,12 +144,12 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("Auto3ToteStartSpeed", 0.5);
 	}
 	
-	public static double auto3ToteRevDistance() {
-		return Preferences.getInstance().getDouble("Auto3ToteRevDistance", 10.0);
+	public static double auto3ToteEndDistance() {
+		return Preferences.getInstance().getDouble("Auto3ToteEndDistance", 10.0);
 	}
 	
-	public static double auto3ToteRevSpeed() {
-		return Preferences.getInstance().getDouble("Auto3ToteRevSpeed", 0.6);
+	public static double auto3ToteEndSpeed() {
+		return Preferences.getInstance().getDouble("Auto3ToteEndSpeed", 0.6);
 	}
 	
 	public static double auto3ToteDelay() {

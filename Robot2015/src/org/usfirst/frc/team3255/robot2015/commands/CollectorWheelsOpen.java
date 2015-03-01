@@ -8,7 +8,7 @@ public class CollectorWheelsOpen extends CommandBase {
     public CollectorWheelsOpen() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(collector);
+    	// requires(collector);
     }
 
     // Called just before this Command runs the first time

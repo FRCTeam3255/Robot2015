@@ -36,7 +36,7 @@ public class Auto1ToteTrash extends CommandGroup {
     	addSequential(new CollectorWheelsClose());
     	addSequential(new DriveDistanceForward(RobotPreferences.auto1ToteStartSpeed(), RobotPreferences.auto1ToteStartDistance(), true, true));
     	addSequential(new RotateRightLowSpeed());
-    	addSequential(new DriveDistanceReverse(RobotPreferences.auto1ToteRevSpeed(), RobotPreferences.auto1ToteRevDistance(), false, true));
+    	addSequential(new DriveDistanceReverse(RobotPreferences.auto1ToteEndSpeed(), RobotPreferences.auto1ToteEndDistance(), false, true));
     	addSequential(new CassetteUnloadAndBackup());
     	addSequential(new Rotate180());
 
