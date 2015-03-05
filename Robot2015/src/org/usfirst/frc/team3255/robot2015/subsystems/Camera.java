@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.subsystems;
 
 import org.usfirst.frc.team3255.robot2015.RobotMap;
+import org.usfirst.frc.team3255.robot2015.commands.CameraHorizontalRotate;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -33,6 +34,6 @@ public class Camera extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new CameraHorizontalRotate());
     }
 }
-
