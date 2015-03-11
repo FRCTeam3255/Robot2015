@@ -117,8 +117,9 @@ public class Drivetrain extends Subsystem {
 		if (arcadeFullSpeedDisabled) {
 		robotDrive.arcadeDrive(moveSpeed * arcadeSensitivity, rotateSpeed * arcadeSensitivity);
 		}
+		// TODO double check functionality
 		else {
-		robotDrive.arcadeDrive(moveSpeed * arcadeSensitivity, rotateSpeed * 1.0);
+		robotDrive.arcadeDrive(moveSpeed, rotateSpeed);
 		}
 	
 		if(strafeDeployed) {

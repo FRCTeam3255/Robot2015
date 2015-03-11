@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand = null;
-    SendableChooser autoChooser;
+    // SendableChooser autoChooser;
     int session;
     Image frame;
 
@@ -37,13 +37,16 @@ public class Robot extends IterativeRobot {
     	CommandBase.init();
     	
     	// Autonomous Chooser
+    	/*
     	autoChooser = new SendableChooser();
-    	autoChooser.addDefault("Pickup 3 Totes", new Auto3Totes());
-    	autoChooser.addObject("Pickup 1 Tote", new Auto1Tote());
+    	autoChooser.addDefault("Pickup 1 Tote", new Auto1Tote());
+    	autoChooser.addObject("Pickup 3 Totes", new Auto3Totes());
     	autoChooser.addObject("Pickup 1 Tote and Trash", new Auto1ToteTrash());
     	autoChooser.addObject("Drive Forward", new AutoDriveForward());
     	autoChooser.addObject("Do Nothing", new AutoDelay());
     	SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
+    	*/
+    	autonomousCommand = new AutoDriveForward();
     	
     	// USB Camera
     	cameraInit();
@@ -59,7 +62,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-    	autonomousCommand = (Command) autoChooser.getSelected();
+    	//autonomousCommand = (Command) autoChooser.getSelected();
         if (autonomousCommand != null) autonomousCommand.start();
     }
 

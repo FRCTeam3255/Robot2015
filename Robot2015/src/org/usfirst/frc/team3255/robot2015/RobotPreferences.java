@@ -6,7 +6,7 @@ public class RobotPreferences {
 	
 	public static double cassetteRaiseSpeed() {
 		double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.4);
-		double maxLiftSpeed = Preferences.getInstance().getDouble("CassetteMaxLiftSpeed", 0.4);
+		double maxLiftSpeed = Preferences.getInstance().getDouble("CassetteMaxLiftSpeed", 0.5);
 		double stickValue = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED_FACTOR);
 		
 		// stickValue is +1 at minimum and -1 at max.
@@ -81,7 +81,7 @@ public class RobotPreferences {
 
 	// Camera
 	public static String cameraName() {
-        return Preferences.getInstance().getString("CameraName", "cam0");
+        return Preferences.getInstance().getString("CameraName", "cam2");
 		// return "cam1";
 	}
 	
@@ -111,7 +111,7 @@ public class RobotPreferences {
 	}
 
 	public static double autoFwdDistance() {
-		return Preferences.getInstance().getDouble("AutoFwdDistance", 13.5);
+		return Preferences.getInstance().getDouble("AutoFwdDistance", 6.5);
 	}
 	
 		// 1 Tote
@@ -133,6 +133,10 @@ public class RobotPreferences {
 	
 	public static double auto1ToteDelay() {
 		return Preferences.getInstance().getDouble("Auto1ToteDelay", 2.0);
+	}
+	
+	public static double auto1ToteSpinOutTime() {
+		return Preferences.getInstance().getDouble("Auto1ToteSpinOutTime", 1.0);
 	}
 	
 		// 3 Tote

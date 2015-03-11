@@ -24,14 +24,22 @@ public class CassetteManualDrive extends CommandBase {
     protected void execute() {
     	double s = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED);
     	s = s * RobotPreferences.cassetteRaiseSpeed();
+    	
+    	if (cassette.isBottomSwitchClosed() && s < 0.0) {
+    		cassette.setSpeed(0.0);
+    	}
+    	if (cassette.isTopSwitchClosed() && s > 0.0) {
+    		cassette.setSpeed(0.0);
+    	}
     	cassette.setSpeed(s);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (cassette.isTopSwitchClosed() || cassette.isTotePickupSwitchClosed()) {
-    		return true;
-    	}
+    	/*if (cassette.isTopSwitchClosed() || cassette.isTotePickupSwitchClosed()) {
+    		//cassette.setSpeed(0.0);
+    		//return true;
+    	}*/
         return false;
     }
 
