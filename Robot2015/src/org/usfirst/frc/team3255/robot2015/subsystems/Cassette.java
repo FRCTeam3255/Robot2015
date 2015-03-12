@@ -6,6 +6,7 @@ import org.usfirst.frc.team3255.robot2015.commands.WaitForToteAndPickup;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -32,6 +33,9 @@ public class Cassette extends Subsystem {
 	DoubleSolenoid lockSolenoid = null;
 	DoubleSolenoid paddleSolenoid = null;
 	
+	//Encoders
+	Encoder liftEncoder = null;
+	
 	private boolean toteGrabbed = true;
 	private boolean manualMode = false;
 	
@@ -53,6 +57,9 @@ public class Cassette extends Subsystem {
 		bottomSwitch = new DigitalInput(RobotMap.CASSETTE_BOTTOM_MAGSWITCH);
 		
 		toteDetectSwitch = new DigitalInput(RobotMap.CASSTTE_TOTE_DETECT_LIMITSWITCH);
+		
+		liftEncoder= new Encoder(RobotMap.CASSETTE_LIFT_ENCODER_CHANNEL_A,
+				RobotMap.CASSETTE_LIFT_ENCODER_CHANNEL_B);
 		
 		// Initialize Cassette Conditions
 		lock();
@@ -98,6 +105,24 @@ public class Cassette extends Subsystem {
     	return toteGrabbed;
     }
    
+    // Encoders
+    public void resetEncoders() {
+		liftEncoder.reset();	
+	}
+	
+	public double getLiftCount() {
+		return liftEncoder.get();
+	}
+	
+	public double getLiftDistance() {
+		return liftEncoder.getDistance();
+	}
+	
+	public void updateEncoderRatio() {
+		// TODO decide on pulse per distances
+		liftEncoder.setDistancePerPulse(5.0/RobotPreferences.getPulsesPer5Feet());
+	}
+    
     // Switches
     public boolean isTopSwitchClosed() {
     	return (topSwitch.get() == false);

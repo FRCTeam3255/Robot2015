@@ -172,4 +172,19 @@ public class RobotPreferences {
 	public static double autoTrashDelay() {
 		return Preferences.getInstance().getDouble("AutoTrashDelay", 0.5);
 	}
+
+	
+	// Cassette Positions
+	public static double cassetteStepPosition() {
+		return Preferences.getInstance().getDouble("CassetteStepPosition", 0.0);
+	}
+	public static double cassetteToteHoldPosition() {
+		return Preferences.getInstance().getDouble("CassetteToteHoldPosition", 0.0);
+	}
+	public static double cassetteTotePickupPosition() {
+		return Preferences.getInstance().getDouble("CassetteTotePickupPosition", 0.0);
+	}
+	public static double cassetteTrashHoldPosition() {
+		return Preferences.getInstance().getDouble("CassetteTrashHoldPosition", 0.0);
+	}
 }

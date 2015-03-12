@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
+
 /**
  *
  */
@@ -27,7 +29,8 @@ public class CassetteMoveToTrashHold extends CommandBase {
     	if (cassette.isTopSwitchClosed()) {
     		return true;
     	}
-    	return cassette.isTrashHoldSwitchClosed();
+    	//return cassette.isTrashHoldSwitchClosed();
+    	return (cassette.isStepSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteTrashHoldPosition());
     }
 
     // Called once after isFinished returns true

@@ -166,7 +166,8 @@ public class Drivetrain extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
 		setDefaultCommand(new DriveArcade());
     }
-
+	
+	// Gyro
 	public void resetGyro() {
 		gyro.reset();
 	}
@@ -175,6 +176,7 @@ public class Drivetrain extends Subsystem {
 		return gyro.getAngle();
 	}
 
+	// Encoders
 	public void resetEncoders() {
 		leftEncoder.reset();
 		rightEncoder.reset();	

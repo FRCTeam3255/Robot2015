@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
+
 /**
  *
  */
@@ -27,7 +29,8 @@ public class CassetteMoveToTotePickup extends CommandBase {
     	if (cassette.isBottomSwitchClosed()) {
     		return true;
     	}
-    	return cassette.isTotePickupSwitchClosed();
+    	//return cassette.isTotePickupSwitchClosed();
+    	return (cassette.isStepSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteTotePickupPosition());
     }
 
     // Called once after isFinished returns true

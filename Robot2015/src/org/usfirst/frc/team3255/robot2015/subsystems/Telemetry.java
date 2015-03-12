@@ -37,8 +37,10 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive Reverse", new DriveReverse());
 		SmartDashboard.putData("Drive Stop", new DriveStop());
 		SmartDashboard.putData("Drive Gyro Reset", new DrivetrainResetGyro());
-		SmartDashboard.putData("Reset Encoder", new DrivetrainResetEncoder());
-		SmartDashboard.putData("Update Encoder Ratio", new DrivetrainUpdateEncoderRatio());
+		SmartDashboard.putData("Reset Drivetrain Encoders", new DrivetrainResetEncoder());
+		SmartDashboard.putData("Update Drivetrain Encoder Ratio", new DrivetrainUpdateEncoderRatio());
+		SmartDashboard.putData("Reset Cassette Encoders", new CassetteResetEncoder());
+		SmartDashboard.putData("Update Cassette Encoder Ratio", new CassetteUpdateEncoderRatio());
 		
 		SmartDashboard.putData("Rotate Left High", new RotateLeftHighSpeed());
 		SmartDashboard.putData("Rotate Right High", new RotateRightHighSpeed());

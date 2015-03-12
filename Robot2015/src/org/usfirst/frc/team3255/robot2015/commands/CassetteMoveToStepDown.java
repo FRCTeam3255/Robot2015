@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
+
 /**
  *
  */
@@ -27,7 +29,8 @@ public class CassetteMoveToStepDown extends CommandBase {
     	if (cassette.isBottomSwitchClosed()) {
     		return true;
     	}
-    	return cassette.isStepSwitchClosed();
+    	// return cassette.isStepSwitchClosed();
+    	return (cassette.isStepSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteStepPosition());
     }
 
     // Called once after isFinished returns true
