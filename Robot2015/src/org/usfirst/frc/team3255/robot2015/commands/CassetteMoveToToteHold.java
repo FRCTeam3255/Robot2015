@@ -30,7 +30,7 @@ public class CassetteMoveToToteHold extends CommandBase {
     		return true;
     	}
     	// return cassette.isToteHoldSwitchClosed();
-    	return (cassette.isStepSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteToteHoldPosition());
+    	return (cassette.isToteHoldSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteToteHoldPosition());
     }
 
     // Called once after isFinished returns true

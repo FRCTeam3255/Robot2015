@@ -7,15 +7,17 @@ public class RobotPreferences {
 	public static double cassetteRaiseSpeed() {
 		double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.4);
 		double maxLiftSpeed = Preferences.getInstance().getDouble("CassetteMaxLiftSpeed", 0.5);
-		double stickValue = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED_FACTOR);
+		//double stickValue = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED_FACTOR);
 		
 		// stickValue is +1 at minimum and -1 at max.
 		// Need to convert to 0 at minimum and +1 at max
-		stickValue = (stickValue + 1) / 2.0;
+		
+		//stickValue = (stickValue + 1) / 2.0;
 		
 		// when stickValue = 0 we want maxLiftSpeed, and 1 = minLiftSpeed
-		double speed = maxLiftSpeed + (stickValue * (minLiftSpeed - maxLiftSpeed));
-
+		
+		//double speed = maxLiftSpeed + (stickValue * (minLiftSpeed - maxLiftSpeed));
+		double speed = maxLiftSpeed;
 		return speed;
 	}
 	

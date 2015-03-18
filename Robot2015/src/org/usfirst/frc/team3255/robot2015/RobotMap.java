@@ -22,7 +22,8 @@ public class RobotMap {
 	public static final int AXIS_COLLECTOR_PAN = 0;
 	public static final int AXIS_COLLECTOR_SPEED = 1;
 	public static final int AXIS_CASSETTE_SPEED = 1;
-	public static final int AXIS_CASSETTE_SPEED_FACTOR = 3;
+	//public static final int AXIS_CASSETTE_SPEED_FACTOR = 3;
+	public static final int AXIS_CASSETTE_FEEDER_MODE = 3;
 	
 	// PWMs
 	public static final int DRIVETRAIN_FRONT_LEFT_TALON = 0;

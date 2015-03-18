@@ -104,6 +104,8 @@ public class Telemetry extends Subsystem {
 		
 		SmartDashboard.putNumber("Cassette Talon 1 Speed", CommandBase.cassette.leftLiftTalon.get());
 		SmartDashboard.putNumber("Cassette Raise Speed", RobotPreferences.cassetteRaiseSpeed());
+		SmartDashboard.putNumber("Cassette Lift Count", CommandBase.cassette.getLiftCount());
+		SmartDashboard.putNumber("Cassette Lift Distance", CommandBase.cassette.getLiftDistance());
 
 		SmartDashboard.putBoolean("Top Position", CommandBase.cassette.isTopSwitchClosed());
 		SmartDashboard.putBoolean("Trash Hold Position", CommandBase.cassette.isTrashHoldSwitchClosed());

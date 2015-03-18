@@ -1,5 +1,8 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.OI;
+import org.usfirst.frc.team3255.robot2015.RobotMap;
+
 /**
  *
  */
@@ -21,7 +24,13 @@ public class WaitForTote extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return cassette.isToteDetected();
+        //return cassette.isToteDetected();
+    	
+    	// stickValue is +1 at minimum and -1 at max.
+    	if (OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_FEEDER_MODE) >= 1) {
+    		return cassette.isToteDetected();
+    	}
+		return false;
     }
 
     // Called once after isFinished returns true

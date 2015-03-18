@@ -30,7 +30,7 @@ public class CassetteMoveToTotePickup extends CommandBase {
     		return true;
     	}
     	//return cassette.isTotePickupSwitchClosed();
-    	return (cassette.isStepSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteTotePickupPosition());
+    	return (cassette.isTotePickupSwitchClosed() || cassette.getLiftDistance() <= RobotPreferences.cassetteTotePickupPosition());
     }
 
     // Called once after isFinished returns true

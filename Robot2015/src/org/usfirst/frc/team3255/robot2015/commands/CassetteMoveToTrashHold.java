@@ -30,7 +30,7 @@ public class CassetteMoveToTrashHold extends CommandBase {
     		return true;
     	}
     	//return cassette.isTrashHoldSwitchClosed();
-    	return (cassette.isStepSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteTrashHoldPosition());
+    	return (cassette.isTrashHoldSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteTrashHoldPosition());
     }
 
     // Called once after isFinished returns true

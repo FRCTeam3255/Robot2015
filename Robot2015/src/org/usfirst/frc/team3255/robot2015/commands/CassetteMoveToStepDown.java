@@ -30,7 +30,7 @@ public class CassetteMoveToStepDown extends CommandBase {
     		return true;
     	}
     	// return cassette.isStepSwitchClosed();
-    	return (cassette.isStepSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteStepPosition());
+    	return (cassette.isStepSwitchClosed() || cassette.getLiftDistance() <= RobotPreferences.cassetteStepPosition());
     }
 
     // Called once after isFinished returns true
