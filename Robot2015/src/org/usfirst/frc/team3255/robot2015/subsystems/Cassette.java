@@ -64,6 +64,7 @@ public class Cassette extends Subsystem {
 		// Initialize Cassette Conditions
 		lock();
 		grabTote();
+		updateEncoderRatio();
 	}
     
     public void raise() {

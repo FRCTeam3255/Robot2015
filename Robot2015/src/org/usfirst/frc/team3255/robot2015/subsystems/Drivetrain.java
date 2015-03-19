@@ -61,7 +61,7 @@ public class Drivetrain extends Subsystem {
 		rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_FRONT_RIGHT_TALON);
 		rightBackTalon = new Talon(RobotMap.DRIVETRAIN_BACK_RIGHT_TALON);
 		
-		// DriveTrain inner strafe wheels
+		// Drivetrain inner strafe wheels
 		strafeRightTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_RIGHT_TALON);
 		strafeLeftTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_LEFT_TALON);
 		

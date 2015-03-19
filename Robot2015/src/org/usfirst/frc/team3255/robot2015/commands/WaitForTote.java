@@ -27,10 +27,10 @@ public class WaitForTote extends CommandBase {
         //return cassette.isToteDetected();
     	
     	// stickValue is +1 at minimum and -1 at max.
-    	if (OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_FEEDER_MODE) >= 1) {
-    		return cassette.isToteDetected();
+    	if (OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_FEEDER_MODE) == -1) {
+    		return false;
     	}
-		return false;
+		return  cassette.isToteDetected();
     }
 
     // Called once after isFinished returns true
