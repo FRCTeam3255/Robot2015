@@ -75,7 +75,7 @@ public class CassettePickupTippedTrash extends CommandGroup {
     	addSequential(new RetractTrashCorrector());
     	addSequential(new CollectorRetractToteEjector());
     	addSequential(new DoDelay(0.5));
-    	addSequential(new CassetteMoveToStepDown());
+    	addSequential(new CassetteMoveToStep());
     	addSequential(new CassetteReleaseTote());
     	addSequential(new DoDelay(0.5));
     	addSequential(new CassetteGrabTote());

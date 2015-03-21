@@ -32,10 +32,10 @@ public class DriveDistanceForward extends CommandBase {
     	drivetrain.setSpeed(speed);
     	if(spin) {
     		if(in) {
-	    		collector.spinIn();
+	    		collector.spinIn(1.0);
 	    	}
 	    	else {
-	    		collector.spinOut();
+	    		collector.spinOut(1.0);
 	    	}
     	}
     }

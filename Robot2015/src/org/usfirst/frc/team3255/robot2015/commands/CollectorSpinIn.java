@@ -17,7 +17,7 @@ public class CollectorSpinIn extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	collector.spinIn();
+    	collector.spinIn(1.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

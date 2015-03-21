@@ -5,9 +5,11 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 /**
  *
  */
-public class CassetteMoveToStepUp extends CommandBase {
+public class CassetteMoveToStep extends CommandBase {
 
-    public CassetteMoveToStepUp() {
+	boolean moveUp = true;
+	
+    public CassetteMoveToStep() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(cassette);
@@ -16,21 +18,41 @@ public class CassetteMoveToStepUp extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.unlock();
+    	
+    	if(cassette.getLiftDistance() < RobotPreferences.cassetteStepPosition()) {
+    		moveUp = true;
+    	}
+    	else {
+    		moveUp = false;
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	cassette.raise();
+    	if(moveUp) {
+    		cassette.raise();
+    	}
+    	else {
+    		cassette.lower();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// stop if we hit top
-    	if (cassette.isTopSwitchClosed()) {
-    		return true;
+    	if(moveUp) {
+        	// stop if we hit top
+        	if (cassette.isTopSwitchClosed()) {
+        		return true;
+        	}
+    		return (cassette.getLiftDistance() >= RobotPreferences.cassetteStepPosition());
     	}
-    	// return cassette.isStepSwitchClosed();
-    	return (cassette.isStepSwitchClosed() || cassette.getLiftDistance() >= RobotPreferences.cassetteStepPosition());
+    	else {
+        	// stop if we hit bottom
+        	if (cassette.isBottomSwitchClosed()) {
+        		return true;
+        	}
+    		return (cassette.getLiftDistance() <= RobotPreferences.cassetteStepPosition());    		
+    	}
     }
 
     // Called once after isFinished returns true

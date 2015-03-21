@@ -5,9 +5,10 @@ import edu.wpi.first.wpilibj.Preferences;
 public class RobotPreferences {
 	
 	public static double cassetteRaiseSpeed() {
-		double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.4);
+		double liftSpeed = Preferences.getInstance().getDouble("CassetteLiftSpeed", 1.0);
+		/*double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.4);
 		double maxLiftSpeed = Preferences.getInstance().getDouble("CassetteMaxLiftSpeed", 0.5);
-		//double stickValue = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED_FACTOR);
+		double stickValue = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED_FACTOR);
 		
 		// stickValue is +1 at minimum and -1 at max.
 		// Need to convert to 0 at minimum and +1 at max
@@ -16,9 +17,8 @@ public class RobotPreferences {
 		
 		// when stickValue = 0 we want maxLiftSpeed, and 1 = minLiftSpeed
 		
-		//double speed = maxLiftSpeed + (stickValue * (minLiftSpeed - maxLiftSpeed));
-		double speed = maxLiftSpeed;
-		return speed;
+		double speed = maxLiftSpeed + (stickValue * (minLiftSpeed - maxLiftSpeed));*/
+		return liftSpeed;
 	}
 	
 	public static double cassetteLowerSpeed() {
@@ -177,6 +177,10 @@ public class RobotPreferences {
 
 	
 	// Cassette Positions
+	public static double getCassettePulsesPerFoot() {
+		return Preferences.getInstance().getDouble("CassettePulsesPerFoot", 1200.0);
+	}
+
 	public static double cassetteStepPosition() {
 		return Preferences.getInstance().getDouble("CassetteStepPosition", 0.0);
 	}
@@ -188,5 +192,13 @@ public class RobotPreferences {
 	}
 	public static double cassetteTrashHoldPosition() {
 		return Preferences.getInstance().getDouble("CassetteTrashHoldPosition", 0.0);
+	}
+	
+	// Collector
+	public static double collectorSpinOutSpeed() {
+		return Preferences.getInstance().getDouble("CollectorSpinOutSpeed", 0.5);
+	}
+	public static double collectorSpinOutTime() {
+		return Preferences.getInstance().getDouble("CollectorSpinOutTime", 1.0);
 	}
 }

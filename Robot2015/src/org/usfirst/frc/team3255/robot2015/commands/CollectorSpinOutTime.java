@@ -1,27 +1,30 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
-import org.usfirst.frc.team3255.robot2015.RobotPreferences;
-
 /**
  *
  */
 public class CollectorSpinOutTime extends CommandBase {
+	
+	double speed;
+	double time;
 
-    public CollectorSpinOutTime() {
+    public CollectorSpinOutTime(double s, double sec) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(collector);
+    	speed = s;
+    	time = sec;
     	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	this.setTimeout(RobotPreferences.auto1ToteSpinOutTime());
+    	this.setTimeout(time);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	collector.spinOut();
+    	collector.spinOut(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

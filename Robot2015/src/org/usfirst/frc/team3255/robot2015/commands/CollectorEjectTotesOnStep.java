@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -25,16 +27,29 @@ public class CollectorEjectTotesOnStep extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new CassetteUnlock());
+    	// Old Code
+    	/*addSequential(new CassetteUnlock());
     	addSequential(new CollectorWheelsOpen());
     	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteMoveToStepDown());
+    	addSequential(new CassetteMoveToStep());
     	addSequential(new CassetteLock());
     	addSequential(new CollectorDeployToteEjector());
     	addSequential(new DoDelay(0.5));
     	addSequential(new CassetteReleaseTote());
     	addSequential(new DoDelay(0.5));
     	addSequential(new CollectorRetractToteEjector());
+    	addSequential(new DriveReverseFromTote());*/
+    	
+    	addSequential(new CassetteUnlock());
+    	addSequential(new DoDelay(0.5));
+    	addSequential(new CassetteMoveToStep());
+    	addSequential(new CassetteLock());
+    	addSequential(new CollectorDeployToteEjector());
+    	addSequential(new CollectorSpinOutTime(RobotPreferences.collectorSpinOutSpeed(), RobotPreferences.collectorSpinOutTime()));
+    	addSequential(new DoDelay(0.5));
+    	addSequential(new CollectorWheelsOpen());
+    	addSequential(new CollectorRetractToteEjector());
+    	addSequential(new DoDelay(0.5));
     	addSequential(new DriveReverseFromTote());
     }
 }

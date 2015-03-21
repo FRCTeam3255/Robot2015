@@ -115,13 +115,15 @@ public class Cassette extends Subsystem {
 		return liftEncoder.get();
 	}
 	
+	// return cassette lift distance in inches from bottom
 	public double getLiftDistance() {
 		return liftEncoder.getDistance();
 	}
 	
 	public void updateEncoderRatio() {
 		// TODO decide on pulse per distances
-		liftEncoder.setDistancePerPulse(5.0/RobotPreferences.getPulsesPer5Feet());
+		// set encoder to return distance in inches
+		liftEncoder.setDistancePerPulse(12.0/RobotPreferences.getCassettePulsesPerFoot());
 	}
     
     // Switches

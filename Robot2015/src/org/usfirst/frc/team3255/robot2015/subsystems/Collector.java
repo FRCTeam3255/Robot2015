@@ -47,12 +47,12 @@ public class Collector extends Subsystem {
 		rightCollectorTalon.set(-s);
 	}
 	
-	public void spinIn() {
-		setSpeed(1.0);
+	public void spinIn(double s) {
+		setSpeed(s);
 	}
 	
-	public void spinOut() {
-		setSpeed(-1.0);
+	public void spinOut(double s) {
+		setSpeed(-s);
 	}
 	
 	public void arcadeDrive() {
