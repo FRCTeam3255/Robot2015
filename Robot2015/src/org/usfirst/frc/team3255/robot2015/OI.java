@@ -81,7 +81,8 @@ public class OI {
 		M1.whenPressed(new CassettePickupTote());
 		M2.whenPressed(new CassetteUnloadAndBackup());
 		M3.whenPressed(new CassetteWaitPickupTippedTrash());
-		M4.whenPressed(new CassettePickupTrash());
+		M4.whenPressed(new CassetteGoHome());
+		//M4.whenPressed(new CassettePickupTrash());
 		M5.whenPressed(new CassetteReleaseTote());
 		M6.whenPressed(new CassetteGrabTote());
 		M7.whenPressed(new CassetteUnlock());
