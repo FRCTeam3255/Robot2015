@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
-import org.usfirst.frc.team3255.robot2015.RobotPreferences;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -42,14 +40,17 @@ public class CollectorEjectTotesOnStep extends CommandGroup {
     	
     	addSequential(new CassetteUnlock());
     	addSequential(new DoDelay(0.5));
-    	addSequential(new CassetteMoveToStep());
+    	addSequential(new CassetteMoveToStepHigh());
     	addSequential(new CassetteLock());
-    	addSequential(new CollectorDeployToteEjector());
-    	addSequential(new CollectorSpinOutTime(RobotPreferences.collectorSpinOutSpeed(), RobotPreferences.collectorSpinOutTime()));
-    	addSequential(new DoDelay(0.5));
     	addSequential(new CollectorWheelsOpen());
+    	addSequential(new DoDelay(0.5));
+    	addSequential(new CollectorDeployToteEjector());
+    	addSequential(new CassetteUnlock());
+    	addSequential(new DoDelay(0.5));
+    	addSequential(new CassetteMoveToStepLow());
     	addSequential(new CollectorRetractToteEjector());
     	addSequential(new DoDelay(0.5));
     	addSequential(new DriveReverseFromTote());
+    	addSequential(new CassettePickupTote());
     }
 }

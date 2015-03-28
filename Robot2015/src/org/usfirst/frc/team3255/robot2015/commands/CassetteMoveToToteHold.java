@@ -6,8 +6,6 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
  *
  */
 public class CassetteMoveToToteHold extends CommandBase {
-
-	boolean moveUp = true;
 	
     public CassetteMoveToToteHold() {
         // Use requires() here to declare subsystem dependencies
@@ -18,23 +16,12 @@ public class CassetteMoveToToteHold extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.unlock();
-    	
-    	if(cassette.getLiftDistance() < RobotPreferences.cassetteToteHoldPosition()) {
-    		moveUp = true;
-    	}
-    	else {
-    		moveUp = false;
-    	}
+    	cassette.resetEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(moveUp) {
-    		cassette.raise();
-    	}
-    	else {
-    		cassette.lower();
-    	}
+    	cassette.raise();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -42,21 +29,12 @@ public class CassetteMoveToToteHold extends CommandBase {
     	// old code based on mag switches
     	// return cassette.isToteHoldSwitchClosed();
     	
-    	if(moveUp) {
-        	// stop if we hit top
-        	if (cassette.isTopSwitchClosed() || cassette.getLiftDistance() >= 31) {
-        		return true;
-        	}
-    		return (cassette.getLiftDistance() >= RobotPreferences.cassetteToteHoldPosition());
+    	if (cassette.isTopSwitchClosed()) {
+    		return true;
     	}
-    	else {
-        	// stop if we hit bottom
-        	if (cassette.isBottomSwitchClosed()) {
-        		return true;
-        	}
-    		return (cassette.getLiftDistance() <= RobotPreferences.cassetteToteHoldPosition());    		
+    	// Relative to last position
+		return (cassette.getLiftDistance() >= RobotPreferences.cassetteToteHoldPosition());   		
     	}
-    }
 
     // Called once after isFinished returns true
     protected void end() {

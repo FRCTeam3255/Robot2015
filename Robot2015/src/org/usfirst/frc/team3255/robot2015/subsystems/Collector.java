@@ -57,7 +57,7 @@ public class Collector extends Subsystem {
 	}
 	
 	public void arcadeDrive() {
-		robotDrive.arcadeDrive(RobotPreferences.collectorSpeed()*(OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED)),
+		robotDrive.arcadeDrive(RobotPreferences.collectorSpeed()*(-OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED)),
 				RobotPreferences.collectorSpeed()*(OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_PAN)));
 	}
 	

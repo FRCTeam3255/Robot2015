@@ -1,17 +1,13 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
-import org.usfirst.frc.team3255.robot2015.OI;
-import org.usfirst.frc.team3255.robot2015.RobotMap;
 import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 
 /**
  *
  */
-public class WaitForTote extends CommandBase {
+public class CassetteMoveToStepHigh extends CommandBase {
 	
-	int count = 0;
-
-    public WaitForTote() {
+    public CassetteMoveToStepHigh() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(cassette);
@@ -19,33 +15,28 @@ public class WaitForTote extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	count = 0;
+    	cassette.unlock();
+    	cassette.resetEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (cassette.isToteDetected()) {
-    		count = (count +1);
-    	}
-    	else {
-    		count = 0;
-    	}
+    	cassette.lower();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return cassette.isToteDetected();
-    	
-    	// stickValue is +1 at minimum and -1 at max.
-    	// when up tote detect disabled
-    	if (OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_FEEDER_MODE) <= -0.9) {
-    		return false;
-    	}
-		return  (count > RobotPreferences.waitForToteDelay());
+        	// stop if we hit bottom
+        	if (cassette.isBottomSwitchClosed()) {
+        		return true;
+        	}
+        	// Relative to last position (negative)
+    		return (cassette.getLiftDistance() <= RobotPreferences.cassetteStepPositionHigh());    		
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	cassette.setSpeed(0.0);
     }
 
     // Called when another command which requires one or more of the same

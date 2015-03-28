@@ -23,7 +23,7 @@ public class RobotPreferences {
 	
 	public static double cassetteLowerSpeed() {
 		// always set the speed in the preferences window to a positive value
-		return Preferences.getInstance().getDouble("CassetteLowerSpeed", 0.4);
+		return Preferences.getInstance().getDouble("CassetteLowerSpeed", 0.5);
 	}
 	
 	public static double driveSensitivity() {
@@ -181,8 +181,11 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CassettePulsesPerFoot", 1200.0);
 	}
 
-	public static double cassetteStepPosition() {
-		return Preferences.getInstance().getDouble("CassetteStepPosition", 0.0);
+	public static double cassetteStepPositionHigh() {
+		return Preferences.getInstance().getDouble("CassetteStepPositionHigh", -13.0);
+	}
+	public static double cassetteStepPositionLow() {
+		return Preferences.getInstance().getDouble("CassetteStepPositionLow", -2.0);
 	}
 	public static double cassetteToteHoldPosition() {
 		return Preferences.getInstance().getDouble("CassetteToteHoldPosition", 22.0);
@@ -194,10 +197,14 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CassetteTrashHoldPosition", 0.0);
 	}
 	public static double cassetteFeederPickupPosition() {
-		return Preferences.getInstance().getDouble("CassetteFeederPickupPosition", 19.0);
+		return Preferences.getInstance().getDouble("CassetteFeederPickupPosition", -23.0);
 	}
 	public static double cassetteFeederTopPosition() {
-		return Preferences.getInstance().getDouble("CassetteFeederTopPosition", 30.0);
+		return Preferences.getInstance().getDouble("CassetteFeederTopPosition", 18.0);
+	}
+	
+	public static int waitForToteDelay() {
+		return Preferences.getInstance().getInt("WaitForToteDelay", 3);
 	}
 	
 	// Collector

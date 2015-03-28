@@ -7,6 +7,7 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
  */
 public class CassetteMoveToTrashHold extends CommandBase {
 
+	// Command no longer in use
 	boolean moveUp = true;
 	
     public CassetteMoveToTrashHold() {
