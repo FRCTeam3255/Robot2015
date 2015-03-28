@@ -26,15 +26,28 @@ public class CassetteMoveToFeederTop extends CommandBase {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	// stop if we hit bottom
-    	if (cassette.isTopSwitchClosed()) {
-    		return true;
+    	if (cassette.isEncoderZeroAtTop()) {
+    		if (cassette.getLiftDistance() <= 0.0) {
+    			return true;
+    		}
+    		else {
+    			return cassette.isTopSwitchClosed();
+    		}
     	}
-		return (cassette.getLiftDistance() >= RobotPreferences.cassetteFeederTopPosition());
+    	else {
+    		if (cassette.getLiftDistance() >= RobotPreferences.cassetteFeederTopPosition()) {
+    			return true;
+    		}
+    		else {
+    			return cassette.isTopSwitchClosed();
+    		}
+    	}
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	cassette.setSpeed(0.0);
+    	cassette.resetEncoderAtTop();
     }
 
     // Called when another command which requires one or more of the same

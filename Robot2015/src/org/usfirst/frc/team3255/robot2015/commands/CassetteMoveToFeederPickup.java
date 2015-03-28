@@ -44,7 +44,7 @@ public class CassetteMoveToFeederPickup extends CommandBase {
     	
     	if(moveUp) {
         	// stop if we hit top
-        	if (cassette.isTopSwitchClosed() || cassette.getLiftDistance() >= 31) {
+        	if (cassette.isTopSwitchClosed()) {
         		return true;
         	}
     		return (cassette.getLiftDistance() >= RobotPreferences.cassetteFeederPickupPosition());
@@ -54,7 +54,20 @@ public class CassetteMoveToFeederPickup extends CommandBase {
         	if (cassette.isBottomSwitchClosed()) {
         		return true;
         	}
-    		return (cassette.getLiftDistance() <= RobotPreferences.cassetteFeederPickupPosition());    		
+        	return (Math.abs(cassette.getLiftDistance()) >= RobotPreferences.cassetteFeederPickupPosition());   
+    		//return (cassette.getLiftDistance() <= RobotPreferences.cassetteFeederPickupPosition());   
+        	
+        	/* Untested code
+        	 if (cassette.isBottomSwitchClosed()) {
+        		return true;
+        	}
+        	else {
+        		if (cassette.isEncoderZeroAtTop()) {
+        			return (Math.abs(cassette.getLiftDistance()) >= RobotPreferences.cassetteFeederPickupPosition());
+        		}
+        		return (cassette.getLiftDistance() <= RobotPreferences.cassetteFeederPickupPosition());
+        	}
+        	 */
     	}
     }
 
