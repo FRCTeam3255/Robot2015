@@ -185,13 +185,19 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CassetteStepPosition", 0.0);
 	}
 	public static double cassetteToteHoldPosition() {
-		return Preferences.getInstance().getDouble("CassetteToteHoldPosition", 0.0);
+		return Preferences.getInstance().getDouble("CassetteToteHoldPosition", 22.0);
 	}
 	public static double cassetteTotePickupPosition() {
 		return Preferences.getInstance().getDouble("CassetteTotePickupPosition", 0.0);
 	}
 	public static double cassetteTrashHoldPosition() {
 		return Preferences.getInstance().getDouble("CassetteTrashHoldPosition", 0.0);
+	}
+	public static double cassetteFeederPickupPosition() {
+		return Preferences.getInstance().getDouble("CassetteFeederPickupPosition", 19.0);
+	}
+	public static double cassetteFeederTopPosition() {
+		return Preferences.getInstance().getDouble("CassetteFeederTopPosition", 30.0);
 	}
 	
 	// Collector
@@ -200,5 +206,8 @@ public class RobotPreferences {
 	}
 	public static double collectorSpinOutTime() {
 		return Preferences.getInstance().getDouble("CollectorSpinOutTime", 1.0);
+	}
+	public static double collectorSpeed() {
+		return Preferences.getInstance().getDouble("CollectorSpeed", 1.0);
 	}
 }

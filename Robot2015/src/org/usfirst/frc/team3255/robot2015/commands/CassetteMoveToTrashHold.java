@@ -44,7 +44,7 @@ public class CassetteMoveToTrashHold extends CommandBase {
     	
     	if(moveUp) {
         	// stop if we hit top
-        	if (cassette.isTopSwitchClosed()) {
+        	if (cassette.isTopSwitchClosed() || cassette.getLiftDistance() >= 31) {
         		return true;
         	}
     		return (cassette.getLiftDistance() >= RobotPreferences.cassetteTrashHoldPosition());

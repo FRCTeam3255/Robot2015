@@ -95,7 +95,8 @@ public class RobotMap {
 	public static final int CASSETTE_LIFT_ENCODER_CHANNEL_B = 14;
 	
 	//Testboard ports - Since the test board does not have a more board, these are temporary ports
-	/*public static final int CASSETTE_LIFT_ENCODER_CHANNEL_A = 4;
+	/*
+	public static final int CASSETTE_LIFT_ENCODER_CHANNEL_A = 4;
 	public static final int CASSETTE_LIFT_ENCODER_CHANNEL_B = 5;
 	public static final int CASSTTE_TOTE_DETECT_LIMITSWITCH = 6;
 	public static final int CASSETTE_TOP_MAGSWITCH = 8;

@@ -78,13 +78,13 @@ public class OI {
 		D8.whenPressed(new DriveStrafeEnable());
 
 		// manipulatorStick joystick
-		M1.whenPressed(new CassettePickupTote());
+		M1.whenPressed(new CassetteFeederPickup());
 		M2.whenPressed(new CassetteUnloadAndBackup());
 		M3.whenPressed(new CassetteWaitPickupTippedTrash());
-		M4.whenPressed(new CassetteGoHome());
+		M4.whenPressed(new CassettePickupTote());
 		//M4.whenPressed(new CassettePickupTrash());
-		M5.whenPressed(new CassetteReleaseTote());
-		M6.whenPressed(new CassetteGrabTote());
+		//M5.whenPressed(new CassetteReleaseTote());
+		//M6.whenPressed(new CassetteGrabTote());
 		M7.whenPressed(new CassetteUnlock());
 		M7.whileHeld(new CassetteManualDrive());
 		// M8.whenPressed(new CassetteStopUnlock());
@@ -92,8 +92,9 @@ public class OI {
 		// M10.whenPressed(new DeployTrashCorrector());
 		M9.whenPressed(new CollectorWheelsOpen());
 		M10.whenPressed(new CollectorWheelsClose());
-		M11.whenPressed(new CollectorEjectTotesOnStep());
-		M12.whenPressed(new CassettePickupTippedTrash());
+		M11.whenPressed(new CassetteGoHome());
+		//M11.whenPressed(new CollectorEjectTotesOnStep());
+		//M12.whenPressed(new CassettePickupTippedTrash());
 	}
 }
 

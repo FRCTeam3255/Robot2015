@@ -5,11 +5,11 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 /**
  *
  */
-public class CassetteMoveToToteHold extends CommandBase {
+public class CassetteMoveToFeederPickup extends CommandBase {
 
 	boolean moveUp = true;
 	
-    public CassetteMoveToToteHold() {
+    public CassetteMoveToFeederPickup() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(cassette);
@@ -19,7 +19,7 @@ public class CassetteMoveToToteHold extends CommandBase {
     protected void initialize() {
     	cassette.unlock();
     	
-    	if(cassette.getLiftDistance() < RobotPreferences.cassetteToteHoldPosition()) {
+    	if(cassette.getLiftDistance() < RobotPreferences.cassetteFeederPickupPosition()) {
     		moveUp = true;
     	}
     	else {
@@ -47,14 +47,14 @@ public class CassetteMoveToToteHold extends CommandBase {
         	if (cassette.isTopSwitchClosed() || cassette.getLiftDistance() >= 31) {
         		return true;
         	}
-    		return (cassette.getLiftDistance() >= RobotPreferences.cassetteToteHoldPosition());
+    		return (cassette.getLiftDistance() >= RobotPreferences.cassetteFeederPickupPosition());
     	}
     	else {
         	// stop if we hit bottom
         	if (cassette.isBottomSwitchClosed()) {
         		return true;
         	}
-    		return (cassette.getLiftDistance() <= RobotPreferences.cassetteToteHoldPosition());    		
+    		return (cassette.getLiftDistance() <= RobotPreferences.cassetteFeederPickupPosition());    		
     	}
     }
 

@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class CassettePickupTote extends CommandGroup {
+public class CassetteFeederPickup extends CommandGroup {
     
-    public  CassettePickupTote() {
+    public  CassetteFeederPickup() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -26,11 +26,9 @@ public class CassettePickupTote extends CommandGroup {
         // arm.
     	addSequential(new CassetteUnlock());
     	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteMoveToTotePickup());
+    	addSequential(new CassetteMoveToFeederPickup());
     	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteGrabTote());
-    	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteMoveToToteHold());
+    	addSequential(new CassetteMoveToFeederTop());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteLock());
     }

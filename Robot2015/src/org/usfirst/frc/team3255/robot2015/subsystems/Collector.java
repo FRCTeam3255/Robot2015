@@ -2,6 +2,7 @@ package org.usfirst.frc.team3255.robot2015.subsystems;
 
 import org.usfirst.frc.team3255.robot2015.OI;
 import org.usfirst.frc.team3255.robot2015.RobotMap;
+import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 import org.usfirst.frc.team3255.robot2015.commands.CollectorArcade;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -56,8 +57,8 @@ public class Collector extends Subsystem {
 	}
 	
 	public void arcadeDrive() {
-		robotDrive.arcadeDrive(-OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED),
-				OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_PAN));
+		robotDrive.arcadeDrive(RobotPreferences.collectorSpeed()*(OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED)),
+				RobotPreferences.collectorSpeed()*(OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_PAN)));
 	}
 	
 	public void deployToteEjector() {
