@@ -38,7 +38,6 @@ public class Cassette extends Subsystem {
 	
 	private boolean toteGrabbed = true;
 	private boolean manualMode = false;
-	private boolean encoderZeroAtTop = false;
 	
     // Initialize your subsystem here
     public Cassette() {
@@ -108,15 +107,9 @@ public class Cassette extends Subsystem {
     }
    
     // Encoders
-    public void resetEncoderAtBottom() {
-		liftEncoder.reset();
-    	encoderZeroAtTop = false;
+    public void resetEncoders() {
+		liftEncoder.reset();	
 	}
-    
-    public void resetEncoderAtTop()	{
-    	liftEncoder.reset();
-    	encoderZeroAtTop = true;
-    }
 	
 	public double getLiftCount() {
 		return liftEncoder.get();
@@ -132,10 +125,6 @@ public class Cassette extends Subsystem {
 		// set encoder to return distance in inches
 		liftEncoder.setDistancePerPulse(12.0/RobotPreferences.getCassettePulsesPerFoot());
 	}
-	
-	public boolean isEncoderZeroAtTop() {
-    	return encoderZeroAtTop;
-    }
     
     // Switches
     public boolean isTopSwitchClosed() {

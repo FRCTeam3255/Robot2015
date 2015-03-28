@@ -30,7 +30,7 @@ public class CassetteMoveToTotePickup extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
     	cassette.setSpeed(0.0);
-    	cassette.resetEncoderAtBottom();
+    	cassette.resetEncoders();
     }
 
     // Called when another command which requires one or more of the same
