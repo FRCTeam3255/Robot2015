@@ -3,9 +3,9 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class StabilizerOpen extends CommandBase {
+public class StabilizerRetract extends CommandBase {
 
-    public StabilizerOpen() {
+    public StabilizerRetract() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(stabilizer);
@@ -13,7 +13,7 @@ public class StabilizerOpen extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	stabilizer.open();
+    	stabilizer.close();
     }
 
     // Called repeatedly when this Command is scheduled to run

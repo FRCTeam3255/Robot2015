@@ -28,10 +28,11 @@ public class CassettePickupTote extends CommandGroup {
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteMoveToTotePickup());
     	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteGrabTote());
+    	addSequential(new CollectorWheelsOpen());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteMoveToToteHold());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteLock());
+    	addSequential(new CollectorWheelsClose());
     }
 }

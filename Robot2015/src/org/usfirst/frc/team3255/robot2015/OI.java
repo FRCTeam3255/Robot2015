@@ -83,6 +83,8 @@ public class OI {
 		M3.whenPressed(new CassetteFeederMode());
 		//M3.whenPressed(new CassetteWaitPickupTippedTrash());
 		M4.whenPressed(new CassettePickupTote());
+		M5.whenPressed(new StabilizerRetract());
+		M6.whenPressed(new StabilizerDeploy());
 		//M4.whenPressed(new CassettePickupTrash());
 		//M5.whenPressed(new CassetteReleaseTote());
 		//M6.whenPressed(new CassetteGrabTote());
