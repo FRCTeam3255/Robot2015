@@ -96,6 +96,7 @@ public class OI {
 		M9.whenPressed(new CollectorWheelsOpen());
 		M10.whenPressed(new CollectorWheelsClose());
 		M11.whenPressed(new CollectorEjectTotesOnStep());
+		M12.whenPressed(new CassetteFeederLoadReady());
 		//M12.whenPressed(new CassettePickupTippedTrash());
 	}
 }
