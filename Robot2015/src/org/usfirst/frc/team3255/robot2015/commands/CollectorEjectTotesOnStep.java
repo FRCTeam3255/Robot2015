@@ -39,10 +39,10 @@ public class CollectorEjectTotesOnStep extends CommandGroup {
     	addSequential(new DriveReverseFromTote());*/
     	
     	addSequential(new CassetteUnlock());
+    	addSequential(new CollectorWheelsOpen());
     	addSequential(new DoDelay(0.5));
     	addSequential(new CassetteMoveToStepHigh());
     	addSequential(new CassetteLock());
-    	addSequential(new CollectorWheelsOpen());
     	addSequential(new DoDelay(0.5));
     	addSequential(new CollectorDeployToteEjector());
     	addSequential(new CassetteUnlock());
