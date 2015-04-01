@@ -90,7 +90,7 @@ public class OI {
 		//M6.whenPressed(new CassetteGrabTote());
 		M7.whenPressed(new CassetteUnlock());
 		M7.whileHeld(new CassetteManualDrive());
-		// M8.whenPressed(new CassetteStopUnlock());
+		M8.whenPressed(new CassetteLock());
 		// M9.whenPressed(new RetractTrashCorrector());
 		// M10.whenPressed(new DeployTrashCorrector());
 		M9.whenPressed(new CollectorWheelsOpen());
