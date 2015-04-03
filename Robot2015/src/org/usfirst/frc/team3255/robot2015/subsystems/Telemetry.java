@@ -112,6 +112,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Tote Hold Position", CommandBase.cassette.isToteHoldSwitchClosed());
 		SmartDashboard.putBoolean("Step Position", CommandBase.cassette.isStepSwitchClosed());
 		SmartDashboard.putBoolean("Tote Pickup Position", CommandBase.cassette.isTotePickupSwitchClosed());
+		SmartDashboard.putBoolean("Bottom Position", CommandBase.cassette.isBottomSwitchClosed());
 		SmartDashboard.putBoolean("Tote Detected", CommandBase.cassette.isToteDetected());
 	}
 	

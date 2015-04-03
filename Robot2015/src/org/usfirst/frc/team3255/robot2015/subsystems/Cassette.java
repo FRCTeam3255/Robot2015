@@ -59,7 +59,7 @@ public class Cassette extends Subsystem {
 		toteDetectSwitch = new DigitalInput(RobotMap.CASSTTE_TOTE_DETECT_LIMITSWITCH);
 		
 		liftEncoder= new Encoder(RobotMap.CASSETTE_LIFT_ENCODER_CHANNEL_A,
-				RobotMap.CASSETTE_LIFT_ENCODER_CHANNEL_B);
+				RobotMap.CASSETTE_LIFT_ENCODER_CHANNEL_B, true);
 		
 		// Initialize Cassette Conditions
 		lock();
@@ -121,7 +121,6 @@ public class Cassette extends Subsystem {
 	}
 	
 	public void updateEncoderRatio() {
-		// TODO decide on pulse per distances
 		// set encoder to return distance in inches
 		liftEncoder.setDistancePerPulse(12.0/RobotPreferences.getCassettePulsesPerFoot());
 	}

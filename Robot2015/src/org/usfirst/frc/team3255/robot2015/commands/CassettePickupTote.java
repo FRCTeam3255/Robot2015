@@ -30,6 +30,7 @@ public class CassettePickupTote extends CommandGroup {
     	addSequential(new DoDelay(0.1));
     	addSequential(new CollectorWheelsOpen());
     	addSequential(new DoDelay(0.1));
+    	// The following command is equivalent to reaching the Feeder Top position
     	addSequential(new CassetteMoveToToteHold());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteLock());

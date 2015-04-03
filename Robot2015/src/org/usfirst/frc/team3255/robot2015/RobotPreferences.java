@@ -178,17 +178,19 @@ public class RobotPreferences {
 	
 	// Cassette Positions
 	public static double getCassettePulsesPerFoot() {
-		return Preferences.getInstance().getDouble("CassettePulsesPerFoot", 1200.0);
+		return Preferences.getInstance().getDouble("CassettePulsesPerFoot", 768.0);
 	}
 
 	public static double cassetteStepPositionHigh() {
-		return Preferences.getInstance().getDouble("CassetteStepPositionHigh", -13.0);
+		// old position was -14.0
+		return Preferences.getInstance().getDouble("CassetteStepPositionHigh", -37.0);
 	}
 	public static double cassetteStepPositionLow() {
 		return Preferences.getInstance().getDouble("CassetteStepPositionLow", -2.0);
 	}
 	public static double cassetteToteHoldPosition() {
-		return Preferences.getInstance().getDouble("CassetteToteHoldPosition", 22.0);
+		// old position was 22.0
+		return Preferences.getInstance().getDouble("CassetteToteHoldPosition", 45.0);
 	}
 	public static double cassetteTotePickupPosition() {
 		return Preferences.getInstance().getDouble("CassetteTotePickupPosition", 0.0);
@@ -200,7 +202,7 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CassetteFeederPickupPosition", -23.0);
 	}
 	public static double cassetteFeederTopPosition() {
-		return Preferences.getInstance().getDouble("CassetteFeederTopPosition", 18.0);
+		return Preferences.getInstance().getDouble("CassetteFeederTopPosition", 23.0);
 	}
 	
 	public static int waitForToteDelay() {

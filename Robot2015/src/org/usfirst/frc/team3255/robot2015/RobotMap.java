@@ -62,16 +62,13 @@ public class RobotMap {
 	public static final int CASSTTE_LOCK_DEPLOY_SOLENOID = 4;
 	public static final int CASSTTE_LOCK_RETRACT_SOLENOID = 5;
 
-	// TODO - wire stabilizer to PCM 0, ports 6 & 7
 	public static final int STABILIZER_PADDLE_DEPLOY = 6;
 	public static final int STABILIZER_PADDLE_RETRACT = 7;
 	
 	// Module 1 Solenoids
 	public static final int TRASH_CORRECTOR_DEPLOY_SOLENOID = 0;
-	// TODO - wire collector wheels to PCM 1, ports 2 & 3
 	public static final int COLLECTOR_WHEEL_DEPLOY = 2;
 	public static final int COLLECTOR_WHEEL_RETRACT = 3;
-	// TODO - rewire ejector to PCM 1, ports 4 & 5 from PCM 0, ports 6 & 7
 	public static final int COLLECTOR_EJECTOR_DEPLOY_SOLENOID = 4;
 	public static final int COLLECTOR_EJECTOR_RETRACT_SOLENOID = 5;
 	
@@ -90,7 +87,6 @@ public class RobotMap {
 	
 	public static final int CASSTTE_TOTE_DETECT_LIMITSWITCH = 10;
 	
-	// TODO find port placement for new encoders
 	public static final int CASSETTE_LIFT_ENCODER_CHANNEL_A = 13;
 	public static final int CASSETTE_LIFT_ENCODER_CHANNEL_B = 14;
 	

@@ -184,13 +184,11 @@ public class Drivetrain extends Subsystem {
 	
 	public double getForwardCount() {
 		// TODO Use the encoder that counts up when driving forward
-		// TODO Determine if this should get or getRaw
 		return leftEncoder.get();
 	}
 	
 	public double getReverseCount() {
 		// TODO Use the encoder that counts up when driving reverse
-		// TODO Determine if this should get or getRaw
 		return rightEncoder.get();
 	}
 	

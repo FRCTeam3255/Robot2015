@@ -80,8 +80,8 @@ public class OI {
 		// manipulatorStick joystick
 		M1.whenPressed(new CassetteFeederPickup());
 		M2.whenPressed(new CassetteUnloadAndBackup());
-		M3.whenPressed(new CassetteFeederMode());
-		//M3.whenPressed(new CassetteWaitPickupTippedTrash());
+		// M3.whenPressed(new CassetteFeederMode());
+		// M3.whenPressed(new CassetteWaitPickupTippedTrash());
 		M4.whenPressed(new CassettePickupTote());
 		M5.whenPressed(new StabilizerRetract());
 		M6.whenPressed(new StabilizerDeploy());
