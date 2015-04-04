@@ -182,8 +182,9 @@ public class RobotPreferences {
 	}
 
 	public static double cassetteStepPositionHigh() {
-		// old position was -14.0
-		return Preferences.getInstance().getDouble("CassetteStepPositionHigh", -37.0);
+		// original position was -14.0
+		// last position was -37
+		return Preferences.getInstance().getDouble("CassetteStepPositionHigh", -14.0);
 	}
 	public static double cassetteStepPositionLow() {
 		return Preferences.getInstance().getDouble("CassetteStepPositionLow", -2.0);
@@ -203,6 +204,9 @@ public class RobotPreferences {
 	}
 	public static double cassetteFeederTopPosition() {
 		return Preferences.getInstance().getDouble("CassetteFeederTopPosition", 23.0);
+	}
+	public static double cassetteLandfillPosition() {
+		return Preferences.getInstance().getDouble("CassetteLandfillPosition", 22.0);
 	}
 	
 	public static int waitForToteDelay() {

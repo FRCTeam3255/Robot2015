@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2015.commands;
 
+import org.usfirst.frc.team3255.robot2015.OI;
+import org.usfirst.frc.team3255.robot2015.RobotMap;
 import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 
 /**
@@ -32,9 +34,14 @@ public class CassetteMoveToToteHold extends CommandBase {
     	if (cassette.isTopSwitchClosed()) {
     		return true;
     	}
-    	// Relative to last position
-		return (cassette.getLiftDistance() >= RobotPreferences.cassetteToteHoldPosition());   		
-    	}
+    	else{
+    		if (OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_FEEDER_MODE) <= -0.9) {
+    			return (cassette.getLiftDistance() >= RobotPreferences.cassetteToteHoldPosition());
+    		}
+    		// Relative to last position
+    		return (cassette.getLiftDistance() >= RobotPreferences.cassetteLandfillPosition());   
+    	}	
+    }
 
     // Called once after isFinished returns true
     protected void end() {

@@ -47,15 +47,15 @@ public class Robot extends IterativeRobot {
     	autonomousCommand = new AutoDriveForward();
     	
     	// USB Camera
-    	cameraInit();
-        cameraStart();
+    	/*cameraInit();
+        cameraStart();*/
     }
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 
     	// USB Camera
-        cameraUpdate();
+        //cameraUpdate();
 	}
 
     public void autonomousInit() {
@@ -77,8 +77,8 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-    	cameraStop();
-        cameraStart();
+    	/*cameraStop();
+        cameraStart();*/
     }
 
     /**
@@ -87,8 +87,8 @@ public class Robot extends IterativeRobot {
      */
      
     public void disabledInit() {
-    	cameraStop();
-        cameraStart();
+    	/*cameraStop();
+        cameraStart();*/
     }
 
     /**
@@ -98,7 +98,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
 
     	// USB Camera
-        cameraUpdate();
+        //cameraUpdate();
     }
     
     /**
