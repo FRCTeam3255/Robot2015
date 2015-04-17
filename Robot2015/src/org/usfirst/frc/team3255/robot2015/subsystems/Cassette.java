@@ -59,7 +59,7 @@ public class Cassette extends Subsystem {
 		toteDetectSwitch = new DigitalInput(RobotMap.CASSTTE_TOTE_DETECT_LIMITSWITCH);
 		
 		liftEncoder= new Encoder(RobotMap.CASSETTE_LIFT_ENCODER_CHANNEL_A,
-				RobotMap.CASSETTE_LIFT_ENCODER_CHANNEL_B, true);
+				RobotMap.CASSETTE_LIFT_ENCODER_CHANNEL_B, false);
 		
 		// Initialize Cassette Conditions
 		lock();
