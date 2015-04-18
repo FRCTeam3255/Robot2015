@@ -83,8 +83,8 @@ public class OI {
 		// M3.whenPressed(new CassetteFeederMode());
 		// M3.whenPressed(new CassetteWaitPickupTippedTrash());
 		M4.whenPressed(new CassettePickupTote());
-		M5.whenPressed(new StabilizerRetract());
-		M6.whenPressed(new StabilizerDeploy());
+		M5.whenPressed(new TrashGrabberRetract());
+		M6.whenPressed(new TrashGrabberDeploy());
 		//M4.whenPressed(new CassettePickupTrash());
 		//M5.whenPressed(new CassetteReleaseTote());
 		//M6.whenPressed(new CassetteGrabTote());
@@ -95,7 +95,7 @@ public class OI {
 		// M10.whenPressed(new DeployTrashCorrector());
 		M9.whenPressed(new CollectorWheelsOpen());
 		M10.whenPressed(new CollectorWheelsClose());
-		M11.whenPressed(new CollectorEjectTotesOnStep());
+		//M11.whenPressed(new CollectorEjectTotesOnStep());
 		M12.whenPressed(new CassetteFeederLoadReady());
 		//M12.whenPressed(new CassettePickupTippedTrash());
 	}

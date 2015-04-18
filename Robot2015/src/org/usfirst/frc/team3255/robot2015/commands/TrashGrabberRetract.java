@@ -3,17 +3,17 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class StabilizerRetract extends CommandBase {
+public class TrashGrabberRetract extends CommandBase {
 
-    public StabilizerRetract() {
+    public TrashGrabberRetract() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(stabilizer);
+    	requires(trashGrabber);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	stabilizer.close();
+    	trashGrabber.close();
     }
 
     // Called repeatedly when this Command is scheduled to run

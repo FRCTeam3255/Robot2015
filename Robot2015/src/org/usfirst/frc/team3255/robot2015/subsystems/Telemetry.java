@@ -57,8 +57,8 @@ public class Telemetry extends Subsystem {
 		
 		SmartDashboard.putData("Deploy Collector Wheels", new CollectorWheelsClose());
 		SmartDashboard.putData("Retract Collector Wheels", new CollectorWheelsOpen());
-		SmartDashboard.putData("Deploy Stabilizer", new StabilizerRetract());
-		SmartDashboard.putData("Retract Stabilizer", new StabilizerDeploy());
+		SmartDashboard.putData("Deploy Stabilizer", new TrashGrabberRetract());
+		SmartDashboard.putData("Retract Stabilizer", new TrashGrabberDeploy());
 		
 		SmartDashboard.putData("Camera Rotate Left", new CameraLeft());
 		SmartDashboard.putData("Camera Rotate Right", new CameraRight());

@@ -8,24 +8,24 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Stabilizer extends Subsystem {
+public class TrashGrabber extends Subsystem {
 	
 	// DoubleSolenoids
-	DoubleSolenoid stabilizerSolenoid = null;
+	DoubleSolenoid trashGrabberSolenoid = null;
 	
-	public Stabilizer() {
-		stabilizerSolenoid = new DoubleSolenoid(RobotMap.STABILIZER_PCM, RobotMap.STABILIZER_PADDLE_DEPLOY, RobotMap.STABILIZER_PADDLE_RETRACT);
+	public TrashGrabber() {
+		trashGrabberSolenoid = new DoubleSolenoid(RobotMap.TRASHGRABBER_PCM, RobotMap.TRASH_GRABBER_PADDLE_DEPLOY, RobotMap.TRASH_GRABBER_PADDLE_RETRACT);
 		
 		// set initial condition
 		close();
 	}
 	
 	public void close() {
-		stabilizerSolenoid.set(Value.kForward);
+		trashGrabberSolenoid.set(Value.kForward);
 	}
 	
 	public void open() {
-		stabilizerSolenoid.set(Value.kReverse);
+		trashGrabberSolenoid.set(Value.kReverse);
 	}
     
     // Put methods for controlling this subsystem
