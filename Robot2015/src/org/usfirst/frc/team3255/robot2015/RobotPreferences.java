@@ -4,10 +4,9 @@ import edu.wpi.first.wpilibj.Preferences;
 
 public class RobotPreferences {
 	
-	public static double cassetteRaiseSpeed() {
-		double liftSpeed = Preferences.getInstance().getDouble("CassetteLiftSpeed", 1.0);
-		/*double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.4);
-		double maxLiftSpeed = Preferences.getInstance().getDouble("CassetteMaxLiftSpeed", 0.5);
+	public static double cassetteSpeed() {
+		double minSpeed = Preferences.getInstance().getDouble("CassetteMinSpeed", 0.6);
+		double maxSpeed = Preferences.getInstance().getDouble("CassetteMaxSpeed", 1.0);
 		double stickValue = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED_FACTOR);
 		
 		// stickValue is +1 at minimum and -1 at max.
@@ -17,7 +16,24 @@ public class RobotPreferences {
 		
 		// when stickValue = 0 we want maxLiftSpeed, and 1 = minLiftSpeed
 		
-		double speed = maxLiftSpeed + (stickValue * (minLiftSpeed - maxLiftSpeed));*/
+		double speed = maxSpeed + (stickValue * (minSpeed - maxSpeed));
+		return speed;
+	}
+	
+	public static double cassetteRaiseSpeed() {
+		//double liftSpeed = Preferences.getInstance().getDouble("CassetteLiftSpeed", 1.0);
+		double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.9);
+		double maxLiftSpeed = Preferences.getInstance().getDouble("CassetteMaxLiftSpeed", 1.0);
+		double stickValue = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED_FACTOR);
+		
+		// stickValue is +1 at minimum and -1 at max.
+		// Need to convert to 0 at minimum and +1 at max
+		
+		//stickValue = (stickValue + 1) / 2.0;
+		
+		// when stickValue = 0 we want maxLiftSpeed, and 1 = minLiftSpeed
+		
+		double liftSpeed = maxLiftSpeed + (stickValue * (minLiftSpeed - maxLiftSpeed));
 		return liftSpeed;
 	}
 	
@@ -174,9 +190,8 @@ public class RobotPreferences {
 	public static double autoTrashDelay() {
 		return Preferences.getInstance().getDouble("AutoTrashDelay", 0.5);
 	}
-
 	
-	// Cassette Positions
+	// OLD Cassette Positions
 	public static double getCassettePulsesPerFoot() {
 		return Preferences.getInstance().getDouble("CassettePulsesPerFoot", 768.0);
 	}
@@ -222,5 +237,22 @@ public class RobotPreferences {
 	}
 	public static double collectorSpeed() {
 		return Preferences.getInstance().getDouble("CollectorSpeed", 1.0);
+	}
+
+	// Cassette Positions
+	public static double posKnockCan() {
+		return Preferences.getInstance().getDouble("POSKnockCan", 17.5);
+	}
+	public static double posUnderTote2() {
+		return Preferences.getInstance().getDouble("POSUnderTote2", 17.25);
+	}
+	public static double posHoldTote2() {
+		return Preferences.getInstance().getDouble("POSHoldTote2", 22.0);
+	}
+	public static double posTransportStack() {
+		return Preferences.getInstance().getDouble("POSTransportStack", 0.0);
+	}
+	public static double posFeeder() {
+		return Preferences.getInstance().getDouble("POSFeeder", 38.0);
 	}
 }

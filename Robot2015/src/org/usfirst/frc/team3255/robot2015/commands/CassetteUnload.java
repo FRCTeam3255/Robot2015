@@ -25,9 +25,15 @@ public class CassetteUnload extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	/*Old Code
     	addSequential (new CassetteUnlock());
     	addSequential (new DoDelay(0.1));
     	addSequential (new CassetteMoveToTotePickup());
-    	addSequential (new CassetteReleaseTote());
+    	addSequential (new CassetteReleaseTote());*/
+    	
+    	addSequential (new CollectorWheelsOpen());
+    	addSequential (new CassetteUnlock());
+    	addSequential (new DoDelay(0.1));
+    	addSequential (new CassetteMoveToBottom());
     }
 }

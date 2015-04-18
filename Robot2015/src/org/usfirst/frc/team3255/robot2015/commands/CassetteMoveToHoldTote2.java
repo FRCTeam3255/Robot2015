@@ -5,9 +5,11 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 /**
  *
  */
-public class CassetteMoveToToteHold extends CommandBase {
+public class CassetteMoveToHoldTote2 extends CommandBase {
+
+	boolean moveUp = true;
 	
-    public CassetteMoveToToteHold() {
+    public CassetteMoveToHoldTote2() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(cassette);
@@ -16,30 +18,41 @@ public class CassetteMoveToToteHold extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.unlock();
-    	cassette.resetEncoders();
+    	
+    	if(cassette.getLiftDistance() < RobotPreferences.posHoldTote2()) {
+    		moveUp = true;
+    	}
+    	else {
+    		moveUp = false;
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	cassette.raise();
+    	if(moveUp) {
+    		cassette.raise();
+    	}
+    	else {
+    		cassette.lower();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// old code based on mag switches
-    	// return cassette.isToteHoldSwitchClosed();
-    	
-    	if (cassette.isTopSwitchClosed()) {
-    		return true;
+    	if(moveUp) {
+        	// stop if we hit top
+        	if (cassette.isTopSwitchClosed()) {
+        		return true;
+        	}
+    		return (cassette.getLiftDistance() >= RobotPreferences.posHoldTote2());
     	}
-    	else{
-    		return (cassette.getLiftDistance() >= RobotPreferences.cassetteToteHoldPosition());
-    		/*if (OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_FEEDER_MODE) <= -0.9) {
-    			return (cassette.getLiftDistance() >= RobotPreferences.cassetteToteHoldPosition());
-    		}
-    		// Relative to last position
-    		return (cassette.getLiftDistance() >= RobotPreferences.cassetteLandfillPosition());*/  
-    	}	
+    	else {
+        	// stop if we hit bottom
+        	if (cassette.isBottomSwitchClosed()) {
+        		return true;
+        	}
+    		return (cassette.getLiftDistance() <= RobotPreferences.posHoldTote2());    		
+    	}
     }
 
     // Called once after isFinished returns true

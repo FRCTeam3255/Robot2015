@@ -5,9 +5,11 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 /**
  *
  */
-public class CassetteMoveToFeederPickup extends CommandBase {
+public class CassetteMoveToFeeder extends CommandBase {
+
+	boolean moveUp = true;
 	
-    public CassetteMoveToFeederPickup() {
+    public CassetteMoveToFeeder() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(cassette);
@@ -16,23 +18,41 @@ public class CassetteMoveToFeederPickup extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.unlock();
-    	cassette.resetEncoders();
+    	
+    	if(cassette.getLiftDistance() < RobotPreferences.posFeeder()) {
+    		moveUp = true;
+    	}
+    	else {
+    		moveUp = false;
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(moveUp) {
+    		cassette.raise();
+    	}
+    	else {
     		cassette.lower();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// old code based on mag switches
-    	// return cassette.isToteHoldSwitchClosed();
-    	if (cassette.isBottomSwitchClosed()) {
-        	return true;
-        }
-    	// Relative to last position (negative value)
-    	return (cassette.getLiftDistance() <= RobotPreferences.cassetteFeederPickupPosition());    		
+    	if(moveUp) {
+        	// stop if we hit top
+        	if (cassette.isTopSwitchClosed()) {
+        		return true;
+        	}
+    		return (cassette.getLiftDistance() >= RobotPreferences.posFeeder());
+    	}
+    	else {
+        	// stop if we hit bottom
+        	if (cassette.isBottomSwitchClosed()) {
+        		return true;
+        	}
+    		return (cassette.getLiftDistance() <= RobotPreferences.posFeeder());    		
+    	}
     }
 
     // Called once after isFinished returns true
