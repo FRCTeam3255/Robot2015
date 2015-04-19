@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class CassetteFeederLoadReady extends CommandGroup {
+public class CassetteTransportStack extends CommandGroup {
     
-    public  CassetteFeederLoadReady() {
+    public  CassetteTransportStack() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,9 +24,10 @@ public class CassetteFeederLoadReady extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new CollectorWheelsOpen());
-    	addSequential(new DoDelay(0.5));
-    	addSequential(new CollectorWheelsClose());
-    	addSequential(new TrashGrabberRetract());
+    	
+    	addSequential (new CassetteUnlock());
+    	addSequential (new DoDelay(0.1));
+    	addSequential (new CassetteMoveToTransportStack());
+    	addSequential (new CassetteLock());
     }
 }

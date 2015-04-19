@@ -68,7 +68,7 @@ public class Cassette extends Subsystem {
 	}
     
     public void raise() {
-    	double s = RobotPreferences.cassetteSpeed();
+    	double s = RobotPreferences.cassetteRaiseSpeed();
     	setSpeed(s);
     }
     

@@ -21,8 +21,8 @@ public class RobotPreferences {
 	}
 	
 	public static double cassetteRaiseSpeed() {
-		//double liftSpeed = Preferences.getInstance().getDouble("CassetteLiftSpeed", 1.0);
-		double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.9);
+		double liftSpeed = Preferences.getInstance().getDouble("CassetteLiftSpeed", 1.0);
+		/*double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.9);
 		double maxLiftSpeed = Preferences.getInstance().getDouble("CassetteMaxLiftSpeed", 1.0);
 		double stickValue = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED_FACTOR);
 		
@@ -33,7 +33,7 @@ public class RobotPreferences {
 		
 		// when stickValue = 0 we want maxLiftSpeed, and 1 = minLiftSpeed
 		
-		double liftSpeed = maxLiftSpeed + (stickValue * (minLiftSpeed - maxLiftSpeed));
+		double liftSpeed = maxLiftSpeed + (stickValue * (minLiftSpeed - maxLiftSpeed));*/
 		return liftSpeed;
 	}
 	
@@ -188,12 +188,13 @@ public class RobotPreferences {
 	}
 	
 	public static double autoTrashDelay() {
-		return Preferences.getInstance().getDouble("AutoTrashDelay", 0.5);
+		return Preferences.getInstance().getDouble("AutoTrashDelay", 1.0);
 	}
 	
 	// OLD Cassette Positions
 	public static double getCassettePulsesPerFoot() {
-		return Preferences.getInstance().getDouble("CassettePulsesPerFoot", 768.0);
+		// Original Ratio was 768.0
+		return Preferences.getInstance().getDouble("CassettePulsesPerFoot", 532.0);
 	}
 
 	public static double cassetteStepPositionHigh() {
@@ -241,18 +242,18 @@ public class RobotPreferences {
 
 	// Cassette Positions
 	public static double posKnockCan() {
-		return Preferences.getInstance().getDouble("POSKnockCan", 17.5);
+		return Preferences.getInstance().getDouble("POSKnockCan", 14.0);
 	}
 	public static double posUnderTote2() {
-		return Preferences.getInstance().getDouble("POSUnderTote2", 17.25);
+		return Preferences.getInstance().getDouble("POSUnderTote2", 14.0);
 	}
 	public static double posHoldTote2() {
 		return Preferences.getInstance().getDouble("POSHoldTote2", 22.0);
 	}
 	public static double posTransportStack() {
-		return Preferences.getInstance().getDouble("POSTransportStack", 0.0);
+		return Preferences.getInstance().getDouble("POSTransportStack", 35.0);
 	}
 	public static double posFeeder() {
-		return Preferences.getInstance().getDouble("POSFeeder", 38.0);
+		return Preferences.getInstance().getDouble("POSFeeder", 36.0);
 	}
 }

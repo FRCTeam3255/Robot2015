@@ -79,17 +79,18 @@ public class OI {
 
 		// manipulatorStick joystick
 		M1.whenPressed(new PickupTote2ToFeeder());
-		M2.whenPressed(new CassetteUnloadAndBackup());
+		M2.whenPressed(new UnloadAndBackup());
 		M3.whenPressed(new PickupBottomToHoldTote2());
 		M4.whenPressed(new PickupBottomToFeeder());
-		M5.whenPressed(new TrashGrabberRetract());
-		M6.whenPressed(new TrashGrabberDeploy());
+		M5.whenPressed(new CassetteUnload());
+		M6.whenPressed(new CassetteTransportStack());
 		M7.whenPressed(new CassetteUnlock());
 		M7.whileHeld(new CassetteManualDrive());
 		M8.whenPressed(new CassetteLock());
 		M9.whenPressed(new CollectorWheelsOpen());
 		M10.whenPressed(new CollectorWheelsClose());
-		M12.whenPressed(new CassetteFeederLoadReady());
+		M11.whenPressed(new CassetteMoveToKnockCan());
+		M12.whenPressed(new CycleWheels());
 	}
 }
 

@@ -32,7 +32,7 @@ public class Auto3Totes extends CommandGroup {
     	addSequential(new DriveDistanceForward(RobotPreferences.auto3ToteStartSpeed(), RobotPreferences.auto3ToteStartDistance(), true, false));
     	addSequential(new RotateLeftHighSpeed());
     	addSequential(new DriveDistanceReverse(RobotPreferences.auto3ToteEndSpeed(), RobotPreferences.auto3ToteEndDistance(), false, true));
-    	addSequential(new CassetteUnloadAndBackup());
+    	addSequential(new UnloadAndBackup());
     	addSequential(new Rotate180());
     }
 }

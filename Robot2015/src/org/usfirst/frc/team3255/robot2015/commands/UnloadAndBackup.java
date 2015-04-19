@@ -5,9 +5,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class PickupBottomToFeeder extends CommandGroup {
+public class UnloadAndBackup extends CommandGroup {
     
-    public  PickupBottomToFeeder() {
+	// Starts: Above tote pickup, open or closed, and locked or unlocked
+	// Ends: Tote Hold, closed, and locked
+    public  UnloadAndBackup() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,13 +26,18 @@ public class PickupBottomToFeeder extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	
+    	/*Old Code
     	addSequential(new CollectorWheelsOpen());
-    	addSequential(new CassetteUnlock());
-    	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteMoveToBottom());
-    	addSequential(new CassetteMoveToFeeder());
-    	addSequential(new CassetteLock());
+    	addSequential(new CassetteUnload());
+    	addSequential(new DriveReverseFromTote());
+    	addSequential(new CassetteMoveToToteHold());
     	addSequential(new CollectorWheelsClose());
+    	addSequential(new CassetteGrabTote());
+    	addSequential(new CassetteLock());*/
+    	
+    	addSequential(new CassetteUnload());
+    	addSequential(new DriveReverseFromTote());
+    	addSequential(new CassetteMoveToKnockCan());
+    	addSequential(new CassetteLock());
     }
 }
