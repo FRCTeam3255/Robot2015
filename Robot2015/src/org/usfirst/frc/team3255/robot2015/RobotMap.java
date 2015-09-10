@@ -85,6 +85,14 @@ public class RobotMap {
 	public static final int CASSETTE_TOTE_PICKUP_MAGSWITCH = 5;
 	public static final int CASSETTE_BOTTOM_MAGSWITCH = 4;
 	
+	// TODO Re-map solenoids
+	public static final int CASSETTE_STABILIZER_DEPLOY_SOLENOID = 15;
+	public static final int CASSETTE_STABILIZER_RETRACT_SOLENOID = 16;
+	public static final int CASSETTE_STABILIZER_OPEN_SOLENOID = 0;
+	public static final int CASSETTE_STABILIZER_CLOSE_SOLENOID = 0;
+	public static final int CASSETTE_STABILIZER_BRAKE_ENGAGE_SOLENOID = 0;
+	public static final int CASSETTE_STABILIZER_BRAKE_DISENGAGE_SOLENOID = 0;
+	
 	public static final int CASSTTE_TOTE_DETECT_LIMITSWITCH = 10;
 	
 	public static final int CASSETTE_LIFT_ENCODER_CHANNEL_A = 13;

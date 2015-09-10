@@ -33,6 +33,10 @@ public class Cassette extends Subsystem {
 	DoubleSolenoid lockSolenoid = null;
 	DoubleSolenoid paddleSolenoid = null;
 	
+	DoubleSolenoid stablilizerPickUpSolenoid = null;
+	DoubleSolenoid stablilizerOpenCloseSolenoid = null;
+	DoubleSolenoid stablilizerBrakeSolenoid = null;
+	
 	//Encoders
 	Encoder liftEncoder = null;
 	
@@ -48,6 +52,16 @@ public class Cassette extends Subsystem {
 				RobotMap.CASSTTE_LOCK_DEPLOY_SOLENOID, RobotMap.CASSTTE_LOCK_RETRACT_SOLENOID);
 		paddleSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
 				RobotMap.CASSETTE_PADDLE_DEPLOY_SOLENOID, RobotMap.CASSTTE_PADDLE_RETRACT_SOLENOID);
+		
+		stablilizerPickUpSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
+				RobotMap.CASSETTE_STABILIZER_DEPLOY_SOLENOID,
+				RobotMap.CASSETTE_STABILIZER_RETRACT_SOLENOID);
+		stablilizerOpenCloseSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
+				RobotMap.CASSETTE_STABILIZER_OPEN_SOLENOID,
+				RobotMap.CASSETTE_STABILIZER_CLOSE_SOLENOID);
+		stablilizerBrakeSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
+				RobotMap.CASSETTE_STABILIZER_BRAKE_ENGAGE_SOLENOID,
+				RobotMap.CASSETTE_STABILIZER_BRAKE_DISENGAGE_SOLENOID);
 		
 		topSwitch = new DigitalInput(RobotMap.CASSETTE_TOP_MAGSWITCH);
 		trashHoldSwitch = new DigitalInput(RobotMap.CASSETTE_TRASH_HOLD_MAGSWITCH);
