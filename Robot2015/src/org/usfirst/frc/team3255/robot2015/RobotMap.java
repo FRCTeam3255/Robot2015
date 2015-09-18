@@ -58,9 +58,9 @@ public class RobotMap {
 	public static final int DRIVETRAIN_STRAFE_RETRACT_SOLENOID = 1;
 	
 	public static final int CASSETTE_PADDLE_DEPLOY_SOLENOID = 2;
-	public static final int CASSTTE_PADDLE_RETRACT_SOLENOID = 3;
+	public static final int CASSETTE_PADDLE_RETRACT_SOLENOID = 3;
 	public static final int CASSTTE_LOCK_DEPLOY_SOLENOID = 4;
-	public static final int CASSTTE_LOCK_RETRACT_SOLENOID = 5;
+	public static final int CASSETTE_LOCK_RETRACT_SOLENOID = 5;
 
 	public static final int TRASH_GRABBER_PADDLE_DEPLOY = 6;
 	public static final int TRASH_GRABBER_PADDLE_RETRACT = 7;
@@ -69,8 +69,10 @@ public class RobotMap {
 	public static final int TRASH_CORRECTOR_DEPLOY_SOLENOID = 0;
 	public static final int COLLECTOR_WHEEL_DEPLOY = 2;
 	public static final int COLLECTOR_WHEEL_RETRACT = 3;
-	public static final int COLLECTOR_EJECTOR_DEPLOY_SOLENOID = 4;
-	public static final int COLLECTOR_EJECTOR_RETRACT_SOLENOID = 5;
+	public static final int CASSETTE_TRASH_STABILIZER_DEPLOY_SOLENOID = 4;
+	public static final int CASSETTE_TRASH_STABILIZER_RETRACT_SOLENOID = 5;
+	// public static final int COLLECTOR_EJECTOR_DEPLOY_SOLENOID = 4;
+	// public static final int COLLECTOR_EJECTOR_RETRACT_SOLENOID = 5;
 	
 	//Digital Inputs
 	public static final int DRIVETRAIN_ENCODER_LEFT_CHANNEL_A = 0;

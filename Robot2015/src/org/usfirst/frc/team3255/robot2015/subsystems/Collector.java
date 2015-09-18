@@ -31,8 +31,9 @@ public class Collector extends Subsystem {
 		leftCollectorTalon = new Talon(RobotMap.COLLECTOR_LEFT_TALON);
 		rightCollectorTalon = new Talon(RobotMap.COLLECTOR_RIGHT_TALON);
 		
-		ejectSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, 
+	/*	ejectSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, 
 				RobotMap.COLLECTOR_EJECTOR_DEPLOY_SOLENOID, RobotMap.COLLECTOR_EJECTOR_RETRACT_SOLENOID);
+	*/
 		collectorSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, RobotMap.COLLECTOR_WHEEL_DEPLOY, RobotMap.COLLECTOR_WHEEL_RETRACT);
 		
 		robotDrive = new RobotDrive(leftCollectorTalon, rightCollectorTalon);

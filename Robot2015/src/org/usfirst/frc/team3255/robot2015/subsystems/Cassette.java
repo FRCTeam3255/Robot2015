@@ -32,6 +32,7 @@ public class Cassette extends Subsystem {
 	//Solenoids
 	DoubleSolenoid lockSolenoid = null;
 	DoubleSolenoid paddleSolenoid = null;
+	DoubleSolenoid trashStabilizerSolenoid = null;
 	
 	//Encoders
 	Encoder liftEncoder = null;
@@ -45,9 +46,12 @@ public class Cassette extends Subsystem {
 		rightLiftTalon = new Talon(RobotMap.CASSETTE_RIGHT_LIFT_TALON);
 		
 		lockSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
-				RobotMap.CASSTTE_LOCK_DEPLOY_SOLENOID, RobotMap.CASSTTE_LOCK_RETRACT_SOLENOID);
+				RobotMap.CASSTTE_LOCK_DEPLOY_SOLENOID, RobotMap.CASSETTE_LOCK_RETRACT_SOLENOID);
 		paddleSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
-				RobotMap.CASSETTE_PADDLE_DEPLOY_SOLENOID, RobotMap.CASSTTE_PADDLE_RETRACT_SOLENOID);
+				RobotMap.CASSETTE_PADDLE_DEPLOY_SOLENOID, RobotMap.CASSETTE_PADDLE_RETRACT_SOLENOID);
+		trashStabilizerSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
+				RobotMap.CASSETTE_TRASH_STABILIZER_DEPLOY_SOLENOID, 
+				RobotMap.CASSETTE_TRASH_STABILIZER_RETRACT_SOLENOID);
 		
 		topSwitch = new DigitalInput(RobotMap.CASSETTE_TOP_MAGSWITCH);
 		trashHoldSwitch = new DigitalInput(RobotMap.CASSETTE_TRASH_HOLD_MAGSWITCH);
@@ -174,6 +178,14 @@ public class Cassette extends Subsystem {
 
 	public boolean isManualMode() {
 		return manualMode;
+	}
+	
+	public void deployStabilizer() {
+		trashStabilizerSolenoid.set(DoubleSolenoid.Value.kForward);
+	}
+	
+	public void retractStabilizer() {
+		trashStabilizerSolenoid.set(DoubleSolenoid.Value.kReverse);
 	}
 
 	public void initDefaultCommand() {
