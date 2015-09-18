@@ -33,9 +33,9 @@ public class Cassette extends Subsystem {
 	DoubleSolenoid lockSolenoid = null;
 	DoubleSolenoid paddleSolenoid = null;
 	
-	DoubleSolenoid stablilizerPickUpSolenoid = null;
-	DoubleSolenoid stablilizerOpenCloseSolenoid = null;
-	DoubleSolenoid stablilizerBrakeSolenoid = null;
+	DoubleSolenoid stabilizerPickUpSolenoid = null;
+	DoubleSolenoid stabilizerClawSolenoid = null;
+	DoubleSolenoid stabilizerBrakeSolenoid = null;
 	
 	//Encoders
 	Encoder liftEncoder = null;
@@ -53,13 +53,13 @@ public class Cassette extends Subsystem {
 		paddleSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
 				RobotMap.CASSETTE_PADDLE_DEPLOY_SOLENOID, RobotMap.CASSTTE_PADDLE_RETRACT_SOLENOID);
 		
-		stablilizerPickUpSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
+		stabilizerPickUpSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
 				RobotMap.CASSETTE_STABILIZER_DEPLOY_SOLENOID,
 				RobotMap.CASSETTE_STABILIZER_RETRACT_SOLENOID);
-		stablilizerOpenCloseSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
+		stabilizerClawSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
 				RobotMap.CASSETTE_STABILIZER_OPEN_SOLENOID,
 				RobotMap.CASSETTE_STABILIZER_CLOSE_SOLENOID);
-		stablilizerBrakeSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
+		stabilizerBrakeSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
 				RobotMap.CASSETTE_STABILIZER_BRAKE_ENGAGE_SOLENOID,
 				RobotMap.CASSETTE_STABILIZER_BRAKE_DISENGAGE_SOLENOID);
 		
@@ -189,7 +189,31 @@ public class Cassette extends Subsystem {
 	public boolean isManualMode() {
 		return manualMode;
 	}
+	
+	public void deployStabilizer() {
+		stabilizerPickUpSolenoid.set(DoubleSolenoid.Value.kForward);
+    }
 
+	public void retractStabilizer() {
+		stabilizerPickUpSolenoid.set(DoubleSolenoid.Value.kReverse);
+    }
+	
+	public void openStabilizer() {
+		stabilizerClawSolenoid.set(DoubleSolenoid.Value.kForward);
+	}
+	
+	public void closeStabilizer() {
+		stabilizerClawSolenoid.set(DoubleSolenoid.Value.kReverse);
+	}
+	
+	public void engageStablizerBrake() {
+		stabilizerBrakeSolenoid.set(DoubleSolenoid.Value.kForward);
+	}
+	
+	public void disengageStabilizerBrake() {
+		stabilizerBrakeSolenoid.set(DoubleSolenoid.Value.kReverse);
+	}
+	
 	public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

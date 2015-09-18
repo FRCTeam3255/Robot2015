@@ -3,15 +3,15 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class CassetteGrabTote extends CommandBase {
+public class CassetteStabilizerDisengageBrake extends CommandBase {
 
-    public CassetteGrabTote() {
+    public CassetteStabilizerDisengageBrake() {
     	requires(cassette);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	cassette.grabTote();
+    	cassette.disengageStabilizerBrake();
     }
 
     // Called repeatedly when this Command is scheduled to run
