@@ -3,9 +3,9 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class CollectorDeployToteEjector extends CommandBase {
+public class CollectorOLDDeployToteEjector extends CommandBase {
 
-    public CollectorDeployToteEjector() {
+    public CollectorOLDDeployToteEjector() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(collector);
@@ -13,7 +13,7 @@ public class CollectorDeployToteEjector extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	collector.deployToteEjector();
+    	// collector.deployToteEjector();
     }
 
     // Called repeatedly when this Command is scheduled to run

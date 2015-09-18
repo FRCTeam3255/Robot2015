@@ -45,8 +45,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Rotate Left High", new RotateLeftHighSpeed());
 		SmartDashboard.putData("Rotate Right High", new RotateRightHighSpeed());
 		
-		SmartDashboard.putData("Deploy Ejector", new CollectorDeployToteEjector());
-		SmartDashboard.putData("Retract Ejector", new CollectorRetractToteEjector());
+		SmartDashboard.putData("Deploy Ejector", new CollectorOLDDeployToteEjector());
+		SmartDashboard.putData("Retract Ejector", new CollectorOLDRetractToteEjector());
 		
 		SmartDashboard.putData("Release Trash", new RetractTrashCorrector());
 		SmartDashboard.putData("Deploy Trash", new DeployTrashCorrector());
