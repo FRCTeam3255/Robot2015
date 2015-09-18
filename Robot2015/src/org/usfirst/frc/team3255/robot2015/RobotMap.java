@@ -31,8 +31,7 @@ public class RobotMap {
 	public static final int DRIVETRAIN_FRONT_RIGHT_TALON = 2;
 	public static final int DRIVETRAIN_BACK_RIGHT_TALON = 3;
 
-	public static final int DRIVETRAIN_STRAFE_LEFT_TALON = 4;
-	public static final int DRIVETRAIN_STRAFE_RIGHT_TALON = 5;
+	public static final int DRIVETRAIN_STRAFE_TALON = 4;
 	
 	public static final int CASSETTE_LEFT_LIFT_TALON = 6;
 	public static final int CASSETTE_RIGHT_LIFT_TALON = 7;
@@ -54,8 +53,8 @@ public class RobotMap {
 	public static final int TRASH_CORRECTOR_PCM = 1;
 	
 	// Module 0 Solenoids
-	public static final int DRIVETRAIN_STRAFE_DEPLOY_SOLENOID = 0;
-	public static final int DRIVETRAIN_STRAFE_RETRACT_SOLENOID = 1;
+	// public static final int DRIVETRAIN_STRAFE_DEPLOY_SOLENOID = 0;
+	// public static final int DRIVETRAIN_STRAFE_RETRACT_SOLENOID = 1;
 	
 	public static final int CASSETTE_PADDLE_DEPLOY_SOLENOID = 2;
 	public static final int CASSTTE_PADDLE_RETRACT_SOLENOID = 3;

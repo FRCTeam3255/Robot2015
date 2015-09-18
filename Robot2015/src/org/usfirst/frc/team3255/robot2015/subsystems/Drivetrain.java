@@ -27,8 +27,7 @@ public class Drivetrain extends Subsystem {
 	Talon leftBackTalon = null;
 	Talon rightFrontTalon = null;
 	Talon rightBackTalon = null;
-	Talon strafeRightTalon = null;
-	Talon strafeLeftTalon = null;
+	Talon strafeTalon = null;
 	
 	// Solenoids
 	DoubleSolenoid strafeSolenoid = null;
@@ -62,12 +61,12 @@ public class Drivetrain extends Subsystem {
 		rightBackTalon = new Talon(RobotMap.DRIVETRAIN_BACK_RIGHT_TALON);
 		
 		// Drivetrain inner strafe wheels
-		strafeRightTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_RIGHT_TALON);
-		strafeLeftTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_LEFT_TALON);
+		strafeTalon = new Talon(RobotMap.DRIVETRAIN_STRAFE_TALON);
 		
 		// Delpoy Retract strafe wheels
-		strafeSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_PCM, 
+		/* strafeSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_PCM, 
 				RobotMap.DRIVETRAIN_STRAFE_DEPLOY_SOLENOID, RobotMap.DRIVETRAIN_STRAFE_RETRACT_SOLENOID);
+		*/
 		
 		robotDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
 		
@@ -99,8 +98,7 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void setStrafeSpeed(double s) {
-		strafeLeftTalon.set(s);
-		strafeRightTalon.set(s);
+		strafeTalon.set(s);
 	}
 
 	public void tankDrive() {
@@ -126,12 +124,10 @@ public class Drivetrain extends Subsystem {
 			double hSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_HDRIVE);
 			double strafeSensitivity = RobotPreferences.driveStrafeSensitivity();
 			hSpeed = hSpeed * strafeSensitivity;
-			strafeLeftTalon.set(hSpeed);
-			strafeRightTalon.set(hSpeed);
+			strafeTalon.set(hSpeed);
 		}
 		else {
-			strafeLeftTalon.set(0.0);
-			strafeRightTalon.set(0.0);
+			strafeTalon.set(0.0);
 		}
 	}
 	
@@ -158,7 +154,7 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public double getStrafeSpeed() {
-		return strafeLeftTalon.get();
+		return strafeTalon.get();
 	}
 
 	public void initDefaultCommand() {
