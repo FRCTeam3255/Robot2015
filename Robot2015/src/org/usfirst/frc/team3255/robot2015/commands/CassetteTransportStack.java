@@ -28,6 +28,8 @@ public class CassetteTransportStack extends CommandGroup {
     	addSequential (new CassetteUnlock());
     	addSequential (new DoDelay(0.1));
     	addSequential (new CassetteMoveToTransportStack());
+    	addSequential (new DoDelay(0.5));
+    	addSequential (new CassetteDeployStabilizer());
     	addSequential (new CassetteLock());
     }
 }
