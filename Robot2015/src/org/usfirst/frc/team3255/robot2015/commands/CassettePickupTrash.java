@@ -27,7 +27,6 @@ public class CassettePickupTrash extends CommandGroup {
     	addSequential(new CassetteUnlock());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteMoveToStepHigh());
-    	addSequential(new CassetteGrabTote());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteMoveToTrashHold());
     	addSequential(new CassetteLock());

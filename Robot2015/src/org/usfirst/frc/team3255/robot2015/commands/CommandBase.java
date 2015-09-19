@@ -13,8 +13,6 @@ public abstract class CommandBase extends Command {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Cassette cassette = new Cassette();
     public static final Collector collector = new Collector();
-    public static final TrashCorrector trashCorrector = new TrashCorrector();
-    public static final TrashGrabber trashGrabber = new TrashGrabber();
     public static final Camera camera = new Camera();
     public static final Telemetry telemetry = new Telemetry();
     public static OI oi;

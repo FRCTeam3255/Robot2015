@@ -34,7 +34,6 @@ public class CassetteWaitPickupTippedTrash extends CommandGroup {
     	addSequential(new CassetteMoveToTotePickup());
     	//addSequential(new CassetteMoveToStep());
     	addSequential(new CollectorWheelsOpen());
-    	addSequential(new CassetteReleaseTote());
     	
     	// In this case WaitForTote waits for trash
     	//addSequential(new WaitForTote());

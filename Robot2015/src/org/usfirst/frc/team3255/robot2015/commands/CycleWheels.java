@@ -27,6 +27,5 @@ public class CycleWheels extends CommandGroup {
     	addSequential(new CollectorWheelsOpen());
     	addSequential(new DoDelay(0.5));
     	addSequential(new CollectorWheelsClose());
-    	addSequential(new TrashGrabberRetract());
     }
 }

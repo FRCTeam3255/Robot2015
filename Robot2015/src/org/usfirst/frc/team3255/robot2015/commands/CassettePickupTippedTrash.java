@@ -63,22 +63,17 @@ public class CassettePickupTippedTrash extends CommandGroup {
     	addSequential(new CassetteLock());
     	*/
     	
-    	addSequential(new DeployTrashCorrector());
     	addSequential(new DoDelay(1.0));
     	addSequential(new CassetteUnlock());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteMoveToToteHold());
     	addSequential(new CollectorOLDDeployToteEjector());
     	addSequential(new DoDelay(RobotPreferences.deployCorrectorDelay()));
-    	addSequential(new CassetteGrabTote());
     	addSequential(new CassetteMoveToTrashHold());
-    	addSequential(new RetractTrashCorrector());
     	addSequential(new CollectorOLDRetractToteEjector());
     	addSequential(new DoDelay(0.5));
     	addSequential(new CassetteMoveToStepHigh());
-    	addSequential(new CassetteReleaseTote());
     	addSequential(new DoDelay(0.5));
-    	addSequential(new CassetteGrabTote());
     	addSequential(new CassetteMoveToTrashHold());
     	addSequential(new CassetteLock());
     	addSequential(new CollectorWheelsClose());

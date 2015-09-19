@@ -31,7 +31,6 @@ public class Cassette extends Subsystem {
 	
 	//Solenoids
 	DoubleSolenoid lockSolenoid = null;
-	DoubleSolenoid paddleSolenoid = null;
 	
 	DoubleSolenoid stabilizerPickUpSolenoid = null;
 	DoubleSolenoid stabilizerClawSolenoid = null;
@@ -50,8 +49,6 @@ public class Cassette extends Subsystem {
 		
 		lockSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
 				RobotMap.CASSTTE_LOCK_DEPLOY_SOLENOID, RobotMap.CASSTTE_LOCK_RETRACT_SOLENOID);
-		paddleSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
-				RobotMap.CASSETTE_PADDLE_DEPLOY_SOLENOID, RobotMap.CASSTTE_PADDLE_RETRACT_SOLENOID);
 		
 		stabilizerPickUpSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
 				RobotMap.CASSETTE_STABILIZER_DEPLOY_SOLENOID,
@@ -77,7 +74,6 @@ public class Cassette extends Subsystem {
 		
 		// Initialize Cassette Conditions
 		lock();
-		grabTote();
 		updateEncoderRatio();
 	}
     
@@ -104,16 +100,6 @@ public class Cassette extends Subsystem {
     
     public void unlock() {
     	lockSolenoid.set(DoubleSolenoid.Value.kReverse);
-    }
-    
-    public void grabTote() {
-    	paddleSolenoid.set(DoubleSolenoid.Value.kForward);
-    	toteGrabbed = true;
-    }
-    
-    public void releaseTote() {
-    	paddleSolenoid.set(DoubleSolenoid.Value.kReverse);
-    	toteGrabbed = false;
     }
     
     public boolean isToteGrabbed() {
