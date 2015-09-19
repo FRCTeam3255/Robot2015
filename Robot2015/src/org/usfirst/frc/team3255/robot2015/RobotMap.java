@@ -60,13 +60,13 @@ public class RobotMap {
 	public static final int CASSETTE_PADDLE_RETRACT_SOLENOID = 3;
 	public static final int CASSTTE_LOCK_DEPLOY_SOLENOID = 4;
 	public static final int CASSETTE_LOCK_RETRACT_SOLENOID = 5;
+	public static final int CASSETTE_TRASH_STABILIZER_DEPLOY_SOLENOID = 6;
+	public static final int CASSETTE_TRASH_STABILIZER_RETRACT_SOLENOID = 7;
 	
 	// Module 1 Solenoids
 	public static final int TRASH_CORRECTOR_DEPLOY_SOLENOID = 0;
 	public static final int COLLECTOR_WHEEL_DEPLOY = 2;
 	public static final int COLLECTOR_WHEEL_RETRACT = 3;
-	public static final int CASSETTE_TRASH_STABILIZER_DEPLOY_SOLENOID = 4;
-	public static final int CASSETTE_TRASH_STABILIZER_RETRACT_SOLENOID = 5;
 	// public static final int COLLECTOR_EJECTOR_DEPLOY_SOLENOID = 4;
 	// public static final int COLLECTOR_EJECTOR_RETRACT_SOLENOID = 5;
 	
