@@ -21,7 +21,7 @@ public class Collector extends Subsystem {
 	Talon rightCollectorTalon = null;
 	
 	// DoubleSolenoids
-	DoubleSolenoid ejectSolenoid = null;
+	// DoubleSolenoid ejectSolenoid = null;
 	DoubleSolenoid collectorSolenoid = null;
 	
 	// Robot Drive
@@ -40,7 +40,7 @@ public class Collector extends Subsystem {
 		robotDrive.setSafetyEnabled(false);
 		
 		// set initial conditions
-		retractToteEjector();
+		// retractToteEjector();
 		closeCollectorWheels();
 	}
 	
@@ -61,7 +61,7 @@ public class Collector extends Subsystem {
 		robotDrive.arcadeDrive(RobotPreferences.collectorSpeed()*(-OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED)),
 				RobotPreferences.collectorSpeed()*(OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_PAN)));
 	}
-	
+	/*
 	public void deployToteEjector() {
 		ejectSolenoid.set(DoubleSolenoid.Value.kForward);
 	}
@@ -69,6 +69,7 @@ public class Collector extends Subsystem {
 	public void retractToteEjector() {
 		ejectSolenoid.set(DoubleSolenoid.Value.kReverse);
 	}
+	*/
 	
 	public void closeCollectorWheels() {
 		collectorSolenoid.set(Value.kForward);

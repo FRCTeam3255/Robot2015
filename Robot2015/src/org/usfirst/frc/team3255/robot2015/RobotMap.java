@@ -49,7 +49,6 @@ public class RobotMap {
 	// Subsystem PCM Modules
 	public static final int DRIVETRAIN_PCM = 0;
 	public static final int CASSETTE_PCM = 0;
-	public static final int TRASHGRABBER_PCM = 0;
 	public static final int COLLECTOR_PCM = 1;
 	public static final int TRASH_CORRECTOR_PCM = 1;
 	
@@ -61,9 +60,6 @@ public class RobotMap {
 	public static final int CASSETTE_PADDLE_RETRACT_SOLENOID = 3;
 	public static final int CASSTTE_LOCK_DEPLOY_SOLENOID = 4;
 	public static final int CASSETTE_LOCK_RETRACT_SOLENOID = 5;
-
-	public static final int TRASH_GRABBER_PADDLE_DEPLOY = 6;
-	public static final int TRASH_GRABBER_PADDLE_RETRACT = 7;
 	
 	// Module 1 Solenoids
 	public static final int TRASH_CORRECTOR_DEPLOY_SOLENOID = 0;

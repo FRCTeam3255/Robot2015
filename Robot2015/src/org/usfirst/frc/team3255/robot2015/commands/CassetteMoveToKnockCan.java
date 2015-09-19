@@ -18,6 +18,7 @@ public class CassetteMoveToKnockCan extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.unlock();
+    	cassette.retractStabilizer();
     	
     	if(cassette.getLiftDistance() < RobotPreferences.posKnockCan()) {
     		moveUp = true;
@@ -58,6 +59,7 @@ public class CassetteMoveToKnockCan extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
     	cassette.setSpeed(0.0);
+    	cassette.retractStabilizer();
     }
 
     // Called when another command which requires one or more of the same

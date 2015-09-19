@@ -17,6 +17,7 @@ public class CassetteMoveToToteHold extends CommandBase {
     protected void initialize() {
     	cassette.unlock();
     	cassette.resetEncoders();
+    	cassette.retractStabilizer();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -45,6 +46,7 @@ public class CassetteMoveToToteHold extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
     	cassette.setSpeed(0.0);
+    	cassette.deployStabilizer();
     }
 
     // Called when another command which requires one or more of the same

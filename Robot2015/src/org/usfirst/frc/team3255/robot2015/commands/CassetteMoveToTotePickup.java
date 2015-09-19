@@ -14,6 +14,7 @@ public class CassetteMoveToTotePickup extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.unlock();
+    	cassette.retractStabilizer();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,6 +32,7 @@ public class CassetteMoveToTotePickup extends CommandBase {
     protected void end() {
     	cassette.setSpeed(0.0);
     	cassette.resetEncoders();
+    	cassette.deployStabilizer();
     }
 
     // Called when another command which requires one or more of the same

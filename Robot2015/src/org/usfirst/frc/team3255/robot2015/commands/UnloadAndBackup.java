@@ -37,6 +37,7 @@ public class UnloadAndBackup extends CommandGroup {
     	
     	addSequential(new CassetteUnload());
     	addSequential(new DriveReverseFromTote());
+    	addSequential(new CassetteDeployStabilizer());
     	addSequential(new CassetteMoveToKnockCan());
     	addSequential(new CassetteLock());
     }

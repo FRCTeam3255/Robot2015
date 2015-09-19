@@ -3,17 +3,17 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class TrashGrabberDeploy extends CommandBase {
+public class CassetteDeployStabilizer extends CommandBase {
 
-    public TrashGrabberDeploy() {
+    public CassetteDeployStabilizer() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(trashGrabber);
+    	requires(cassette);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	trashGrabber.open();
+    	cassette.deployStabilizer();
     }
 
     // Called repeatedly when this Command is scheduled to run

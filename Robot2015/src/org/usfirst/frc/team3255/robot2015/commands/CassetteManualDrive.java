@@ -18,6 +18,7 @@ public class CassetteManualDrive extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.enableManualMode();
+    	cassette.retractStabilizer();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -47,6 +48,7 @@ public class CassetteManualDrive extends CommandBase {
     protected void end() {
     	cassette.disableManualMode();
     	cassette.setSpeed(0.0);
+    	cassette.deployStabilizer();
     }
 
     // Called when another command which requires one or more of the same
