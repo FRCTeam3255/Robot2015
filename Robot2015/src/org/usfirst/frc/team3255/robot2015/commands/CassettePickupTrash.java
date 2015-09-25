@@ -24,11 +24,10 @@ public class CassettePickupTrash extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new CassetteUnlock());
+    	addSequential(new CollectorWheelsOpen());
+    	addSequential(new CassetteMoveToBottom());
+    	addSequential(new CassetteStabilizerOpen());
     	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteMoveToStepHigh());
-    	addSequential(new DoDelay(0.1));
-    	addSequential(new CassetteMoveToTrashHold());
-    	addSequential(new CassetteLock());
+    	addSequential(new CassetteStabilizerClose());
     }
 }

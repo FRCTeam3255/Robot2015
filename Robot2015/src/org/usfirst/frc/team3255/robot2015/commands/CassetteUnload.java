@@ -32,8 +32,12 @@ public class CassetteUnload extends CommandGroup {
     	addSequential (new CassetteReleaseTote());*/
     	
     	addSequential (new CollectorWheelsOpen());
+    	addSequential (new CassetteStabilizerEngageBrake());
+    	addSequential (new CassetteSavePosition());
     	addSequential (new CassetteUnlock());
     	addSequential (new DoDelay(0.1));
     	addSequential (new CassetteMoveToBottom());
+    	addSequential (new DoDelay(0.1));
+    	addSequential (new CassetteStabilizerOpen());
     }
 }

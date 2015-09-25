@@ -15,6 +15,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Cassette extends Subsystem {
 
+	double savedLiftDistance = 0.0;
+	
 	//Motor Controllers
 	Talon leftLiftTalon = null;
 	Talon rightLiftTalon = null;
@@ -118,6 +120,14 @@ public class Cassette extends Subsystem {
 	// return cassette lift distance in inches from bottom
 	public double getLiftDistance() {
 		return liftEncoder.getDistance();
+	}
+	
+	public void savePosition() {
+		savedLiftDistance = getLiftDistance();
+	}
+	
+	public double getSavedPosition() {
+		return savedLiftDistance;
 	}
 	
 	public void updateEncoderRatio() {

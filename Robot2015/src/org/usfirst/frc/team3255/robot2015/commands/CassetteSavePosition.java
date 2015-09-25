@@ -3,33 +3,28 @@ package org.usfirst.frc.team3255.robot2015.commands;
 /**
  *
  */
-public class CassetteMoveToBottom extends CommandBase {
-	
-    public CassetteMoveToBottom() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+public class CassetteSavePosition extends CommandBase {
+
+    public CassetteSavePosition() {
     	requires(cassette);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	cassette.unlock();
+    	cassette.savePosition();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	cassette.lower();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return cassette.isBottomSwitchClosed();
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	cassette.setSpeed(0.0);
-    	// cassette.resetEncoders();
     }
 
     // Called when another command which requires one or more of the same
