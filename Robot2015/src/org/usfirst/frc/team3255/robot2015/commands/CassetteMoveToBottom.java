@@ -31,6 +31,7 @@ public class CassetteMoveToBottom extends CommandBase {
     protected void end() {
     	cassette.setSpeed(0.0);
     	cassette.resetEncoders();
+    	cassette.deployStabilizer();
     }
 
     // Called when another command which requires one or more of the same

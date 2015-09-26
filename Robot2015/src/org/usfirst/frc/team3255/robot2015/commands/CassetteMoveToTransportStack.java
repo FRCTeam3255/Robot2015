@@ -59,6 +59,7 @@ public class CassetteMoveToTransportStack extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
     	cassette.setSpeed(0.0);
+    	cassette.deployStabilizer();
     }
 
     // Called when another command which requires one or more of the same
