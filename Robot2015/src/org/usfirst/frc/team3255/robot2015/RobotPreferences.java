@@ -128,8 +128,9 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("AutoFwdSpeed", 0.5);
 	}
 
+	// was 6.5
 	public static double autoFwdDistance() {
-		return Preferences.getInstance().getDouble("AutoFwdDistance", 6.5);
+		return Preferences.getInstance().getDouble("AutoFwdDistance", 3.2);
 	}
 	
 		// 1 Tote
