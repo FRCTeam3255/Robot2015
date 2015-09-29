@@ -5,7 +5,6 @@ import org.usfirst.frc.team3255.robot2015.RobotMap;
 import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 import org.usfirst.frc.team3255.robot2015.commands.DriveArcade;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -28,9 +27,6 @@ public class Drivetrain extends Subsystem {
 	Talon rightFrontTalon = null;
 	Talon rightBackTalon = null;
 	Talon strafeTalon = null;
-	
-	// Solenoids
-	DoubleSolenoid strafeSolenoid = null;
 	
 	// Robot Drive
 	RobotDrive robotDrive = null;
@@ -80,7 +76,6 @@ public class Drivetrain extends Subsystem {
 		gyro = new Gyro(RobotMap.DRIVETRAIN_GYRO);
 		
 		// Initialize Drivetrain Conditions
-		strafeDisable();
 		updateEncoderRatio();
 	}
 	
@@ -137,16 +132,6 @@ public class Drivetrain extends Subsystem {
 	
 	public boolean arcadeFullSpeedEnabled() {
 		return arcadeFullSpeedDisabled = false;
-	}
-	
-	public void strafeEnable() {
-		strafeSolenoid.set(DoubleSolenoid.Value.kReverse);
-		strafeDeployed = true;
-	}
-	
-	public void strafeDisable() {
-		strafeSolenoid.set(DoubleSolenoid.Value.kForward);
-		strafeDeployed = false;
 	}
 	
 	public double getSpeed() {
