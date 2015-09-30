@@ -118,7 +118,7 @@ public class Drivetrain extends Subsystem {
 		double hSpeed = -OI.driverStick.getRawAxis(RobotMap.AXIS_HDRIVE);
 		double strafeSensitivity = RobotPreferences.driveStrafeSensitivity();
 		hSpeed = hSpeed * strafeSensitivity;
-		strafeTalon.set(hSpeed);
+		strafeTalon.set(-hSpeed);
 	}
 	
 	public boolean arcadeFullSpeedDisabled() {

@@ -53,8 +53,8 @@ public class RobotMap {
 	// Module 0 Solenoids
 	public static final int CASSETTE_STABILIZER_OPEN_SOLENOID = 0;
 	public static final int CASSETTE_STABILIZER_CLOSE_SOLENOID = 1;
-	public static final int CASSETTE_STABILIZER_DEPLOY_SOLENOID = 2;
-	public static final int CASSETTE_STABILIZER_RETRACT_SOLENOID = 3;
+	public static final int CASSETTE_STABILIZER_RETRACT_SOLENOID = 2;
+	public static final int CASSETTE_STABILIZER_DEPLOY_SOLENOID = 3;
 	public static final int CASSTTE_LOCK_DEPLOY_SOLENOID = 4;
 	public static final int CASSTTE_LOCK_RETRACT_SOLENOID = 5;
 	public static final int CASSETTE_STABILIZER_BRAKE_ENGAGE_SOLENOID = 6;
