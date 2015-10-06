@@ -34,7 +34,7 @@ public class Collector extends Subsystem {
 	/*	ejectSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, 
 				RobotMap.COLLECTOR_EJECTOR_DEPLOY_SOLENOID, RobotMap.COLLECTOR_EJECTOR_RETRACT_SOLENOID);
 	*/
-		collectorSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_PCM, RobotMap.COLLECTOR_WHEEL_DEPLOY, RobotMap.COLLECTOR_WHEEL_RETRACT);
+		collectorSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_PCM,RobotMap.COLLECTOR_WHEEL_RETRACT, RobotMap.COLLECTOR_WHEEL_DEPLOY);
 		
 		robotDrive = new RobotDrive(leftCollectorTalon, rightCollectorTalon);
 		robotDrive.setSafetyEnabled(false);
