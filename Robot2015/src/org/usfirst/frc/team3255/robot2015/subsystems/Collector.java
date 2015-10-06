@@ -45,8 +45,8 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setSpeed(double s) {
-		leftCollectorTalon.set(s);
-		rightCollectorTalon.set(-s);
+		leftCollectorTalon.set(-s);
+		rightCollectorTalon.set(s);
 	}
 	
 	public void spinIn(double s) {
