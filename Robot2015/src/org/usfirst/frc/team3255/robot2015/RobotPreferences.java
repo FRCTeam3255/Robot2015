@@ -206,8 +206,8 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CassetteStepPositionLow", -2.0);
 	}
 	public static double cassetteToteHoldPosition() {
-		// old position was 22.0
-		return Preferences.getInstance().getDouble("CassetteToteHoldPosition", 45.0);
+		// old position was 45.0
+		return Preferences.getInstance().getDouble("CassetteToteHoldPosition", 8.0);
 	}
 	public static double cassetteTotePickupPosition() {
 		return Preferences.getInstance().getDouble("CassetteTotePickupPosition", 0.0);

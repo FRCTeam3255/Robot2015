@@ -45,8 +45,8 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setSpeed(double s) {
-		leftCollectorTalon.set(-s);
-		rightCollectorTalon.set(s);
+		leftCollectorTalon.set(s);
+		rightCollectorTalon.set(-s);
 	}
 	
 	public void spinIn(double s) {
@@ -58,8 +58,8 @@ public class Collector extends Subsystem {
 	}
 	
 	public void arcadeDrive() {
-		robotDrive.arcadeDrive(RobotPreferences.collectorSpeed()*(-OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED)),
-				RobotPreferences.collectorSpeed()*(OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_PAN)));
+		robotDrive.arcadeDrive(RobotPreferences.collectorSpeed()*(OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_SPEED)),
+				RobotPreferences.collectorSpeed()*(-OI.manipulatorStick.getRawAxis(RobotMap.AXIS_COLLECTOR_PAN)));
 	}
 	/*
 	public void deployToteEjector() {
