@@ -48,7 +48,6 @@ public class RobotMap {
 	// Subsystem PCM Modules
 	public static final int CASSETTE_PCM = 0;
 	public static final int COLLECTOR_PCM = 1;
-	public static final int TRASH_CORRECTOR_PCM = 1;
 	
 	// Module 0 Solenoids
 	public static final int CASSETTE_STABILIZER_OPEN_SOLENOID = 0;

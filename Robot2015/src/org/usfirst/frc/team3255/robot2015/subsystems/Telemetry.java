@@ -49,7 +49,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Retract Ejector", new CollectorOLDRetractToteEjector());
 		
 		SmartDashboard.putData("Deploy Stabilizer", new CassetteStabilizerDeploy());
-		SmartDashboard.putData("Retract Stabilizer", new CassetteStabilizerDeploy());
+		SmartDashboard.putData("Retract Stabilizer", new CassetteStabilizerRetract());
 		SmartDashboard.putData("Open Stabilizer", new CassetteStabilizerOpen());
 		SmartDashboard.putData("Close Stabilizer", new CassetteStabilizerClose());
 		SmartDashboard.putData("Engage Brake", new CassetteStabilizerEngageBrake());

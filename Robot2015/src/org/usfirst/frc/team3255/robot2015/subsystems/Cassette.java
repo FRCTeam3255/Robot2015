@@ -34,8 +34,8 @@ public class Cassette extends Subsystem {
 	//Solenoids
 	DoubleSolenoid lockSolenoid = null;
 	
-	DoubleSolenoid stabilizerPickUpSolenoid = null;
-	DoubleSolenoid stabilizerClawSolenoid = null;
+	DoubleSolenoid stabilizerDeployRetractSolenoid = null;
+	DoubleSolenoid stabilizerOpenCloseSolenoid = null;
 	DoubleSolenoid stabilizerBrakeSolenoid = null;
 	
 	//Encoders
@@ -52,10 +52,10 @@ public class Cassette extends Subsystem {
 		lockSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM,
 				RobotMap.CASSTTE_LOCK_DEPLOY_SOLENOID, RobotMap.CASSTTE_LOCK_RETRACT_SOLENOID);
 		
-		stabilizerPickUpSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
+		stabilizerDeployRetractSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
 				RobotMap.CASSETTE_STABILIZER_DEPLOY_SOLENOID,
 				RobotMap.CASSETTE_STABILIZER_RETRACT_SOLENOID);
-		stabilizerClawSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
+		stabilizerOpenCloseSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
 				RobotMap.CASSETTE_STABILIZER_OPEN_SOLENOID,
 				RobotMap.CASSETTE_STABILIZER_CLOSE_SOLENOID);
 		stabilizerBrakeSolenoid = new DoubleSolenoid(RobotMap.CASSETTE_PCM, 
@@ -187,19 +187,19 @@ public class Cassette extends Subsystem {
 	}
 	
 	public void deployStabilizer() {
-		stabilizerPickUpSolenoid.set(DoubleSolenoid.Value.kForward);
+		stabilizerDeployRetractSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 
 	public void retractStabilizer() {
-		stabilizerPickUpSolenoid.set(DoubleSolenoid.Value.kReverse);
+		stabilizerDeployRetractSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 	
 	public void openStabilizer() {
-		stabilizerClawSolenoid.set(DoubleSolenoid.Value.kForward);
+		stabilizerOpenCloseSolenoid.set(DoubleSolenoid.Value.kForward);
 	}
 	
 	public void closeStabilizer() {
-		stabilizerClawSolenoid.set(DoubleSolenoid.Value.kReverse);
+		stabilizerOpenCloseSolenoid.set(DoubleSolenoid.Value.kReverse);
 	}
 	
 	public void engageStablizerBrake() {
