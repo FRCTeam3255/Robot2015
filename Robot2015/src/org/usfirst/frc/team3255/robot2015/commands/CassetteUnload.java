@@ -39,5 +39,6 @@ public class CassetteUnload extends CommandGroup {
     	addSequential (new CassetteMoveToBottom());
     	addSequential (new DoDelay(0.1));
     	addSequential (new CassetteStabilizerOpen());
+    	addSequential (new DoDelay(0.5));
     }
 }

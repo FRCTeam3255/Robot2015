@@ -81,12 +81,13 @@ public class OI {
 		M1.whenPressed(new PickupTote2ToFeeder());
 		M2.whenPressed(new UnloadAndBackup());
 		M3.whenPressed(new PickupBottomToHoldTote2());
-		M4.whenPressed(new PickupBottomToFeeder());
-		M5.whenPressed(new CassetteUnload());
+		M4.whenPressed(new CassettePickupTippedTrash());
+		M5.whenPressed(new CassettePickupTrash());
 		M6.whenPressed(new CassetteTransportStack());
 		M7.whenPressed(new CassetteUnlock());
 		M7.whileHeld(new CassetteManualDrive());
-		M8.whenPressed(new CassetteLock());
+		M7.whenReleased(new CassetteLock());
+		M8.whenPressed(new CassetteUnload());
 		M9.whenPressed(new CollectorWheelsOpen());
 		M10.whenPressed(new CollectorWheelsClose());
 		M11.whenPressed(new CassetteMoveToKnockCan());
