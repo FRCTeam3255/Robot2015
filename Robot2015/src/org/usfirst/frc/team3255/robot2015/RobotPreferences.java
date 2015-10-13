@@ -21,7 +21,7 @@ public class RobotPreferences {
 	}
 	
 	public static double cassetteRaiseSpeed() {
-		double liftSpeed = Preferences.getInstance().getDouble("CassetteLiftSpeed", 1.0);
+		double liftSpeed = Preferences.getInstance().getDouble("CassetteLiftSpeed", 0.75);
 		/*double minLiftSpeed = Preferences.getInstance().getDouble("CassetteMinLiftSpeed", 0.9);
 		double maxLiftSpeed = Preferences.getInstance().getDouble("CassetteMaxLiftSpeed", 1.0);
 		double stickValue = OI.manipulatorStick.getRawAxis(RobotMap.AXIS_CASSETTE_SPEED_FACTOR);
