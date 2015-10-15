@@ -250,7 +250,7 @@ public class RobotPreferences {
 	}
 	//was 22.0
 	public static double posHoldTote2() {
-		return Preferences.getInstance().getDouble("POSHoldTote2", 5.0);
+		return Preferences.getInstance().getDouble("POSHoldTote2", 22.0);
 	}
 	public static double posTransportStack() {
 		return Preferences.getInstance().getDouble("POSTransportStack", 35.0);
