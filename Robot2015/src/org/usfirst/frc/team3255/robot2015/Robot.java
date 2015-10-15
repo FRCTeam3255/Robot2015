@@ -44,8 +44,8 @@ public class Robot extends IterativeRobot {
     	autoChooser.addObject("Do Nothing", new AutoDelay());
     	SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
     	*/
-    	autonomousCommand = new AutoDriveForward();
-    	// autonomousCommand = new AutoPickupTrashDriveForward();
+    	// autonomousCommand = new AutoDriveForward();
+    	autonomousCommand = new AutoPickupTrashDriveForward();
     	
     	// USB Camera
     	/*cameraInit();

@@ -26,6 +26,6 @@ public class CassetteCycleStabilizer extends CommandGroup {
         // arm.
     	addSequential(new CassetteStabilizerOpen());
     	addSequential(new DoDelay(1.0));
-    	addSequential(new CassetteStabilizerOpen());
+    	addSequential(new CassetteStabilizerClose());
     }
 }
