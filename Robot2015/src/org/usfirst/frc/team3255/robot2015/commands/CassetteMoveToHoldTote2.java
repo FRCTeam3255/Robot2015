@@ -18,6 +18,7 @@ public class CassetteMoveToHoldTote2 extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.unlock();
+    	cassette.disengageStabilizerBrake();
     	
     	if(cassette.getLiftDistance() < RobotPreferences.posHoldTote2()) {
     		moveUp = true;

@@ -17,6 +17,7 @@ public class CassetteMoveToToteHold extends CommandBase {
     protected void initialize() {
     	cassette.unlock();
     	cassette.resetEncoders();
+    	cassette.disengageStabilizerBrake();
     }
 
     // Called repeatedly when this Command is scheduled to run
