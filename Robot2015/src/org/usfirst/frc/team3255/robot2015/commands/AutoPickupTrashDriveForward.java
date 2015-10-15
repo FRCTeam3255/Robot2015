@@ -11,7 +11,7 @@ public class AutoPickupTrashDriveForward extends CommandGroup {
     public AutoPickupTrashDriveForward() {
     	// addSequential(new CassetteMoveToTotePickup());
     	addSequential(new CassettePrepareTrashPickup());
-    	addSequential(new CassettePickupTrash());
+    	addSequential(new AutoCassettePickupTrash());
     	addSequential(new DoDelay(0.1));
     	addSequential(new DriveDistanceForward(RobotPreferences.autoFwdSpeed(), RobotPreferences.autoFwdDistance(), false, true));
     }
