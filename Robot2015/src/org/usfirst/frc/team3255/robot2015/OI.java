@@ -78,7 +78,7 @@ public class OI {
 		D8.whenPressed(new DriveStrafeEnable());
 
 		// manipulatorStick joystick
-		M1.whenPressed(new PickupTote2ToFeeder());
+		M1.whenPressed(new CassetteStabilizerDisengageBrake());
 		M2.whenPressed(new UnloadAndBackup());
 		M3.whenPressed(new PickupBottomToHoldTote2());
 		M4.whenPressed(new CassettePickupTippedTrash());
@@ -90,8 +90,8 @@ public class OI {
 		M8.whenPressed(new CassetteUnload());
 		M9.whenPressed(new CollectorWheelsOpen());
 		M10.whenPressed(new CollectorWheelsClose());
-		M11.whenPressed(new CassetteMoveToKnockCan());
-		M12.whenPressed(new CycleWheels());
+		M11.whenPressed(new CassettePrepareTrashPickup());
+		M12.whenPressed(new CassetteStabilizerEngageBrake());
 	}
 }
 

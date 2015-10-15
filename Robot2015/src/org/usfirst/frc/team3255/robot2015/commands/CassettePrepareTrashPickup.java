@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class CassetteUnload extends CommandGroup {
+public class CassettePrepareTrashPickup extends CommandGroup {
     
-    public  CassetteUnload() {
+    public  CassettePrepareTrashPickup() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,21 +24,9 @@ public class CassetteUnload extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	
-    	/*Old Code
-    	addSequential (new CassetteUnlock());
-    	addSequential (new DoDelay(0.1));
-    	addSequential (new CassetteMoveToTotePickup());
-    	addSequential (new CassetteReleaseTote());*/
-    	
-    	addSequential (new CollectorWheelsOpen());
-    	addSequential (new CassetteStabilizerEngageBrake());
-    	// addSequential (new CassetteSavePosition());
-    	addSequential (new CassetteUnlock());
-    	addSequential (new DoDelay(0.2));
-    	addSequential (new CassetteMoveToBottom());
-    	addSequential (new DoDelay(0.1));
-    	addSequential (new CassetteStabilizerOpen());
-    	addSequential (new DoDelay(0.5));
+    	addSequential(new CollectorWheelsOpen());
+    	addSequential(new CassetteMoveToBottom());
+    	addSequential(new CassetteResetEncoder());
+    	addSequential(new CassetteStabilizerOpen());
     }
 }

@@ -27,7 +27,7 @@ public class CassettePickupTrash extends CommandGroup {
     	addSequential(new CassetteMoveToBottom());
     	addSequential(new DoDelay(0.1));
     	addSequential(new CassetteStabilizerClose());
-    	addSequential(new DoDelay(0.1));
+    	addSequential(new DoDelay(0.2));
     	addSequential(new CassetteMoveToFeeder());
     }
 }

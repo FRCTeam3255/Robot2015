@@ -13,11 +13,13 @@ public class CassetteMoveToKnockCan extends CommandBase {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(cassette);
+    	requires(collector);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	cassette.unlock();
+    	collector.openCollectorWheels();
     	
     	if(cassette.getLiftDistance() < RobotPreferences.posKnockCan()) {
     		moveUp = true;

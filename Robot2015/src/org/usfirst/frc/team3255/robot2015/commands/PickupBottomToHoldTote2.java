@@ -25,11 +25,13 @@ public class PickupBottomToHoldTote2 extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new CollectorWheelsOpen());
+    	//addSequential(new CollectorWheelsOpen());
     	addSequential(new CassetteUnlock());
     	addSequential(new DoDelay(0.1));
+    	addParallel(new CollectorSetSpeed());
     	addSequential(new CassetteMoveToBottom());
     	addSequential(new CassetteMoveToHoldTote2());
+    	addSequential(new CollectorSpeedStop());
     	addSequential(new CassetteLock());
     	addSequential(new CollectorWheelsClose());
     }
