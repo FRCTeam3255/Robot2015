@@ -73,7 +73,7 @@ public class OI {
 		D3.whenPressed(new RotateRightLowSpeed());
 		D4.whenPressed(new DriveStop());
 		D5.whenPressed(new ArcadeFullSpeedDisabled());
-		D6.whenPressed(new ArcadeFullSpeedEnabled());
+		D6.whenPressed(new CassetteCycleStabilizer());
 		D7.whenPressed(new DriveStrafeDisable()); 
 		D8.whenPressed(new DriveStrafeEnable());
 
@@ -87,7 +87,6 @@ public class OI {
 		M7.whenPressed(new CassetteUnlock());
 		M7.whileHeld(new CassetteManualDrive());
 		M7.whenReleased(new CassetteLock());
-		M8.whenPressed(new CassetteCycleStabilizer());
 		M9.whenPressed(new CollectorWheelsOpen());
 		M10.whenPressed(new CollectorWheelsClose());
 		M11.whenPressed(new CassettePrepareTrashPickup());

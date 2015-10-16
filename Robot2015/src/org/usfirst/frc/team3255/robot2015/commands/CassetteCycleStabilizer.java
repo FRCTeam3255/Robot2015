@@ -25,7 +25,7 @@ public class CassetteCycleStabilizer extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addSequential(new CassetteStabilizerOpen());
-    	addSequential(new DoDelay(1.0));
+    	addSequential(new DoDelay(0.75));
     	addSequential(new CassetteStabilizerClose());
     }
 }
