@@ -6,7 +6,7 @@ import org.usfirst.frc.team3255.robot2015.RobotPreferences;
 import org.usfirst.frc.team3255.robot2015.commands.DriveArcade;
 
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -35,7 +35,7 @@ public class Drivetrain extends Subsystem {
 	public Encoder leftEncoder = null;
 	public Encoder rightEncoder = null;
 
-	public Gyro gyro = null;
+	public AnalogGyro gyro = null;
 	
     public Drivetrain() {
 		super();
@@ -73,7 +73,7 @@ public class Drivetrain extends Subsystem {
 		rightEncoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, 
 				RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B);
 		
-		gyro = new Gyro(RobotMap.DRIVETRAIN_GYRO);
+		gyro = new AnalogGyro(RobotMap.DRIVETRAIN_GYRO);
 		
 		// Initialize Drivetrain Conditions
 		updateEncoderRatio();
