@@ -5,6 +5,13 @@
 # Summary
 This code is for the [FIRST FRC](http://www.firstinspires.org/robotics/frc) 2015 competion Recyle Rush. For more information on our team please chekout our website (<http://www.frcteam3255.com/>)
 
+# Awards and Accomplishments
+Innovation in Control Award
+
+2015 San Diego Regional Winner
+
+4th in Hopper Divsion at World Championships
+
 ## Components
 Our code impliments the following devices:
 * Talon Motor Controllers
